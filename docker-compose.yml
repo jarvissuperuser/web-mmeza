@@ -1,0 +1,9 @@
+version: '3.1'
+
+services:
+  app:
+    build: .
+#    volumes:
+#    - /home/timothy/softcode/pgWeb/et_mineral_experiement_1/src:/usr/share/nginx/html
+    ports:
+        - '80:80'

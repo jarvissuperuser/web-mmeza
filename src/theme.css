@@ -1,0 +1,8 @@
+:root {
+    --primary-theme: black;
+    --primary-contrast: white;
+    --secondary-theme: blue;
+    --secondary-contrast: pink;
+    --tertiary-theme: purple;
+    --tertiary-contrast: green;
+}
