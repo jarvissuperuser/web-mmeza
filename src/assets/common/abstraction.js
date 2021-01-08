@@ -5,6 +5,7 @@ export function hash() {
     return location.hash
 }
 export const navigate = (route) => {
+    console.log('route', route);
     doc.querySelector('page-view').setAttribute('page',route);
 }
 export const declarer = (components) => {
@@ -19,6 +20,7 @@ export const dataToEl = (element,attribute, data = {}) => {
     element.setAttribute(attribute, JSON.stringify(data));
     return element;
 }
+export const configData = () => {}
 
 export const addEl = (tag = 'div') => {
     return doc.createElement(tag);
@@ -30,3 +32,5 @@ export const goto = (href = '/') => {
     anchor.target = '_blank';
     anchor.click();
 }
+
+

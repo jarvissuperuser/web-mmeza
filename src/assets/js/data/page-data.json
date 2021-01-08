@@ -1,0 +1,16 @@
+{
+  "pages": [
+    {
+      "content": "<div class=\"content-home w3-col s12 w3-grid w3-g-contain\">\n        <div class=\"w3-g-third w3-padding\">\n            <a class=\"w3-center\" href=\"#/about\">\n                <img src=\"assets/images/logo.png\" class=\"w3-image w3-theme-accent-1\" />\n            </a>\n           \n        </div>\n        <div class=\"w3-padding w3-g-twothird\">\n          <h1 class=\"w3-theme-gold w3-col s12\"><span class=\"font-1\">EFFICIENT, RELIABLE & TRANSPARENT</span></h1>\n          <h5 class=\"w3-row w3-hide-small mt-0\"><span class=\"font-1 w3-col s12\">E&T Minerals is a South African based\n            commodity brokerage and trading house\n            founded in 2013. The trading house,\n            specializing in coal products.\n          </span></h5>\n          <br>\n          <a class=\"w3-card w3-button w3-transparent w3-text-white w3-round-xlarge font-1 w3-border w3-theme-border \" href=\"#/contact-us\"> <span class=\"w3-text-medium w3-margin-small \">CONTACT US</span></a>\n          \n        </div>\n      </div>\n      <div class=\"w3-grid w3-social w3-hide-small\">\n            <div class=\"icon-small self-center w3-text-white\">\n                <i class=\"fb-icon w3-text-blue\"></i>\n            </div>\n            <div class=\"icon-small-2 self-center w3-text-white\">\n                <i class=\"linked-in \"></i>\n            </div>\n        </div> "
+    },
+    {
+      "content": ""
+    },
+    {
+      "content": ""
+    },
+    {
+      "content": ""
+    }
+  ]
+}

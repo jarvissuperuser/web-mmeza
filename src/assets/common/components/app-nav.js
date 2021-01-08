@@ -94,11 +94,11 @@ export class AppNav extends Root {
                 console.log(route.visible, route.path);
                 const link = self.mobileLink.cloneNode(true);
                 link.innerText = processText(route.path);
-                link.href = `#/${route.path}`;
+                link.href = `/${route.path}`;
                 self.mobileLinksContent.appendChild(link);
                 const dLink = self.desktopLink.cloneNode(true);
                 dLink.innerHTML = processText(route.path).bold();
-                dLink.href = `#/${route.path}`;
+                dLink.href = `/${route.path}`;
                 self.desktopLinksContainer.appendChild(dLink);
             }
         })

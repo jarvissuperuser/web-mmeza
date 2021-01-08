@@ -4,6 +4,10 @@ export class Root extends HTMLElement{
     constructor() {
         super();
         this.shadow = this.attachShadow({mode: "open"});
+        this.defaultConfig = {
+            count: 4,
+            linkPattern: '#home/page'
+        }
         this.attributeList = [];
         this.slots = [];
         this.stylesFile = './styles.css';
@@ -18,7 +22,6 @@ export class Root extends HTMLElement{
         this.authGuard();
         this.render();
         this.loadStyle();
-        // this.loadStyle('icons.css')
         this.loadSlots();
         this.loadAttributes();
     }
@@ -172,6 +175,10 @@ export class Root extends HTMLElement{
 
     getElements(tag) {
         return this.shadow.querySelectorAll(tag);
+    }
+
+    getAttrData(qualifiedName) {
+        return JSON.parse(this.getAttribute(qualifiedName));
     }
 
 }

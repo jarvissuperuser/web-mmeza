@@ -1,5 +1,6 @@
 import {Root} from '../common/root.js';
-import {dataToEl} from "../common/abstraction.js";
+import {dataToEl, hash, win} from "../common/abstraction.js";
+import {init} from "../common/routes-config.js";
 
 export class HomePage extends Root {
     static get is() {
@@ -10,18 +11,13 @@ export class HomePage extends Root {
 <div class="pg-container">
     <div class="pg-page w3-black vh-100 bg-1 w3-grid grid-container" id="home/page1">
             <div class="nav-pips pips-container center w3-hide-small">
-                <ul class="center">
-                    <li class="active"><a href="#home/page1"></a></li>
-                    <li><a href="#home/page2"></a></li>
-                    <li><a href="#home/page3"></a></li>
-                    <li><a href="#home/page4"></a></li>
-                </ul>
+                <app-pips pips="['new']" active="1" class="center" ></app-pips>
             </div>
             
       <div class="content-home w3-col s12 w3-grid w3-g-contain">
         <div class="w3-g-third w3-padding">
             <a class="w3-center" href="#/about">
-                <img src="assets/logo.png" class="w3-image w3-theme-accent-1" />
+                <img src="assets/images/logo.png" class="w3-image w3-theme-accent-1" />
             </a>
            
         </div>
@@ -69,7 +65,7 @@ export class HomePage extends Root {
       <div class="content-home w3-col s12 ">
         <div class="w3-padding w3-twothird">
         <a class="w3-col s12 m6 w3-padding w3-center" href="#/about">
-                <img src="assets/logo.png" class="w3-image" />
+                <img src="assets/images/logo.png"  class="w3-image" />
             </a>
           <h1 class="w3-theme-gold w3-col s12"><span class="font-1">EFFICIENT, RELIABLE & TRANSPARENT</span></h1>
          
@@ -148,13 +144,15 @@ export class HomePage extends Root {
         super.loadAttributes();
         const {pips, sections} = this;
         const sects = Array.from(sections);
-        pips.forEach(pip => {
-            pip.addEventListener('click',e => {
-                const target = e.target;
-                const section = sects.filter(section => section.id === `${target.href}`.split('#')[1])[0];
+
+        win.onhashchange = _ => {
+            if ((hash().indexOf('home/page')>0)) {
+                const section = sects.filter(section => section.id === `${location.hash}`.split('#')[1])[0];
                 section.scrollIntoView({behavior: "smooth"});
-            });
-        });
+            } else {
+                init();
+            }
+        };
        dataToEl(this.appSlider,'slides', [{src:'assets/images/app-project-ui.jpg',text:'test'}])
     }
 }

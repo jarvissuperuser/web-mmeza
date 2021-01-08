@@ -1,5 +1,6 @@
 import {Root} from '../root.js';
 import {addEl,dataToEl} from "../abstraction.js";
+import {sliderAnimation} from "../util.js";
 
 export class AppSlider extends Root {
     static get is() {
@@ -23,7 +24,7 @@ export class AppSlider extends Root {
         }
     }
     static get observedAttributes() {
-        return['src','slides'];
+        return ['src','slides', 'animate', 'config'];
     }
     loadAttributes() {
         super.loadAttributes();
@@ -34,11 +35,27 @@ export class AppSlider extends Root {
                 this.slides[slide].classList.add('w3-hide');
                 this.slideWrapper.appendChild(this.slides[slide]);
             }
+            this.loop = sliderAnimation(this.slides,'w3-animate-left', 2000);
+            this.loop.next();
         }
     }
-
-    attributeChangedCallback(prop, newVal, old) {
+    startLoop() {
+        sliderAnimation(this.slides,'w3-animate-left', 2000);
+        this.loop.next();
+    }
+    pauseLoop() {
+        this.loop.return();
+    }
+    attributeChangedCallback(prop, oldV, newV) {
         if(prop==='slides')this.connectedCallback();
+        if(prop==='animate'){
+            if ((this.slides && this.slides.length) && newV) {
+                this.startLoop()
+            } else
+            {
+                this.pauseLoop();
+            }
+        }
     }
 
 }
