@@ -32,5 +32,3 @@ export const goto = (href = '/') => {
     anchor.target = '_blank';
     anchor.click();
 }
-
-

@@ -12,6 +12,7 @@ export class SlidePage extends Root {
         </div>
         `;
     }
+
     loadSlots() {
         super.loadSlots();
         this.appSlider = this.getElements('app-slider')[0];
