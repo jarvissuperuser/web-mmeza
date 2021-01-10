@@ -24,10 +24,18 @@ export class Root extends HTMLElement{
         this.loadStyle();
         this.loadSlots();
         this.loadAttributes();
+        this.renderedCallback();
     }
 
     render() {
         this.shadow.innerHTML = this.HTMLTemplate();
+    }
+
+    renderedCallback() {
+        this.afterInit();
+    }
+
+    afterInit() {
     }
 
     loadAttributes() {

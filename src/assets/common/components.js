@@ -4,8 +4,8 @@ import {AppNav} from "./components/app-nav.js";
 import {AppSlider} from "./components/app-slider.js";
 import {AppSlide} from "./components/app-slide.js";
 import {AppPips} from "./components/app-pips.js";
-import {AppLayout} from "./components/app-layout";
-import {AppFullPage} from "./components/app-fullpage";
+import {AppLayout} from "./components/app-layout.js";
+import {AppFullPage} from "./components/app-fullpage.js";
 
 export const commonComponents = [
     AppInput,

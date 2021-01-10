@@ -1,7 +1,7 @@
 import {hash, navigate} from "./abstraction.js";
 
 export const routes = [
-    {path: 'home', view: {element: '<home-page class="pg-wrapper"></home-page>'},visible: true},
+    {path: 'home', view: {element: '<home-page></home-page>'},visible: true},
     {path: 'slide', view: {element: '<slide-page></slide-page>'},visible: true},
 ];
 export const excludedPaths = () => {
