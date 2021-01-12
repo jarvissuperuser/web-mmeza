@@ -9,6 +9,11 @@ export class SlidePage extends Root {
         return `
         <div class="w3-black vh-100">
         <app-slider></app-slider>
+            <div class="w3-container w3-content">
+                <div class="w3-center">
+                <app-gallery></app-gallery>
+                </div>
+            </div>
         </div>
         `;
     }

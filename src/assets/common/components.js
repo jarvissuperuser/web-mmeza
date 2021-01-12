@@ -6,12 +6,14 @@ import {AppSlide} from "./components/app-slide.js";
 import {AppPips} from "./components/app-pips.js";
 import {AppLayout} from "./components/app-layout.js";
 import {AppFullPage} from "./components/app-fullpage.js";
+import {AppGallery} from "./components/app-gallery.js";
 
 export const commonComponents = [
     AppInput,
     AppNav,
     AppSlider,
     AppSlide,
+    AppGallery,
     AppLayout,
     AppFullPage,
     AppPips,
