@@ -1,6 +1,7 @@
 import {Root} from "../root.js";
-import {doc} from "../abstraction.js";
+import {dataToEl, doc, hash, win} from "../abstraction.js";
 import {pages}  from "../../js/data/page-data.js";
+import {init} from "../routes-config.js";
 
 export class AppFullPage extends Root {
     static get is() {
@@ -21,6 +22,7 @@ export class AppFullPage extends Root {
     }
     loadAttributes() {
         // super.loadAttributes();
+        this.defaultConfig.count = pages.length;
         for(let page = 0; page < pages.length; page++){
             const pageClone = this.pageTemplate.cloneNode(true);
             const content = this.contentSlot.cloneNode(true);
@@ -31,9 +33,20 @@ export class AppFullPage extends Root {
             content.innerHTML = pages[page].content;
             pageClone.appendChild(content);
             pageClone.setAttribute('index', (page + 1));
+            dataToEl(pageClone, 'config', this.defaultConfig);
             this.pagesContent.push(pageClone);
             this.container.appendChild(pageClone);
+
+
         }
+        win.onhashchange = _ => {
+            if ((hash().indexOf('home/page')>0)) {
+                const section = this.pagesContent.filter(section => section.id === `${location.hash}`.split('#')[1])[0];
+                section.scrollIntoView({behavior: "smooth"});
+            } else {
+                init();
+            }
+        };
         // console.log(pages);
     }
 }

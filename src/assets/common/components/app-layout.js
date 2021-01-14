@@ -50,7 +50,7 @@ export class AppLayout extends Root {
         super.loadSlots();
         this.slots.forEach(slot => {
             if (this.getAttribute(slot['name'])){
-                slot.innerHTML = this.getAttribute(slot['name'])
+                slot.innerHTML = this.getAttribute(slot['name']);
             }
         });
         this.pips = doc.createElement('app-pips');
@@ -58,12 +58,13 @@ export class AppLayout extends Root {
     }
     loadAttributes() {
         super.loadAttributes();
+
         this.index = this.getAttribute('index') ? parseInt(this.getAttribute('index')) : 1;
         this.configData = this.getAttrData('config');
         this.wrapper.classList.add("pips-container", "center");
         this.config = this.configData ? this.configData : this.defaultConfig;
-
-        this.setAttribute('id', `${this.config.linkPattern}${this.index}` )
+        this.setAttribute('id', `${this.config.linkPattern.split('#').join('')}${this.index}` )
+        this.getElements('slot[name=content]')[0].addEventListener('slotchange', this._onSlotChange.bind(this));
     }
     attributeChangedCallback(prop, oldV, newV) {
     }
@@ -76,6 +77,17 @@ export class AppLayout extends Root {
             this.wrapper.appendChild(this.pips);
             this.slots[0].prepend(this.wrapper);
         }
-        console.log(this.content);
+        // console.log(this.content);
+    }
+
+    _onSlotChange(event) {
+        console.log('slotted');
+        if ( this.pips ) {
+            dataToEl(this.pips, 'config', this.config);
+            this.pips.setAttribute('index', this.index.toString());
+            this.pips.setAttribute('pips', this.index.toString());
+            this.wrapper.appendChild(this.pips);
+            event.target.assignedElements()[0].prepend(this.wrapper);
+        }
     }
 }

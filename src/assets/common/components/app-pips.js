@@ -8,7 +8,7 @@ export class AppPips extends Root {
         return `
 <div class="nav-pips center w3-hide-small">
     <ul class="center">
-        <li class="active"><a></a></li>
+        <li><a></a></li>
         <li><a></a></li>
         <li><a></a></li>
         <li><a></a></li>
@@ -25,7 +25,7 @@ export class AppPips extends Root {
     autoConfig() {
         const { list, listItems} = this;
         const newList = [];
-        let activePip = this.getAttribute('active');
+        let activePip = parseInt(this.getAttribute('index'));
         const configStr = this.getAttrData('config');
         if (this.getAttribute('pips')) {
             list.innerHTML = "";

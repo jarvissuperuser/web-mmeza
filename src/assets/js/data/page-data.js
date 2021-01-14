@@ -80,9 +80,6 @@ export const pages = [
         </div>
     `
   },
-  {
-    content: ``
-  },
 ];
 
 export const randomData = `
