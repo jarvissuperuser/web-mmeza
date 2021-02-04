@@ -7,6 +7,11 @@ import {AppPips} from "./components/app-pips.js";
 import {AppLayout} from "./components/app-layout.js";
 import {AppFullPage} from "./components/app-fullpage.js";
 import {AppGallery} from "./components/app-gallery.js";
+import {ImageCanvas} from "./components/image-canvas.js";
+import {ArticleEditor} from "./components/article-editor.js";
+import {CardComposer} from "./components/cards/card-composer.js";
+import {CardWrapper} from "./components/cards/card-wrapper.js";
+import {AppModal} from "./components/app-modal.js";
 
 export const commonComponents = [
     AppInput,
@@ -17,6 +22,11 @@ export const commonComponents = [
     AppLayout,
     AppFullPage,
     AppPips,
+    AppModal,
+    ImageCanvas,
+    ArticleEditor,
+    CardComposer,
+    CardWrapper
 ];
 
 export const registerCommon = () => {

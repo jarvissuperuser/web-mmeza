@@ -77,7 +77,6 @@ export class AppLayout extends Root {
             this.wrapper.appendChild(this.pips);
             this.slots[0].prepend(this.wrapper);
         }
-        // console.log(this.content);
     }
 
     _onSlotChange(event) {

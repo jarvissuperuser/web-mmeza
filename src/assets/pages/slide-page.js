@@ -8,6 +8,10 @@ export class SlidePage extends Root {
     HTMLTemplate() {
         return `
         <div class="w3-black vh-100">
+            <div class="w3-container">
+                <div class="w3-content">
+                </div>
+            </div>
         <app-slider></app-slider>
             <div class="w3-container w3-content">
                 <div class="w3-center">
