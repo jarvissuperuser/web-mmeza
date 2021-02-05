@@ -284,7 +284,7 @@ hr{border:0;border-top:1px solid #eee;margin:20px 0}
 
 .vh-100{min-height: 100vh}.vh-75{height: 75vh; width: 100vw}.vh-50{height: 50vh}
 .chat-box{display:flex;flex-direction:column;}
-.c-body{height: 100vh;flex: 1 1 auto}
+.c-body{flex: 1 1 auto}
 .c-head{border-top:0;}
 .w3-phobia{display:flex;flex-flow:row wrap;justify-content: center}
 .w3-flex{display: flex}.w3-a-center{align-items:center}.w3-flex-column{flex-direction: column}
@@ -540,4 +540,8 @@ ul.w3-list li::before {
     grid-column-end: 5;
     grid-row-start: 2;
     grid-row-end: 4;
+}
+.w3-round-top {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
 }

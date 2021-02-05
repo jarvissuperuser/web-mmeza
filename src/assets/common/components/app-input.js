@@ -24,6 +24,7 @@ export class AppInput extends Root {
         .tertiary{color: var(--tertiary-contrast);background:var(--tertiary-theme)}
         input.w3-input + span.i-label {
           position: absolute;
+          color: #AAA;
           transform: translateY(-1.5rem);
           transition: all ease-in-out .3s;
         }
@@ -54,6 +55,7 @@ export class AppInput extends Root {
         this.attributeList.push('value');
         this.attributeList.push('label');
         this.attributeList.push('name');
+        this.blurred = new CustomEvent('blur');
     }
     loadAttributes() {
         super.loadAttributes();
@@ -61,13 +63,21 @@ export class AppInput extends Root {
 
         input.onblur = event => {
             const value = event.target.value;
+            this._val = value;
             this.setAttribute('value', value);
             if (!!value){
                 label.classList.add('has-content');
             }else {
                 label.classList.remove('has-content');
             }
+            this.dispatchEvent(this.blurred);
         }
+    }
+    get value() {
+        return this._val;
+    }
+    set value(val) {
+        this.input.value = val;
     }
 
 

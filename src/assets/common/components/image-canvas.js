@@ -5,11 +5,16 @@ export class ImageCanvas extends Root {
         return 'image-canvas';
     }
     static get observedAttributes() {
-        return ['src']
+        return ['src', 'width']
     }
-    observedAttributes(prop, oldV, newV) {
-        if (prop === this.observedAttributes[0] && oldV !== newV){
+    attributeChangedCallback(prop, oldV, newV) {
+        if (prop === ImageCanvas.observedAttributes[0] && oldV !== newV){
             this.defaultImg = newV;
+            this.canvasPaint(this.defaultImg, this);
+        }
+        if (prop === ImageCanvas.observedAttributes[1]){
+            this._width = newV;
+            this.loadSlots();
             this.canvasPaint(this.defaultImg, this);
         }
     }
@@ -27,10 +32,11 @@ export class ImageCanvas extends Root {
     }
 
     loadSlots() {
+        console.log('image slots loading...', this.width)
         this.defaultImg = this.rawImg;
         this.canvas = this.getElements('canvas')[0];
         this.input = this.getElements('input')[0];
-        this.canvasSize = 621;
+        this.canvasSize = this.width;
         this.canvas.width = this.canvasSize;
         this.context = this.getElementContext(this.canvas);
         this.image = new Image();
@@ -41,6 +47,7 @@ export class ImageCanvas extends Root {
         this.canvas.onclick = this.imagePick.bind(this);
         this.canvas.ondrop = this.loadImg.bind(this);
         this.input.onchange = this.canvasEvents.bind(this);
+        this.changes = new CustomEvent('changes', {data: this._src})
         this.canvasPaint(this.defaultImg, this);
     }
     getElementContext(element) {
@@ -77,6 +84,15 @@ export class ImageCanvas extends Root {
         }
         fileReader.readAsDataURL(target.files[0]);
     }
+    get width() {
+        return !!this._width?
+            (this.getAttribute('width')?this.getAttribute('width'):this._width)
+            :621;
+    }
+    set width(width) {
+        this._width = width;
+        this.setAttribute('width', this._width.toString())
+    }
     get src() {
         return this._src;
     }
@@ -87,6 +103,8 @@ export class ImageCanvas extends Root {
         const {image, context} = self;
         image.onload = () => {
             const io = self.calcNewSize();
+            context.fillStyle = '#ffffff';
+            context.fillRect(0, 0, self.width, 300);
             context.drawImage(
                 self.image,
                 io.originX,io.originY,
@@ -96,6 +114,7 @@ export class ImageCanvas extends Root {
             );
             self._src = self.canvas.toDataURL('image/jpeg');
             self.setAttribute('data', self._src);
+            self.dispatchEvent(self.changes);
         };
         if(image.src !== src){image.src = src; image.objectPosition = 'center'}
     }
