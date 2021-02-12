@@ -7,6 +7,8 @@ import {SlidePage} from "./pages/slide-page.js";
 import {declarer} from "./common/abstraction.js";
 import {EditorPage} from "./pages/editor-page.js";
 import {ComposePage} from "./pages/compose-page.js";
+import {ItemPage} from "./pages/item-page.js";
+import {ShopPage} from "./pages/shop-page.js";
 
 
 export const components = [
@@ -14,6 +16,8 @@ export const components = [
     SlidePage,
     EditorPage,
     ComposePage,
+    ShopPage,
+    ItemPage,
     PageView,
 ];
 

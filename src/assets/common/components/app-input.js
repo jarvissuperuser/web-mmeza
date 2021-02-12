@@ -77,7 +77,13 @@ export class AppInput extends Root {
         return this._val;
     }
     set value(val) {
+        this._val = val
         this.input.value = val;
+        if (this._val){
+            this.label.classList.add('has-content');
+        }else {
+            this.label.classList.remove('has-content');
+        }
     }
 
 

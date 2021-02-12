@@ -11,7 +11,7 @@ export class AppModal extends Root {
 <div class="w3-modal ">
     <div class="w3-modal-content w3-card w3-animate-zoom">
         <slot name="content">
-            <h3 class="w3-center">Add New Item <button class="w3-btn w3-red w3-right close">&times;</button></h3>
+            <h3 class="w3-center"><span class="modalTitle">${this.modalTitle}</span> <button class="w3-btn w3-red w3-right close">&times;</button></h3>
             <form class="w3-col s12 l6 m6">
                 <image-canvas></image-canvas>
                 <div class="w3-padding w3-black">
@@ -32,6 +32,12 @@ export class AppModal extends Root {
                 <div class="w3-padding w3-center">
                     <button class="w3-button w3-teal add">+ Add To Catalog</button>
                 </div>
+                <div class="w3-padding w3-center">
+                    <button class="w3-button w3-deep-orange disable">Disable</button>
+                </div>
+                <div class="w3-padding w3-center">
+                    <button class="w3-button w3-teal w3-deep-purple">Delete</button>
+                </div>
             </div>
         </slot>
     </div>
@@ -50,34 +56,39 @@ export class AppModal extends Root {
 
     loadSlots() {
         super.loadSlots();
-        this.model = new ShopItemModel();
         this.keys = Object.keys(this.model);
         this.modal = this.getElements('.w3-modal')[0];
         this.imageCanvas = this.getElements('image-canvas')[0];
         this.img = this.getElements('img')[0];
+        this.titleElement = this.getElements('span.title')[0];
+        this.priceElement = this.getElements('span.price')[0];
+        this.modalTitleElement = this.getElements('span.modalTitle')[0];
         this.inputs = this.getElements('app-input');
         this.close = this.getElements('.close')[0];
         this.button = this.getElements('button.add')[0];
         this.closed = new CustomEvent('closed');
+        this._model = this.model;
     }
     loadAttributes() {
         const width = this.getElements('form')[0].getBoundingClientRect().width?
             this.getElements('form')[0].getBoundingClientRect().width
             :449.2;
         this.imageCanvas.setAttribute('width', width);
-        this.img.src = this.imageCanvas.rawImg;
+        // if (this.model.image) this.imageCanvas.src = this.model.image;
+        this.img.src = this.imageCanvas.src;
         this.imageCanvas.addEventListener('changes', event => {
             this.img.src = event.target.src;
+            this._model.image = event.target.src;
         });
         this.inputs.forEach(input =>
             input.addEventListener('blur', () => {
-                this.model[input.getAttribute('name')] = input.value;
-                const display =this.getElements(`span.${input.getAttribute('name')}`)[0];
+                this._model[input.getAttribute('name')] = input.value;
+                const display = this.getElements(`span.${input.getAttribute('name')}`)[0];
                 if ( display) display.innerText = input.value;
             }));
-        this._state = this.getAttribute('showing');
         this.updateState();
         this.close.onclick = () => this.closeState() ;
+        this.button.innerText = this.buttonText;
         this.button.onclick = () => {
             this.processData();
             this.dispatchEvent(this.closed);
@@ -91,14 +102,30 @@ export class AppModal extends Root {
         }
         for(const target of this.keys) {
             const input = filterInputs(target);
-            if (input) this.model[target] = input.value;
+            if (input) this._model[target] = input.value;
         }
-        this.model.image = this.imageCanvas.src;
-        if (!this.model.id) this.model.id = uuid();
-        if(!this.model.dateAdded) this.model.dateAdded = Date.now();
+
+        this._model.image = this.imageCanvas.src;
+        if (!this.model.id) this._model.id = uuid();
+        if(!this.model.dateAdded) this._model.dateAdded = Date.now();
+    }
+    loadData() {
+        const filterInputs = (key) => {
+            return Array.from(this.inputs)
+                .filter(input => input.getAttribute('name') === (key))[0]
+        }
+        for(const target of this.keys) {
+            const input = filterInputs(target);
+            if (input) input.value = this._model[target];
+        }
+
+        this.titleElement.innerText = this._model.title;
+        this.priceElement.innerText = this._model.title;
+        if (this.model.image) this.imageCanvas.src = this.model.image;
+        if (!this.model.image) this.imageCanvas.src = this.imageCanvas.rawImg;
     }
     updateState() {
-        if (this._state) {
+        if (this.showing) {
             this.modal.classList.add('w3-show');
         } else {
             this.modal.classList.remove('w3-show');
@@ -109,10 +136,32 @@ export class AppModal extends Root {
         this.updateState();
     }
     set showing(state) {
-        this._state = !!state?state:false;
+        this._state = state;
+        if(!this.model.image) this.imageCanvas.src = this.imageCanvas.rawImg;
+        this.loadData();
         this.updateState();
     }
     get showing() {
-        return this._state;
+        return !!this._state?this._state:false;
+    }
+    get buttonText() {
+        return this._buttonText ? this._buttonText : 'Add To Shop';
+    }
+    set buttonText(text) {
+        this._buttonText = text;
+        this.loadAttributes();
+    }
+    set model(m) {
+        this._model = m;
+    }
+    get model() {
+        return this._model ? this._model : new ShopItemModel();
+    }
+    get modalTitle() {
+        return  this._modalTitle?this._modalTitle: 'Add Item to Shop';
+    }
+    set modalTitle(title) {
+        this._modalTitle = title;
+        if (this.modalTitleElement) this.modalTitleElement.innerText = title ;
     }
 }

@@ -4,10 +4,7 @@ export const store = localStorage;
 export function hash() {
     return location.hash
 }
-export const navigate = (route) => {
-    console.log('route', route);
-    doc.querySelector('page-view').setAttribute('page',route);
-}
+
 export const declarer = (components) => {
     for (const component of components){
         if(component.is){

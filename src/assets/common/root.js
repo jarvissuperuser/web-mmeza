@@ -13,6 +13,7 @@ export class Root extends HTMLElement{
         this.stylesFile = './styles.css';
         this.themeFile = './theme.css';
         this.mapper = {sum:'.summary',con:'.contracts', his:'.history'}
+        this._disabled = false;
     }
     static get observedAttributes() {
         return this.attributeList;
@@ -128,7 +129,7 @@ export class Root extends HTMLElement{
     }
 
     navRender(route, slot) {
-        console.log('r', route, slot);
+        // console.log('r', route, slot);
         // console.log('r', route, slot.innerHTML);
     }
 

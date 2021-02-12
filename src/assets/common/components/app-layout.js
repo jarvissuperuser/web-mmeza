@@ -80,7 +80,6 @@ export class AppLayout extends Root {
     }
 
     _onSlotChange(event) {
-        console.log('slotted');
         if ( this.pips ) {
             dataToEl(this.pips, 'config', this.config);
             this.pips.setAttribute('index', this.index.toString());

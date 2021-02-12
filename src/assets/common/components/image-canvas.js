@@ -32,7 +32,6 @@ export class ImageCanvas extends Root {
     }
 
     loadSlots() {
-        console.log('image slots loading...', this.width)
         this.defaultImg = this.rawImg;
         this.canvas = this.getElements('canvas')[0];
         this.input = this.getElements('input')[0];
@@ -98,6 +97,7 @@ export class ImageCanvas extends Root {
     }
     set src(data) {
         this.defaultImg = data;
+        this.canvasPaint(this.defaultImg, this);
     }
     canvasPaint(src, self) {
         const {image, context} = self;

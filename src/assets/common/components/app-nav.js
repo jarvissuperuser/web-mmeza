@@ -91,7 +91,7 @@ export class AppNav extends Root {
         }
         routes.forEach(route => {
             if (route.visible) {
-                console.log(route.visible, route.path);
+                // console.log(route.visible, route.path);
                 const link = self.mobileLink.cloneNode(true);
                 link.innerText = processText(route.path);
                 link.href = `/${route.path}`;

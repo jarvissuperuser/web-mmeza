@@ -12,6 +12,9 @@ import {ArticleEditor} from "./components/article-editor.js";
 import {CardComposer} from "./components/cards/card-composer.js";
 import {CardWrapper} from "./components/cards/card-wrapper.js";
 import {AppModal} from "./components/app-modal.js";
+import {ShopCard} from "./components/cards/shop-card.js";
+import {AppQuantify} from "./components/app-quantify.js";
+import {CardPresent} from "./components/cards/card-present.js";
 
 export const commonComponents = [
     AppInput,
@@ -23,9 +26,12 @@ export const commonComponents = [
     AppFullPage,
     AppPips,
     AppModal,
+    AppQuantify,
     ImageCanvas,
+    ShopCard,
     ArticleEditor,
     CardComposer,
+    CardPresent,
     CardWrapper
 ];
 
