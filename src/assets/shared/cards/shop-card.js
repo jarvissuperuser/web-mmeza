@@ -1,6 +1,5 @@
-import {Root} from "../../root.js";
-import {ShopItemModel} from "../../../models/shop-item-model.js";
-import {navigate} from "../../routes-config.js";
+import {Root} from '../../core/index.js';
+import {ShopItemModel} from '../../models/shop-item-model.js';
 
 export class ShopCard extends Root{
     static get is() {

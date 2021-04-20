@@ -1,6 +1,5 @@
-import {Root} from "../root.js";
-import {ArticleModel} from "../../models/article-model.js";
-import {addEl} from "../abstraction.js";
+import {Root, addEl} from '../core/index.js';
+import {ArticleModel} from '../models/article-model.js';
 
 export class ArticleEditor extends Root {
     static get is() {

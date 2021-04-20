@@ -1,6 +1,5 @@
-import {Root} from "../root.js";
-import {ShopItemModel} from "../../models/shop-item-model.js";
-import {uuid} from "../util.js";
+import {Root, uuid} from '../core/index.js';
+import {ShopItemModel} from '../models/shop-item-model.js';
 
 export class AppModal extends Root {
     static get is() {

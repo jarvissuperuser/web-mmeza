@@ -1,87 +1,13 @@
-import {Root} from "../root.js";
-
-export class ImageCanvas extends Root {
-    static get is() {
-        return 'image-canvas';
+export const ImageBase = Base => class extends Base{
+    get pageKey() {return `landing-page`}
+    get src() {
+        return this._src;
     }
-    static get observedAttributes() {
-        return ['src', 'width']
-    }
-    attributeChangedCallback(prop, oldV, newV) {
-        if (prop === ImageCanvas.observedAttributes[0] && oldV !== newV){
-            this.defaultImg = newV;
-            this.canvasPaint(this.defaultImg, this);
-        }
-        if (prop === ImageCanvas.observedAttributes[1]){
-            this._width = newV;
-            this.loadSlots();
-            this.canvasPaint(this.defaultImg, this);
-        }
-    }
-    HTMLTemplate() {
-        return `
-<div class='w3-col s12' >
-  <canvas
-          class='w3-border w3-white'
-          height='300'
-  >
-  </canvas>
-  <input type='file' hidden >
-</div>
-        `;
-    }
-
-    loadSlots() {
-        this.defaultImg = this.rawImg;
-        this.canvas = this.getElements('canvas')[0];
-        this.input = this.getElements('input')[0];
-        this.canvasSize = this.width;
-        this.canvas.width = this.canvasSize;
-        this.context = this.getElementContext(this.canvas);
-        this.image = new Image();
-        this.fileReader = new FileReader();
-    }
-    loadAttributes() {
-        this.canvas.ondragover = this.fix;
-        this.canvas.onclick = this.imagePick.bind(this);
-        this.canvas.ondrop = this.loadImg.bind(this);
-        this.input.onchange = this.canvasEvents.bind(this);
-        this.changes = new CustomEvent('changes', {data: this._src})
-        this.canvasPaint(this.defaultImg, this);
-    }
-    getElementContext(element) {
-        return element.getContext('2d');
-    }
-    fix(event) {
-        event.preventDefault();
-    }
-    imagePick() {
-        this.input.click();
-    }
-    loadImg(event) {
-        this.fix(event);
-        const {context, canvasPaint} = this;
-        if (event.dataTransfer.items.length && event.dataTransfer.items[0].kind === 'file') {
-            this.file = event.dataTransfer.items[0].getAsFile();
-            const fileReader = new FileReader();
-            fileReader.onload = ({target}) => {
-                // context.clearRect(0, 0, context.canvas.width, context.canvas.height);
-                context.fillStyle = 'white';
-                context.fillRect(0, 0, context.canvas.width, context.canvas.height);
-                if (target.result) {
-                    canvasPaint(target.result, this);
-                }
-            };
-            fileReader.readAsDataURL(this.file);
-        }
-    }
-    canvasEvents({target}) {
-        const {context, fileReader} = this;
-        fileReader.onload = event => {
-            this.context.clearRect(0, 0, context.canvas.width, context.canvas.height);
-            this.canvasPaint(event.target.result, this);
-        }
-        fileReader.readAsDataURL(target.files[0]);
+    /**
+     * @param {string|blob} s
+     * */
+    set src(s) {
+        this._src = s;
     }
     get width() {
         return !!this._width?
@@ -90,59 +16,47 @@ export class ImageCanvas extends Root {
     }
     set width(width) {
         this._width = width;
-        this.setAttribute('width', this._width.toString())
+        // this.setAttribute('width', this._width.toString())
     }
-    get src() {
-        return this._src;
+    get height() {
+        return !!this._height?
+            (this.getAttribute('height')?this.getAttribute('height'):this._height)
+            :621;
     }
-    set src(data) {
-        this.defaultImg = data;
-        this.canvasPaint(this.defaultImg, this);
+    set height(height) {
+        this._height = height;
+        // this.setAttribute('height', this._height.toString())
     }
-    canvasPaint(src, self) {
-        const {image, context} = self;
-        image.onload = () => {
-            const io = self.calcNewSize();
-            context.fillStyle = '#ffffff';
-            context.fillRect(0, 0, self.width, 300);
-            context.drawImage(
-                self.image,
-                io.originX,io.originY,
-                io.naturalWidth, io.naturalHeight,
-                io.deltaX, io.deltaY,
-                io.scaledX, io.scaledY
-            );
-            self._src = self.canvas.toDataURL('image/jpeg');
-            self.setAttribute('data', self._src);
-            self.dispatchEvent(self.changes);
-        };
-        if(image.src !== src){image.src = src; image.objectPosition = 'center'}
+    /**
+     * Resize Canvas
+     * @param height{number|string}
+     * */
+    set maxCanvasHeight(height) {
+        this._maxCanvasHeight = `${height}px`;
     }
-    calcNewSize() {
-        const {canvasSize} = this;
-        const {naturalWidth,naturalHeight} = this.image;
-        // configuration
-        const scale_width = (naturalWidth / canvasSize) > (naturalHeight/this.context.canvas.height);
-        const scalar = scale_width ? (naturalWidth / canvasSize) : (naturalHeight/this.context.canvas.height);
-        return   {
-            deltaX: scale_width? 0: (this.context.canvas.width - (naturalWidth/scalar)) / 2, deltaY:scale_width? 0: (this.context.canvas.height - (naturalHeight/scalar)) / 2 ,
-            originX: 0, originY: 0,
-            naturalHeight,
-            naturalWidth,
-            scaledX: scale_width ? naturalWidth/scalar : naturalWidth/scalar,
-            scaledY: scale_width ? naturalHeight/scalar: naturalHeight/scalar,
-            scalar,
-            scale_width
-        };
+    get maxCanvasHeight() {
+        return this._maxCanvasHeight?this._maxCanvasHeight:'675px';
+    }
+    /**
+     * getter
+     * @return _imageQuality{number}
+     * */
+    get imageQuality() {
+        return this._imageQuality;
+    }
+    /**
+     * setter
+     * @param quality{number}
+     */
+    set imageQuality(quality) {
+        this._imageQuality = quality;
     }
     get rawImg() {
         return `data:image/svg+xml;utf8,<svg
-    xmlns:svg="http://www.w3.org/2000/svg"
     xmlns="http://www.w3.org/2000/svg"
-    width="${this.canvasSize}"
+    width="${this.canvasSize??442}"
     height="300"
     viewBox="0 0 172.77291 79.375002"
-    version="1.1"
     id="svg8">
     <defs
       id="defs2">
@@ -156,8 +70,6 @@ export class ImageCanvas extends Root {
     <g
       id="layer1">
       <g
-        aria-label="Drop or Click
-To Add Image"
         transform="translate(-16.148632,-29.517176)"
         id="text833"
         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.5833px;line-height:1.25;letter-spacing:0px;word-spacing:0px;white-space:pre;">

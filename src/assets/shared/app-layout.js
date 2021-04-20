@@ -1,5 +1,5 @@
-import {Root} from "../root.js";
-import {dataToEl, doc} from "../abstraction.js";
+import {Root} from '../core/root.js';
+import {dataToEl, doc} from '../core/abstraction.js';
 
 export class AppLayout extends Root {
     static get is() {

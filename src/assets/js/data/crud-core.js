@@ -1,4 +1,4 @@
-import {store} from "../../common/abstraction.js";
+import {store} from '../../core/index.js';
 
 export const saveCore = (objects = {}, key= 'cards') => {
     store.setItem(key,JSON.stringify(objects))

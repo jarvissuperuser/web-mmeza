@@ -1,4 +1,4 @@
-import {Root} from "../root.js";
+import {Root} from '../core/root.js';
 
 export class AppInput extends Root {
     static get is() {

@@ -1,4 +1,4 @@
-import {Root} from "../common/root.js";
+import {Root} from '../core/index.js';
 
 export class EditorPage extends Root {
     static get is() {

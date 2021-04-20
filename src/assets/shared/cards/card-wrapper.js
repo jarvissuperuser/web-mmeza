@@ -1,7 +1,7 @@
-import {Root} from "../../root.js";
-import {ShopCard} from "./shop-card.js";
-import {ShopItemModel} from "../../../models/shop-item-model.js";
-import {getCards, saveCards} from "../../../js/data/card-loader.js";
+import {Root} from '../../core/index.js';
+import {ShopCard} from './shop-card.js';
+import {ShopItemModel} from '../../models/shop-item-model.js';
+import {getCards, saveCards} from '../../js/data/card-loader.js';
 
 export class CardWrapper extends Root{
     constructor() {

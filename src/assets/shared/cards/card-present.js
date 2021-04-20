@@ -1,6 +1,6 @@
-import {Root} from "../../root.js";
-import {getCards} from "../../../js/data/card-loader.js";
-import {cardFactory} from "../../../js/data/various-factories.js";
+import {Root} from '../../core/index.js';
+import {getCards} from '../../js/data/card-loader.js';
+import {cardFactory} from '../../js/data/various-factories.js';
 
 export class CardPresent extends Root{
     static get is() {

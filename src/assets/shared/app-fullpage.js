@@ -1,7 +1,7 @@
-import {Root} from "../root.js";
-import {dataToEl, doc, hash, win} from "../abstraction.js";
-import {pages}  from "../../js/data/page-data.js";
-import {init} from "../routes-config.js";
+import {Root} from '../core/root.js';
+import {dataToEl, doc, hash, win} from '../core/abstraction.js';
+import {pages}  from '../js/data/page-data.js';
+import {init} from '../core/routes-config.js';
 
 export class AppFullPage extends Root {
     static get is() {

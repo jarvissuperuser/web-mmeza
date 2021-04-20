@@ -1,5 +1,5 @@
-import {doc, hash} from "./abstraction.js";
-import {PageView} from "./page-view.js";
+import {doc, hash} from './index.js';
+import {PageView} from '../pages/page-view.js';
 
 export const routes = [
     {path: 'home', view: {element: '<home-page></home-page>'},visible: true},

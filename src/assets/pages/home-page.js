@@ -1,6 +1,5 @@
-import {Root} from '../common/root.js';
-import {doc} from "../common/abstraction.js";
-import {pages} from "../js/data/page-data.js";
+import {Root, doc} from '../core/index.js';
+import {pages} from '../js/data/page-data.js';
 
 export class HomePage extends Root {
     static get is() {

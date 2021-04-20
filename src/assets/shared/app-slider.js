@@ -1,6 +1,4 @@
-import {Root} from '../root.js';
-import {addEl,dataToEl} from "../abstraction.js";
-import {sliderAnimation} from "../util.js";
+import {Root, addEl, sliderAnimation} from '../core/index.js';
 
 export class AppSlider extends Root {
     static get is() {

@@ -1,7 +1,7 @@
-import {registerPages} from "./assets/loader.js";
-import {registerCommon} from "./assets/common/components.js";
-import {win,doc} from "./assets/common/abstraction.js";
-import {init, resolvePath} from "./assets/common/routes-config.js";
+import {registerPages} from './assets/loader.js';
+import {registerCommon} from './assets/shared/components.js';
+import {win,doc} from './assets/core/index.js';
+import {init, resolvePath} from './assets/core/index.js';
 
 // registerComponents
 registerCommon();

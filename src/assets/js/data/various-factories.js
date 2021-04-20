@@ -1,4 +1,4 @@
-import {ShopCard} from "../../common/components/cards/shop-card.js";
+import {ShopCard} from '../../shared/index.js';
 
 export const cardFactory = (model, clickCallback = null, buttonCallback = null) => {
     const cardElem = new ShopCard();

@@ -1,5 +1,4 @@
-import {Root} from "./root.js"
-import {routes} from "./routes-config.js"
+import {Root, routes} from '../core/index.js';
 
 export class PageView extends Root{
     static get attributeList() { return ['page']; }

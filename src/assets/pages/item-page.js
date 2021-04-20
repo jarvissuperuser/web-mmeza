@@ -1,6 +1,5 @@
-import {Root} from "../common/root.js";
-import {getCards} from "../js/data/card-loader.js";
-import {getRoutePath} from "../common/routes-config.js";
+import {Root, getRoutePath} from '../core/index.js';
+import {getCards} from '../js/data/card-loader.js';
 
 export class ItemPage extends Root{
     static get is() {

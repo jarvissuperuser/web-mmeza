@@ -1,6 +1,4 @@
-import {Root} from '../root.js';
-import {routes} from '../routes-config.js';
-import {doc, addEl} from '../abstraction.js'
+import {Root, doc, addEl, routes} from '../core/index.js';
 
 export class AppNav extends Root {
     constructor() {

@@ -1,5 +1,4 @@
-import {Root} from "../common/root.js";
-import {dataToEl} from "../common/abstraction.js";
+import {Root, dataToEl} from '../core/index.js';
 
 export class SlidePage extends Root {
     static get is() {

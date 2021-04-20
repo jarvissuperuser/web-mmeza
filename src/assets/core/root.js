@@ -1,9 +1,7 @@
 /* Common Methods Class should not be instantiated */
 
-export class Root extends HTMLElement{
-    constructor() {
-        super();
-        this.shadow = this.attachShadow({mode: "open"});
+export const Core = Base => class extends Base {
+    generalDeclarations() {
         this.defaultConfig = {
             count: 4,
             linkPattern: '#home/page'
@@ -15,6 +13,10 @@ export class Root extends HTMLElement{
         this.mapper = {sum:'.summary',con:'.contracts', his:'.history'}
         this._disabled = false;
     }
+    shadowDeclarations() {
+        this.shadow = this.attachShadow({mode: "open"});
+        this.generalDeclarations();
+    }
     static get observedAttributes() {
         return this.attributeList;
     }
@@ -22,7 +24,9 @@ export class Root extends HTMLElement{
     connectedCallback() {
         this.authGuard();
         this.render();
-        this.loadStyle();
+        if (this.shadow){
+            this.loadStyle();
+        }
         this.loadSlots();
         this.loadAttributes();
         this.renderedCallback();
@@ -56,18 +60,127 @@ export class Root extends HTMLElement{
         return this.attributeList.find(a => a === attrib) !== undefined;
     }
 
+    HTMLTemplate() {
+        return ""
+    }
+
+    authGuard() {
+        // if (!localStorage['user_data'] && !this.authRouterVerify()){
+        //     location.hash = `#/login`;
+        // }
+    }
+
+    authRouterVerify() {
+        let route = location.hash.split('/')[1];
+        const routes = ['recover', 'login', 'register', 'reset'];
+        return routes.some(r => route === r);
+    }
+
+    navRender(route, slot) {
+        // console.log('r', route, slot);
+        // console.log('r', route, slot.innerHTML);
+    }
+
+    static _fetchToken() {
+        const raw = localStorage['user_data'];
+        if (raw){
+            let data = JSON.parse(atob(raw));
+            return data['token'];
+        }
+        return 0;
+    }
+
+    _fetchUserData(token) {
+        const raw = localStorage['user_data'];
+        if (raw){
+            let data = JSON.parse(atob(raw));
+            return data[token].toUpperCase();
+        }
+        return 0;
+    }
+
+    // async postInLine(data, path){
+    //     const response = await fetch(`${Root.server}/${path}/`, Root.prepOptions(data));
+    //     return await response.json();
+    // }
+
+    get getURLToken() {
+        const url =location.hash.split('/');
+        if (url[1] === 'reset'){
+            try{
+                return url[2];
+            }
+            catch (e) {
+                return "no token";
+            }
+        }
+    }
+
+    getElements(tag) {
+        return this.shadow.querySelectorAll(tag);
+    }
+
+    getAttrData(qualifiedName) {
+        return JSON.parse(this.getAttribute(qualifiedName));
+    }
+}
+
+export class Root extends Core(HTMLElement) {
+    constructor() {
+        super();
+        this.shadowDeclarations();
+    }
     loadStyle(styleFile = './styles.css') {
         this.setStyleFile(styleFile);
     }
     setStyleFile(styleFile = './styles.css') {
         let s = document.createElement('style')
         s.innerHTML = `@import "${styleFile}";`;
-        this.shadow.appendChild(s);
+        if (this.shadow)
+            this.shadow.appendChild(s);
     }
     setStyles(styles = '') {
         let s = document.createElement('style')
         s.innerHTML = `${styles}`;
         this.shadow.appendChild(s);
+    }
+}
+
+export class Shadowless extends Core(HTMLElement){
+    constructor() {
+        super();
+        this.generalDeclarations();
+    }
+    static get observedAttributes() {
+        return this.attributeList;
+    }
+
+    connectedCallback() {
+        this.render();
+        this.loadSlots();
+        this.loadAttributes();
+        this.renderedCallback();
+    }
+
+    render() {
+        this.innerHTML = this.HTMLTemplate();
+    }
+
+    loadAttributes() {
+        const {slots} = this;
+        slots.forEach(slot => {
+            if (this.getAttribute(slot['name'])){
+                slot.innerText = this.getAttribute(slot['name'])
+            }
+        });
+    }
+
+    loadSlots() {
+        this.slots = this.querySelectorAll('slot');
+    }
+
+    isAttrib(attrib) {
+        return this.attributeList.find(a => a === attrib) !== undefined;
     }
 
     HTMLTemplate() {
@@ -82,11 +195,11 @@ export class Root extends HTMLElement{
 
 
     static get appSecret() {
-        return '511819c1134587985bb9eff1802a0996a5d85d0e';
+        return '';
     }
 
     static prepOptions(data) {
-        const requestHeaders = Root.requestHeadersMake();
+        const requestHeaders = Shadowless.requestHeadersMake();
 
         const raw = JSON.stringify(data);
         return {
@@ -98,7 +211,7 @@ export class Root extends HTMLElement{
     }
 
     static prepGet() {
-        const requestHeaders = Root.requestHeadersMake();
+        const requestHeaders = Shadowless.requestHeadersMake();
         return {
             method: 'GET',
             headers: requestHeaders,
@@ -110,9 +223,9 @@ export class Root extends HTMLElement{
         const requestHeaders = new Headers();
         requestHeaders.append("Content-Type", "application/json");
         if (!localStorage['user_data'])
-            requestHeaders.append("Authorization", `Token ${Root.appSecret}`);
+            requestHeaders.append("Authorization", `Token ${Shadowless.appSecret}`);
         else
-            requestHeaders.append("Authorization", `Token ${Root._fetchToken()}`);
+            requestHeaders.append("Authorization", `Token ${Shadowless._fetchToken()}`);
         return requestHeaders;
     }
 
@@ -151,39 +264,8 @@ export class Root extends HTMLElement{
         return 0;
     }
 
-    post(data, path, callback) {
-        fetch(`${Root.server}/${path}/`, Root.prepOptions(data))
-            .then(response => response.json())
-            .then(callback)
-            .catch(error => console.log('error', error));
-    }
-
-    get(path, callback) {
-        fetch(`${Root.server}/${path}/`, Root.prepGet())
-            .then(response => response.json())
-            .then(callback)
-            .catch(error => console.log('error', error));
-    }
-
-    async postInLine(data, path){
-        const response = await fetch(`${Root.server}/${path}/`, Root.prepOptions(data));
-        return await response.json();
-    }
-
-    get getURLToken() {
-        const url =location.hash.split('/');
-        if (url[1] === 'reset'){
-            try{
-                return url[2];
-            }
-            catch (e) {
-                return "no token";
-            }
-        }
-    }
-
     getElements(tag) {
-        return this.shadow.querySelectorAll(tag);
+        return this.querySelectorAll(tag);
     }
 
     getAttrData(qualifiedName) {

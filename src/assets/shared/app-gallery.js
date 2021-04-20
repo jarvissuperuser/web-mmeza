@@ -1,5 +1,5 @@
-import {Root} from "../root.js";
-import {doc} from "../abstraction.js";
+import {Root} from '../core/root.js';
+import {doc} from '../core/abstraction.js';
 
 export class AppGallery extends Root {
     static get is() {
@@ -47,7 +47,7 @@ export class AppGallery extends Root {
         super.loadStyle(styleFile);
         // this.setStyleFile(`./assets/css/${AppGallery.is}.css`);
         const style = `
-@import "../../theme.css";
+@import '../../theme.css";
 .gallery-container {
     display: flex;
     overflow: hidden;
