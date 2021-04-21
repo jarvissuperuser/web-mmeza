@@ -1,0 +1,13 @@
+{
+  "devDependencies": {
+    "eslint": "^7.24.0"
+  },
+  "name": "web-mmeza",
+  "version": "0.0.1",
+  "description": "> A Hello World template built with PhoneGap",
+  "scripts": {
+    "start": "firebase emulators:start --only hosting",
+    "run": "firebase emulators:start --only hosting",
+    "lint": "npx eslint src/init.js"
+  }
+}

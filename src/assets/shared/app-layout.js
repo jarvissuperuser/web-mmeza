@@ -1,5 +1,5 @@
-import {Root} from "../root.js";
-import {dataToEl} from "../abstraction.js";
+import {Root} from '../core/root.js';
+import {dataToEl, doc} from '../core/abstraction.js';
 
 export class AppLayout extends Root {
     static get is() {
@@ -7,10 +7,7 @@ export class AppLayout extends Root {
     }
     HTMLTemplate() {
         return `
-<div class="pg-page w3-black vh-100 bg-1 w3-grid grid-container">
-            <div class="pips-container center">
-                <app-pips></app-pips>
-            </div>
+<div class="pg-page w3-black vh-100">
     <slot name="content">
       <div class="content-home w3-col s12 w3-grid w3-g-contain">
         
@@ -51,17 +48,44 @@ export class AppLayout extends Root {
     }
     loadSlots() {
         super.loadSlots();
-        this.pips = this.getElements('app-pips')[0]
+        this.slots.forEach(slot => {
+            if (this.getAttribute(slot['name'])){
+                slot.innerHTML = this.getAttribute(slot['name']);
+            }
+        });
+        this.pips = doc.createElement('app-pips');
+        this.wrapper = doc.createElement('div');
     }
     loadAttributes() {
         super.loadAttributes();
-        dataToEl(this.pips, 'config', this.defaultConfig);
+
         this.index = this.getAttribute('index') ? parseInt(this.getAttribute('index')) : 1;
         this.configData = this.getAttrData('config');
+        this.wrapper.classList.add("pips-container", "center");
         this.config = this.configData ? this.configData : this.defaultConfig;
-        this.setAttribute('id', `${this.config.linkPattern}${this.index}` )
+        this.setAttribute('id', `${this.config.linkPattern.split('#').join('')}${this.index}` )
+        this.getElements('slot[name=content]')[0].addEventListener('slotchange', this._onSlotChange.bind(this));
     }
     attributeChangedCallback(prop, oldV, newV) {
+    }
 
+    afterInit() {
+        super.afterInit();
+        this.content = this.getElements('div[slot=content]');
+        if ( this.pips ) {
+            dataToEl(this.pips, 'config', this.config);
+            this.wrapper.appendChild(this.pips);
+            this.slots[0].prepend(this.wrapper);
+        }
+    }
+
+    _onSlotChange(event) {
+        if ( this.pips ) {
+            dataToEl(this.pips, 'config', this.config);
+            this.pips.setAttribute('index', this.index.toString());
+            this.pips.setAttribute('pips', this.index.toString());
+            this.wrapper.appendChild(this.pips);
+            event.target.assignedElements()[0].prepend(this.wrapper);
+        }
     }
 }

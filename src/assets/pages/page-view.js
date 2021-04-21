@@ -1,5 +1,4 @@
-import {Root} from "./root.js"
-import {routes} from "./routes-config.js"
+import {Root, routes} from '../core/index.js';
 
 export class PageView extends Root{
     static get attributeList() { return ['page']; }
@@ -12,7 +11,6 @@ export class PageView extends Root{
     }
     navRender(route, slot) {
         const filtered = routes.filter(r => r.path === route)[0];
-
         if (filtered) {
             slot.innerHTML = filtered.view.element;
         } else if ((location.hash.indexOf('home/page')>0)) {

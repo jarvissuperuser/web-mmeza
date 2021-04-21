@@ -1,5 +1,4 @@
-import {Root} from "../common/root.js";
-import {dataToEl} from "../common/abstraction.js";
+import {Root, dataToEl} from '../core/index.js';
 
 export class SlidePage extends Root {
     static get is() {
@@ -8,10 +7,20 @@ export class SlidePage extends Root {
     HTMLTemplate() {
         return `
         <div class="w3-black vh-100">
+            <div class="w3-container">
+                <div class="w3-content">
+                </div>
+            </div>
         <app-slider></app-slider>
+            <div class="w3-container w3-content">
+                <div class="w3-center">
+                <app-gallery></app-gallery>
+                </div>
+            </div>
         </div>
         `;
     }
+
     loadSlots() {
         super.loadSlots();
         this.appSlider = this.getElements('app-slider')[0];

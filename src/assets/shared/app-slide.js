@@ -1,5 +1,5 @@
-import {Root} from '../root.js';
-import {goto} from "../abstraction.js";
+import {Root} from '../core/root.js';
+import {goto} from '../core/abstraction.js';
 
 export class AppSlide extends Root {
     static get is() {

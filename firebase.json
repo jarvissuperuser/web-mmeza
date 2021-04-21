@@ -1,0 +1,38 @@
+{
+  "firestore": {
+    "rules": "firestore.rules",
+    "indexes": "firestore.indexes.json"
+  },
+  "hosting": {
+    "public": "src",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
+  },
+  "emulators": {
+    "auth": {
+      "port": 8081
+    },
+    "firestore": {
+      "port": 8082
+    },
+    "hosting": {
+      "port": 8090
+    },
+    "pubsub": {
+      "port": 8083
+    },
+    "ui": {
+      "enabled": true,
+      "port": 8100
+    }
+  }
+}

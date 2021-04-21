@@ -1,4 +1,4 @@
-import {addEl} from "./abstraction.js";
+// import {addEl} from './abstraction.js';
 
 export function * delay(duration = 3000) {
     return new Promise((resolve) =>{
@@ -26,3 +26,9 @@ export async function * sliderAnimation(slides, animationClass, pauseDuration) {
     }
 }
 
+export const uuid = () => {
+    return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+        const r = Math.random() * 16 | 0, v = c === 'x' ? r : (r & 0x3 | 0x8);
+        return v.toString(16);
+    });
+}
