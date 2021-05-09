@@ -1,7 +1,7 @@
-import {Root, getRoutePath} from '../core/index.js';
+import {Core, getRoutePath} from '../core/index.js';
 import {getCards} from '../js/data/card-loader.js';
 
-export class ItemPage extends Root{
+export class ItemPage extends Core{
     static get is() {
         return 'item-page'
     }
@@ -29,12 +29,12 @@ export class ItemPage extends Root{
     </div>
 </div>`;
     }
-    loadSlots() {
+    loadTargetElements() {
         this.img =  this.getElements('img')[0];
         this.descriptionElement = this.getElements('.description');
         this.addToCartElements = this.getElements('button.add-to-cart');
     }
-    loadAttributes(){
+    attachAttributesNLogic(){
         this.model = this.getModel();
         if (this.model) {
             this.img.src = this.model.image;

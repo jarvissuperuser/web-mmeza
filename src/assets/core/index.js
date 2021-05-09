@@ -1,4 +1,12 @@
-export {Root, Shadowless} from './root.js';
+export {
+    doc,
+    win,
+    store,
+    hash,
+    addEl,
+    Core,
+    DOMElement
+} from './core.js';
 export {
     excludedPathPattern,
     excludedPaths,
@@ -9,15 +17,10 @@ export {
     getRoutePath
 } from './routes-config.js';
 export {
-    doc,
-    hash,
-    addEl,
     configData,
     dataToEl,
     goto,
     declarer,
-    win,
-    store
 } from './abstraction.js';
 export {
     uuid,

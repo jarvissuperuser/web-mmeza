@@ -1,7 +1,18 @@
 /* Common Methods Class should not be instantiated */
 export const doc = document;
-
-export const Core = Base => class extends Base {
+export const win = window;
+export const store = localStorage;
+export function hash() {
+    return location.hash
+}
+export const addEl = (tag = '') => {
+    return doc.createElement(tag);
+}
+/**
+ * @class Core
+ * @description Mixin For Core And DomElement
+ * */
+const CoreBase = Base => class extends Base {
     generalDeclarations() {
         this.defaultConfig = {
             count: 4,
@@ -58,26 +69,30 @@ export const Core = Base => class extends Base {
         this.slots = this.shadow.querySelectorAll('slot');
         this.textPockets = this.shadow.querySelectorAll('span');
     }
-
+    _tokens() {
+        return ['{{', '}}'];
+    }
     hasInterpolationTokens(element) {
-        return element.innerText.indexOf(this._tokens[0]) > -1 &&
-            element.innerText.indexOf(this._tokens[1]) > -1;
+        return element.innerText.indexOf(this._tokens()[0]) > -1 &&
+            element.innerText.indexOf(this._tokens()[1]) > -1;
     }
     interpolate() {
         try {
-            const {_tokens, hasInterpolationTokens} = this;
+            let {_tokens, hasInterpolationTokens} = this;
+            hasInterpolationTokens = hasInterpolationTokens.bind(this);
             Array.from(this.textPockets).forEach((item, i) => {
                 while (hasInterpolationTokens(item)) {
                     const prop = item.innerText.substring(
-                        item.innerText.indexOf(_tokens[0]) + _tokens.length,
-                        item.innerText.indexOf(_tokens[1])
+                        item.innerText.indexOf(_tokens()[0])
+                          + _tokens()[0].length,
+                        item.innerText.indexOf(_tokens()[1])
                     );
                     if (this.hasOwnProperty('model') && !!this[`model`][prop]) {
                         item.innerText = item
-                            .innerText.replace(`${_tokens[0]}${prop}${_tokens[1]}`, this[`model`][prop]);
+                            .innerText.replace(`${_tokens()[0]}${prop}${_tokens()[1]}`, this[`model`][prop]);
                     }else if (!!this[prop]){
                         item.innerText = item
-                            .innerText.replace(`${_tokens[0]}${prop}${_tokens[1]}`, this[prop]);
+                            .innerText.replace(`${_tokens()[0]}${prop}${_tokens()[1]}`, this[prop]);
                     } else {
                         throw new Error(`Prop: ${prop} not property`);
                     }
@@ -88,9 +103,7 @@ export const Core = Base => class extends Base {
         }
     }
 
-    get _tokens() {
-        return ['{{', '}}'];
-    }
+
 
     isAttrib(attrib) {
         return this.attributeList.find(a => a === attrib) !== undefined;
@@ -161,7 +174,7 @@ export const Core = Base => class extends Base {
     }
 }
 
-export class Core extends Core(HTMLElement) {
+export class Core extends CoreBase(HTMLElement) {
     constructor() {
         super();
         this.shadowDeclarations();
@@ -182,7 +195,7 @@ export class Core extends Core(HTMLElement) {
     }
 }
 
-export class DOMElement extends Core(HTMLElement){
+export class DOMElement extends CoreBase(HTMLElement){
     constructor() {
         super();
         this.generalDeclarations();
@@ -192,8 +205,8 @@ export class DOMElement extends Core(HTMLElement){
     }
 
     connectedCallback() {
-        this.loadSlots();
-        this.loadAttributes();
+        this.loadTargetElements();
+        this.attachAttributesNLogic();
         this.renderedCallback();
     }
 
@@ -201,7 +214,7 @@ export class DOMElement extends Core(HTMLElement){
         this.innerHTML = this.HTMLTemplate();
     }
 
-    loadAttributes() {
+    attachAttributesNLogic() {
         const {slots} = this;
         slots.forEach(slot => {
             if (this.getAttribute(slot['name'])){
@@ -210,8 +223,9 @@ export class DOMElement extends Core(HTMLElement){
         });
     }
 
-    loadSlots() {
+    loadTargetElements() {
         this.slots = this.querySelectorAll('slot');
+        this.textPockets = this.getElements('span');
     }
 
     isAttrib(attrib) {
@@ -308,5 +322,3 @@ export class DOMElement extends Core(HTMLElement){
     }
 
 }
-
-

@@ -1,7 +1,7 @@
-import {Root} from '../../core/index.js';
+import {Core} from '../../core/index.js';
 import {ShopItemModel} from '../../models/shop-item-model.js';
 
-export class ShopCard extends Root{
+export class ShopCard extends Core{
     static get is() {
         return 'shop-card'
     }
@@ -21,8 +21,8 @@ export class ShopCard extends Root{
 </div>
         `;
     }
-    loadSlots() {
-        super.loadSlots();
+    loadTargetElements() {
+        super.loadTargetElements();
         this.titleElement = this.getElements('span.title')[0];
         this.priceElement = this.getElements('span.price')[0];
         this.image = this.getElements('img.w3-image')[0];
@@ -30,7 +30,7 @@ export class ShopCard extends Root{
         this.addButton = this.getElements('button.add')[0];
         this.addToCart =  new CustomEvent('addToCard');
     }
-    loadAttributes() {
+    attachAttributesNLogic() {
         this.titleElement.innerText = this.model.title;
         this.priceElement.innerText = this.model.price;
         this.image.src = this.model.image;
@@ -46,7 +46,7 @@ export class ShopCard extends Root{
 
     set model(m) {
         this._model = m;
-        if (this.titleElement) this.loadAttributes();
+        if (this.titleElement) this.attachAttributesNLogic();
     }
     get model() {
         return this._model;

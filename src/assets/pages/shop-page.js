@@ -1,6 +1,6 @@
-import {Root} from '../core/index.js';
+import {Core} from '../core/index.js';
 
-export class ShopPage extends Root {
+export class ShopPage extends Core {
     static get is() {
         return 'shop-page';
     }

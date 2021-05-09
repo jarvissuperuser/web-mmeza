@@ -1,6 +1,6 @@
-import {Root} from '../core/index.js';
+import {Core} from '../core/index.js';
 
-export class EditorPage extends Root {
+export class EditorPage extends Core {
     static get is() {
         return 'editor-page';
     }

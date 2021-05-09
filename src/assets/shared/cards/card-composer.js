@@ -1,6 +1,6 @@
-import {Root} from '../../core/index.js';
+import {Core} from '../../core/index.js';
 
-export class CardComposer extends Root{
+export class CardComposer extends Core{
     static get is() {
         return 'card-composer'
     }

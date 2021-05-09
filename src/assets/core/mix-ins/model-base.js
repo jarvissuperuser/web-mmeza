@@ -1,6 +1,6 @@
-import {Root} from '../root.js';
+import {Core} from '../core.js';
 
-export class ModelBase extends Root{
+export class ModelBase extends Core{
     get model() {
         return this._model ;
     }

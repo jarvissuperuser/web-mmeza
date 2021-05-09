@@ -1,9 +1,8 @@
-import {Root} from '../core/root.js';
-import {dataToEl, doc, hash, win} from '../core/abstraction.js';
-import {pages}  from '../js/data/page-data.js';
-import {init} from '../core/routes-config.js';
 
-export class AppFullPage extends Root {
+import {dataToEl, doc, hash, win, Core, init} from '../core/index.js';
+import {pages}  from '../js/data/page-data.js';
+
+export class AppFullPage extends Core {
     static get is() {
         return 'app-fullpage';
     }
@@ -13,8 +12,8 @@ export class AppFullPage extends Root {
 </div>
         `;
     }
-    loadSlots() {
-        super.loadSlots();
+    loadTargetElements() {
+        super.loadTargetElements();
         this.container = this.getElements('.pg-container')[0];
         this.pageTemplate = doc.createElement('app-layout');
         this.contentSlot = doc.createElement('div');
@@ -23,8 +22,8 @@ export class AppFullPage extends Root {
     set pages(pagesContent) {
         this.pager = pagesContent;
     }
-    loadAttributes() {
-        // super.loadAttributes();
+    attachAttributesNLogic() {
+        // super.attachAttributesNLogic();
         this.defaultConfig.count = this.pager.length
         for(let page = 0; page < this.defaultConfig.count; page++){
             const pageClone = this.pageTemplate.cloneNode(true);

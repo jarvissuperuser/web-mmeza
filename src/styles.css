@@ -15,7 +15,8 @@ select:-webkit-autofill:focus {
     background-color: #101727 !important;
     color: -internal-light-dark(#101727, white) !important;
     -webkit-text-fill-color: white;
-    -webkit-box-shadow: 0 0 0px 1000px #101727 inset;
+    -webkit-box-shadow: 0 0 0 1000px #101727 inset;
+    box-shadow: 0 0 0 1000px #101727 inset;
     caret-color: white;
 }
 textarea {

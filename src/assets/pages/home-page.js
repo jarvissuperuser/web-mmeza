@@ -1,7 +1,7 @@
-import {Root, doc} from '../core/index.js';
+import {Core, doc} from '../core/index.js';
 import {pages} from '../js/data/page-data.js';
 
-export class HomePage extends Root {
+export class HomePage extends Core {
     static get is() {
         return 'home-page';
     }
@@ -11,14 +11,14 @@ export class HomePage extends Root {
 </div>
 `;
     }
-    loadSlots() {
-        super.loadSlots();
+    loadTargetElements() {
+        super.loadTargetElements();
         this.content = this.getElements('div')[0];
         this.fullPageScroll = doc.createElement('app-fullpage');
     }
 
-    loadAttributes() {
-        super.loadAttributes();
+    attachAttributesNLogic() {
+        super.attachAttributesNLogic();
         this.fullPageScroll.pages = pages;
         this.content.append(this.fullPageScroll);
     }

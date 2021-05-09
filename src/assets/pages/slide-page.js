@@ -1,6 +1,6 @@
-import {Root, dataToEl} from '../core/index.js';
+import {Core, dataToEl} from '../core/index.js';
 
-export class SlidePage extends Root {
+export class SlidePage extends Core {
     static get is() {
         return 'slide-page';
     }
@@ -21,17 +21,17 @@ export class SlidePage extends Root {
         `;
     }
 
-    loadSlots() {
-        super.loadSlots();
+    loadTargetElements() {
+        super.loadTargetElements();
         this.appSlider = this.getElements('app-slider')[0];
     }
 
-    loadAttributes() {
-        super.loadAttributes();
+    attachAttributesNLogic() {
+        super.attachAttributesNLogic();
         dataToEl(this.appSlider,'slides', [
-            {src:'assets/images/app-project-ui.jpg',text:'test'},
-            {src:'assets/images/app-project-labrie.jpg',text:'test'},
-            {src:'assets/images/app-project-lb.jpg',text:'test'},
+            {src:'assets/images/app-project-ui.jpg',text:'Hello'},
+            {src:'assets/images/app-project-labrie.jpg',text:'Hi'},
+            {src:'assets/images/app-project-lb.jpg',text:'What'},
             ]);
     }
 }

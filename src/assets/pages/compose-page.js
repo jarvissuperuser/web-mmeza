@@ -1,6 +1,6 @@
-import {Root} from '../core/index.js';
+import {Core} from '../core/index.js';
 
-export class ComposePage extends Root {
+export class ComposePage extends Core {
     static get is() {
         return 'compose-page';
     }

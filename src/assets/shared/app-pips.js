@@ -1,6 +1,6 @@
-import {Root} from '../core/index.js';
+import {Core} from '../core/index.js';
 
-export class AppPips extends Root {
+export class AppPips extends Core {
     static get is() {
         return 'app-pips';
     }
@@ -16,8 +16,8 @@ export class AppPips extends Root {
 </div>
         `;
     }
-    loadSlots() {
-        super.loadSlots();
+    loadTargetElements() {
+        super.loadTargetElements();
         this.list = this.getElements('ul')[0];
         this.listItems = this.getElements('li');
         this.autoConfig(this);
@@ -27,14 +27,16 @@ export class AppPips extends Root {
         const newList = [];
         let activePip = parseInt(this.getAttribute('index'));
         const configStr = this.getAttrData('config');
-        if (this.getAttribute('pips')) {
+        if (this.getAttribute('pips') && !isNaN(activePip)) {
             list.innerHTML = "";
             const config = configStr ? configStr : this.defaultConfig;
             const inActiveItem = listItems[1];
-            for (let p = 1; p <= config.count; p++) {
-                const clone = inActiveItem.cloneNode(true);
-                clone.querySelector('a').href = `${config.linkPattern}${p}`;
-                newList.push(clone);
+            if(inActiveItem) {
+              for (let p = 1; p <= config.count; p++) {
+                  const clone = inActiveItem.cloneNode(true);
+                  clone.querySelector('a').href = `${config.linkPattern}${p}`;
+                  newList.push(clone);
+              }
             }
             activePip = activePip? activePip : 1;
         }
@@ -44,6 +46,10 @@ export class AppPips extends Root {
                 listItems[(activePip - 1)%listItems.length].classList.add('active')
         }
         if(newList.length) newList.forEach(li => list.appendChild(li))
+        if (activePip === 2){
+          newList.forEach(i => i.classList.remove('active'));
+          newList[1].classList.add('active');
+        }
     }
 
     static get observedAttributes() {

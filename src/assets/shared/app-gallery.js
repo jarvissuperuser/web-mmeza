@@ -1,7 +1,6 @@
-import {Root} from '../core/root.js';
-import {doc} from '../core/abstraction.js';
+import {Core, doc} from '../core/index.js';
 
-export class AppGallery extends Root {
+export class AppGallery extends Core {
     static get is() {
         return 'app-gallery';
     }
@@ -31,15 +30,15 @@ export class AppGallery extends Root {
     static get observedAttributes() {
         return ['index', 'config'];
     }
-    loadSlots() {
-        super.loadSlots();
+    loadTargetElements() {
+        super.loadTargetElements();
         this.container = this.getElements('.gallery-container')[0];
         this.pips = this.getElements(".gallery-pips")[0];
         // this.pipWrapper = doc.createElement('div');
         this.pip = doc.createElement('div');
     }
-    loadAttributes() {
-        super.loadAttributes();
+    attachAttributesNLogic() {
+        super.attachAttributesNLogic();
         this.classList.add('w3-grid');
         const {pips, container, pip} = this;
     }

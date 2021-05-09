@@ -1,6 +1,6 @@
-import {Root} from '../core/root.js';
+import {Core} from '../core/core.js';
 
-export class AppInput extends Root {
+export class AppInput extends Core {
     static get is() {
         return 'app-input';
     }
@@ -48,8 +48,8 @@ export class AppInput extends Root {
         this.setStyles(style);
     }
 
-    loadSlots() {
-        super.loadSlots();
+    loadTargetElements() {
+        super.loadTargetElements();
         this.label = this.getElements('span.i-label')[0]
         this.input = this.getElements('input.w3-input')[0];
         this.attributeList.push('value');
@@ -57,8 +57,8 @@ export class AppInput extends Root {
         this.attributeList.push('name');
         this.blurred = new CustomEvent('blur');
     }
-    loadAttributes() {
-        super.loadAttributes();
+    attachAttributesNLogic() {
+        super.attachAttributesNLogic();
         const {input, label} = this;
 
         input.onblur = event => {
