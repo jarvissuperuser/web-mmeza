@@ -1,6 +1,6 @@
-import {Root, addEl, sliderAnimation} from '../core/index.js';
+import {Core, addEl, sliderAnimation} from '../core/index.js';
 
-export class AppSlider extends Root {
+export class AppSlider extends Core {
     static get is() {
         return 'app-slider';
     }
@@ -9,9 +9,13 @@ export class AppSlider extends Root {
 <div class="w3-display-container slide-wrapper"></div>
 `;
     }
-    loadSlots() {
-        super.loadSlots();
+    loadTargetElements() {
+        super.loadTargetElements();
         this.slideWrapper = this.getElements('.slide-wrapper')[0];
+        /***
+         * implementation is obselete
+         */
+         /// < obsolete>
         this.slidesJson = this.getAttribute('slides');
         if (this.slidesJson) {
             this.slidesData = JSON.parse(this.slidesJson);
@@ -20,12 +24,13 @@ export class AppSlider extends Root {
                 this.slides.push(addEl('app-slide'));
             }
         }
+        /// </ obsolete>
     }
     static get observedAttributes() {
         return ['src','slides', 'animate', 'config'];
     }
-    loadAttributes() {
-        super.loadAttributes();
+    attachAttributesNLogic() {
+        super.attachAttributesNLogic();
         if (this.slides && this.slides.length) {
             for (let slide = 0; slide < this.slides.length; slide++){
                 this.slides[slide].setAttribute('src', this.slidesData[slide].src);

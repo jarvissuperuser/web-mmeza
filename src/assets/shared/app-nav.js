@@ -1,6 +1,6 @@
-import {Root, doc, addEl, routes} from '../core/index.js';
+import {Core, doc, addEl, routes} from '../core/index.js';
 
-export class AppNav extends Root {
+export class AppNav extends Core {
     constructor() {
         super();
         this.mobileLinksContainer = {};
@@ -61,7 +61,7 @@ export class AppNav extends Root {
         this.setStyles(stylesheet);
     }
 
-    loadSlots() {
+    loadTargetElements() {
         const link = '.w3-dropdown-content a.w3-hide';
         this.mobileLinksContainer = this.getElements('.w3-dropdown-click')[0];
         this.mobileLinksContent = this.getElements('.w3-dropdown-click .w3-dropdown-content')[0];
@@ -73,7 +73,7 @@ export class AppNav extends Root {
         this.desktopLink.classList.add('w3-bar-item', 'w3-button', 'w3-hover-yellow');
     }
 
-    loadAttributes() {
+    attachAttributesNLogic() {
         const { mobileLinksContainer, mobileLinksContent } = this;
         mobileLinksContainer.onclick = () => {
             if (mobileLinksContent.classList.contains('w3-show'))

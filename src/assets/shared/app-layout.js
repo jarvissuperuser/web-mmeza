@@ -1,7 +1,6 @@
-import {Root} from '../core/root.js';
-import {dataToEl, doc} from '../core/abstraction.js';
+import {Core, dataToEl, doc} from '../core/index.js';
 
-export class AppLayout extends Root {
+export class AppLayout extends Core {
     static get is() {
         return `app-layout`;
     }
@@ -10,12 +9,10 @@ export class AppLayout extends Root {
 <div class="pg-page w3-black vh-100">
     <slot name="content">
       <div class="content-home w3-col s12 w3-grid w3-g-contain">
-        
             <div class="w3-g-third w3-padding">
                 <a class="w3-center" href="#/about">
                     <img src="assets/images/logo.png" class="w3-image w3-theme-accent-1" />
                 </a>
-               
             </div>
             <div class="w3-padding w3-g-twothird">
           <h1 class="w3-theme-gold w3-col s12"><span class="font-1">EFFICIENT, RELIABLE & TRANSPARENT</span></h1>
@@ -26,11 +23,9 @@ export class AppLayout extends Root {
           </span></h5>
           <br>
           <a class="w3-card w3-button w3-transparent w3-text-white w3-round-xlarge font-1 w3-border w3-theme-border " href="#/contact-us"> <span class="w3-text-medium w3-margin-small ">CONTACT US</span></a>
-          
         </div>
-        
       </div>
-            
+
       <div class="w3-grid w3-social w3-hide-small">
         <a class="icon-small self-center w3-text-white" href="https://www.facebook.com/ET-Minerals-113613910380724/" target="_blank">
             <i class="fb-icon w3-text-blue"></i>
@@ -39,15 +34,15 @@ export class AppLayout extends Root {
             <i class="linked-in "></i>
         </a>
       </div>
-    </slot>  
+    </slot>
 </div>
         `;
     }
     static get observedAttributes() {
         return ['index', 'config'];
     }
-    loadSlots() {
-        super.loadSlots();
+    loadTargetElements() {
+        super.loadTargetElements();
         this.slots.forEach(slot => {
             if (this.getAttribute(slot['name'])){
                 slot.innerHTML = this.getAttribute(slot['name']);
@@ -56,9 +51,8 @@ export class AppLayout extends Root {
         this.pips = doc.createElement('app-pips');
         this.wrapper = doc.createElement('div');
     }
-    loadAttributes() {
-        super.loadAttributes();
-
+    attachAttributesNLogic() {
+        super.attachAttributesNLogic();
         this.index = this.getAttribute('index') ? parseInt(this.getAttribute('index')) : 1;
         this.configData = this.getAttrData('config');
         this.wrapper.classList.add("pips-container", "center");

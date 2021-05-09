@@ -1,6 +1,6 @@
-import {Root} from '../core/index.js';
+import {Core} from '../core/index.js';
 
-export class AppQuantify extends Root {
+export class AppQuantify extends Core {
     static get is() {
         return 'app-quantify'
     }
@@ -21,10 +21,10 @@ export class AppQuantify extends Root {
 </div>
         `;
     }
-    loadSlots() {
+    loadTargetElements() {
         this.numElement = this.getElements('.number')[0];
     }
-    loadAttributes() {
+    attachAttributesNLogic() {
         this.numElement.innerText = !!this.number?this.number:1;
     }
 

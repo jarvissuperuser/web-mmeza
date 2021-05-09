@@ -1,7 +1,7 @@
-import {Root, addEl} from '../core/index.js';
+import {Core, addEl} from '../core/index.js';
 import {ArticleModel} from '../models/article-model.js';
 
-export class ArticleEditor extends Root {
+export class ArticleEditor extends Core {
     static get is() {
         return 'article-editor';
     }
@@ -54,7 +54,7 @@ export class ArticleEditor extends Root {
         this.setStyles(style);
     }
 
-    loadSlots() {
+    loadTargetElements() {
         this.art = this._article ? this._article :  new ArticleModel();
         this.values = Object.keys(this.art);
         this.slots = [];
@@ -68,7 +68,7 @@ export class ArticleEditor extends Root {
         return this._article;
     }
 
-    loadAttributes() {
+    attachAttributesNLogic() {
         console.log(this.values, this.art);
         this.values.forEach(v => {
             if (this.getElements(`.${v}`).length) {

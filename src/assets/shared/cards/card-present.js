@@ -1,8 +1,8 @@
-import {Root} from '../../core/index.js';
+import {Core} from '../../core/index.js';
 import {getCards} from '../../js/data/card-loader.js';
 import {cardFactory} from '../../js/data/various-factories.js';
 
-export class CardPresent extends Root{
+export class CardPresent extends Core{
     static get is() {
         return 'card-present'
     }
@@ -12,12 +12,12 @@ export class CardPresent extends Root{
 </div>        
         `;
     }
-    loadSlots() {
-        super.loadSlots();
+    loadTargetElements() {
+        super.loadTargetElements();
         this.cards = []
         this.cardContent = this.getElements('.card-content')[0];
     }
-    loadAttributes() {
+    attachAttributesNLogic() {
         const cardData = getCards();
         if (Array.isArray(cardData)) {
             cardData.forEach(cardT => {

@@ -1,7 +1,7 @@
-import {Root, uuid} from '../core/index.js';
+import {Core, uuid} from '../core/index.js';
 import {ShopItemModel} from '../models/shop-item-model.js';
 
-export class AppModal extends Root {
+export class AppModal extends Core {
     static get is() {
         return 'app-modal';
     }
@@ -53,8 +53,8 @@ export class AppModal extends Root {
         this.setStyles(styles);
     }
 
-    loadSlots() {
-        super.loadSlots();
+    loadTargetElements() {
+        super.loadTargetElements();
         this.keys = Object.keys(this.model);
         this.modal = this.getElements('.w3-modal')[0];
         this.imageCanvas = this.getElements('image-canvas')[0];
@@ -68,7 +68,7 @@ export class AppModal extends Root {
         this.closed = new CustomEvent('closed');
         this._model = this.model;
     }
-    loadAttributes() {
+    attachAttributesNLogic() {
         const width = this.getElements('form')[0].getBoundingClientRect().width?
             this.getElements('form')[0].getBoundingClientRect().width
             :449.2;
@@ -148,7 +148,7 @@ export class AppModal extends Root {
     }
     set buttonText(text) {
         this._buttonText = text;
-        this.loadAttributes();
+        this.attachAttributesNLogic();
     }
     set model(m) {
         this._model = m;

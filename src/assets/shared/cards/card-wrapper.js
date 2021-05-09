@@ -1,9 +1,9 @@
-import {Root} from '../../core/index.js';
+import {Core} from '../../core/index.js';
 import {ShopCard} from './shop-card.js';
 import {ShopItemModel} from '../../models/shop-item-model.js';
 import {getCards, saveCards} from '../../js/data/card-loader.js';
 
-export class CardWrapper extends Root{
+export class CardWrapper extends Core{
     constructor() {
         super();
         this.cards = []
@@ -32,13 +32,13 @@ export class CardWrapper extends Root{
         const styles = `.box { height: 112px; width: 112px }`
         this.setStyles(styles);
     }
-    loadSlots() {
-        super.loadSlots();
+    loadTargetElements() {
+        super.loadTargetElements();
         this.modal = this.getElements('app-modal')[0];
         this.card = this.getElements('#addToShop')[0];
         this.cardContent = this.getElements('.card-content')[0];
     }
-    loadAttributes() {
+    attachAttributesNLogic() {
         const savedCards = getCards('cards');
         if (savedCards) {
             savedCards.forEach(card => {

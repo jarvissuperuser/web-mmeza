@@ -1,7 +1,7 @@
-import {Root, addEl} from '../core/index.js';
+import {Core, addEl} from '../core/index.js';
 import {ImageBase} from '../core/mix-ins/image-base.js';
 
-export class ImageCanvas extends ImageBase(Root) {
+export class ImageCanvas extends ImageBase(Core) {
     static get is() {
         return 'image-canvas';
     }
@@ -33,7 +33,7 @@ export class ImageCanvas extends ImageBase(Root) {
         `;
     }
 
-    loadSlots() {
+    loadTargetElements() {
         this.defaultImg = this.rawImg;
         this._imageQuality = 0.75;
         this.container = this.getElements('div')[0];
@@ -51,7 +51,7 @@ export class ImageCanvas extends ImageBase(Root) {
         this.context = this.getElementContext(this.canvas);
         this.canvasPaint(this.src?this.src:this.rawImg, this);
     }
-    loadAttributes() {
+    attachAttributesNLogic() {
         this.canvas.onclick = this.imagePick.bind(this);
         this.canvas.ondrop = this.loadImg.bind(this);
         this.input.onchange = this.canvasEvents.bind(this);

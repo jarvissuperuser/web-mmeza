@@ -1,10 +1,4 @@
 
-export const win = window;
-export const doc = document;
-export const store = localStorage;
-export function hash() {
-    return location.hash
-}
 
 export const declarer = (components) => {
     for (const component of components){

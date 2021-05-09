@@ -1,6 +1,6 @@
-import {Root, routes} from '../core/index.js';
+import {Core, routes} from '../core/index.js';
 
-export class PageView extends Root{
+export class PageView extends Core{
     static get attributeList() { return ['page']; }
     static get is() {
         return 'page-view';
@@ -13,12 +13,13 @@ export class PageView extends Root{
         const filtered = routes.filter(r => r.path === route)[0];
         if (filtered) {
             slot.innerHTML = filtered.view.element;
+            console.log(filtered.view.element);
         } else if ((location.hash.indexOf('home/page')>0)) {
             slot.innerHTML = routes[0].view.element;
         }
     }
 
-    loadAttributes() {
+    attachAttributesNLogic() {
         const {slots, navRender} = this;
         slots.forEach(slot => {
             if (this.getAttribute(slot['name'])){

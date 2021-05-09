@@ -1,6 +1,18 @@
 /* Common Methods Class should not be instantiated */
-
-export const Core = Base => class extends Base {
+export const doc = document;
+export const win = window;
+export const store = localStorage;
+export function hash() {
+    return location.hash
+}
+export const addEl = (tag = '') => {
+    return doc.createElement(tag);
+}
+/**
+ * @class Core
+ * @description Mixin For Core And DomElement
+ * */
+const CoreBase = Base => class extends Base {
     generalDeclarations() {
         this.defaultConfig = {
             count: 4,
@@ -12,6 +24,8 @@ export const Core = Base => class extends Base {
         this.themeFile = './theme.css';
         this.mapper = {sum:'.summary',con:'.contracts', his:'.history'}
         this._disabled = false;
+        this.authGuard();
+        this.render();
     }
     shadowDeclarations() {
         this.shadow = this.attachShadow({mode: "open"});
@@ -22,13 +36,11 @@ export const Core = Base => class extends Base {
     }
 
     connectedCallback() {
-        this.authGuard();
-        this.render();
         if (this.shadow){
             this.loadStyle();
         }
-        this.loadSlots();
-        this.loadAttributes();
+        this.loadTargetElements();
+        this.attachAttributesNLogic();
         this.renderedCallback();
     }
 
@@ -43,18 +55,55 @@ export const Core = Base => class extends Base {
     afterInit() {
     }
 
-    loadAttributes() {
+    attachAttributesNLogic() {
         const {slots} = this;
         slots.forEach(slot => {
             if (this.getAttribute(slot['name'])){
                 slot.innerText = this.getAttribute(slot['name'])
             }
         });
+        this.interpolate();
     }
 
-    loadSlots() {
+    loadTargetElements() {
         this.slots = this.shadow.querySelectorAll('slot');
+        this.textPockets = this.shadow.querySelectorAll('span');
     }
+    _tokens() {
+        return ['{{', '}}'];
+    }
+    hasInterpolationTokens(element) {
+        return element.innerText.indexOf(this._tokens()[0]) > -1 &&
+            element.innerText.indexOf(this._tokens()[1]) > -1;
+    }
+    interpolate() {
+        try {
+            let {_tokens, hasInterpolationTokens} = this;
+            hasInterpolationTokens = hasInterpolationTokens.bind(this);
+            Array.from(this.textPockets).forEach((item, i) => {
+                while (hasInterpolationTokens(item)) {
+                    const prop = item.innerText.substring(
+                        item.innerText.indexOf(_tokens()[0])
+                          + _tokens()[0].length,
+                        item.innerText.indexOf(_tokens()[1])
+                    );
+                    if (this.hasOwnProperty('model') && !!this[`model`][prop]) {
+                        item.innerText = item
+                            .innerText.replace(`${_tokens()[0]}${prop}${_tokens()[1]}`, this[`model`][prop]);
+                    }else if (!!this[prop]){
+                        item.innerText = item
+                            .innerText.replace(`${_tokens()[0]}${prop}${_tokens()[1]}`, this[prop]);
+                    } else {
+                        throw new Error(`Prop: ${prop} not property`);
+                    }
+                }
+            });
+        } catch (err) {
+            console.log(err);
+        }
+    }
+
+
 
     isAttrib(attrib) {
         return this.attributeList.find(a => a === attrib) !== undefined;
@@ -125,7 +174,7 @@ export const Core = Base => class extends Base {
     }
 }
 
-export class Root extends Core(HTMLElement) {
+export class Core extends CoreBase(HTMLElement) {
     constructor() {
         super();
         this.shadowDeclarations();
@@ -146,7 +195,7 @@ export class Root extends Core(HTMLElement) {
     }
 }
 
-export class Shadowless extends Core(HTMLElement){
+export class DOMElement extends CoreBase(HTMLElement){
     constructor() {
         super();
         this.generalDeclarations();
@@ -156,9 +205,8 @@ export class Shadowless extends Core(HTMLElement){
     }
 
     connectedCallback() {
-        this.render();
-        this.loadSlots();
-        this.loadAttributes();
+        this.loadTargetElements();
+        this.attachAttributesNLogic();
         this.renderedCallback();
     }
 
@@ -166,7 +214,7 @@ export class Shadowless extends Core(HTMLElement){
         this.innerHTML = this.HTMLTemplate();
     }
 
-    loadAttributes() {
+    attachAttributesNLogic() {
         const {slots} = this;
         slots.forEach(slot => {
             if (this.getAttribute(slot['name'])){
@@ -175,8 +223,9 @@ export class Shadowless extends Core(HTMLElement){
         });
     }
 
-    loadSlots() {
+    loadTargetElements() {
         this.slots = this.querySelectorAll('slot');
+        this.textPockets = this.getElements('span');
     }
 
     isAttrib(attrib) {
@@ -199,7 +248,7 @@ export class Shadowless extends Core(HTMLElement){
     }
 
     static prepOptions(data) {
-        const requestHeaders = Shadowless.requestHeadersMake();
+        const requestHeaders = DOMElement.requestHeadersMake();
 
         const raw = JSON.stringify(data);
         return {
@@ -211,7 +260,7 @@ export class Shadowless extends Core(HTMLElement){
     }
 
     static prepGet() {
-        const requestHeaders = Shadowless.requestHeadersMake();
+        const requestHeaders = DOMElement.requestHeadersMake();
         return {
             method: 'GET',
             headers: requestHeaders,
@@ -223,9 +272,9 @@ export class Shadowless extends Core(HTMLElement){
         const requestHeaders = new Headers();
         requestHeaders.append("Content-Type", "application/json");
         if (!localStorage['user_data'])
-            requestHeaders.append("Authorization", `Token ${Shadowless.appSecret}`);
+            requestHeaders.append("Authorization", `Token ${DOMElement.appSecret}`);
         else
-            requestHeaders.append("Authorization", `Token ${Shadowless._fetchToken()}`);
+            requestHeaders.append("Authorization", `Token ${DOMElement._fetchToken()}`);
         return requestHeaders;
     }
 
@@ -273,5 +322,3 @@ export class Shadowless extends Core(HTMLElement){
     }
 
 }
-
-

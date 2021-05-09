@@ -28,7 +28,7 @@ export const modalMixIn = Base => class extends Base {
     /**
      * @property {ImageCanvas}imageCanvas
      * */
-    loadSlots() {
+    loadTargetElements() {
         this.modal = this.getElements('.w3-modal')[0];
         this.canvasContain = this.getElements('.canvas')[0];
         this.imageCanvas = addEl(ImageCanvas.is);
@@ -39,7 +39,7 @@ export const modalMixIn = Base => class extends Base {
         this._model = this.model;
     }
 
-    loadAttributes() {
+    attachAttributesNLogic() {
         this.imageCanvas.addEventListener('changes', event => {
             this._model.image = event.target.src;
         });
