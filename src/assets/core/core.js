@@ -84,7 +84,7 @@ const CoreBase = Base => class extends Base {
                 while (hasInterpolationTokens(item)) {
                     const prop = item.innerText.substring(
                         item.innerText.indexOf(_tokens()[0])
-                          + _tokens()[0].length,
+                        + _tokens()[0].length,
                         item.innerText.indexOf(_tokens()[1])
                     );
                     if (this.hasOwnProperty('model') && !!this[`model`][prop]) {
