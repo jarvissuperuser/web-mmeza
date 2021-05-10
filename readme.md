@@ -42,7 +42,10 @@ declarer([MyElement]);
 ```html
 ...
 <body>
-  <my-element></my-element>  
+  <my-element></my-element>
+  <script src="my-element.js" type="module"></script>  
 </body>
 ...
 ```
+
+License: MIT
