@@ -22,5 +22,5 @@ export const components = [
 ];
 
 export const registerPages = ()=>{
-    declarer(components)
-}
+    declarer(components);
+};

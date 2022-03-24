@@ -28,6 +28,4 @@ export {
     log,
     hideSlides,
     sliderAnimation
- } from './util.js';
-
-
+} from './util.js';

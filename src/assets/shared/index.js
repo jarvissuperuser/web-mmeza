@@ -4,6 +4,7 @@ export {AppSlider} from './app-slider.js';
 export {AppSlide} from './app-slide.js';
 export {AppPips} from './app-pips.js';
 export {AppLayout} from './app-layout.js';
+export {AppLoader} from './app-loader.js';
 export {AppFullPage} from './app-fullpage.js';
 export {AppGallery} from './app-gallery.js';
 export {ImageCanvas} from './image-canvas.js';

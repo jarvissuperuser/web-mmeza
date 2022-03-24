@@ -7,7 +7,7 @@ export class AppLayout extends Core {
     HTMLTemplate() {
         return `
 <div class="pg-page w3-black vh-100">
-    <slot name="content">
+    <div name="content">
       <div class="content-home w3-col s12 w3-grid w3-g-contain">
             <div class="w3-g-third w3-padding">
                 <a class="w3-center" href="#/about">
@@ -34,7 +34,7 @@ export class AppLayout extends Core {
             <i class="linked-in "></i>
         </a>
       </div>
-    </slot>
+    </div>
 </div>
         `;
     }

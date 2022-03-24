@@ -3,11 +3,11 @@ export const doc = document;
 export const win = window;
 export const store = localStorage;
 export function hash() {
-    return location.hash
+    return location.hash;
 }
 export const addEl = (tag = '') => {
     return doc.createElement(tag);
-}
+};
 /**
  * @class Core
  * @description Mixin For Core And DomElement
@@ -17,18 +17,17 @@ const CoreBase = Base => class extends Base {
         this.defaultConfig = {
             count: 4,
             linkPattern: '#home/page'
-        }
+        };
         this.attributeList = [];
         this.slots = [];
         this.stylesFile = './styles.css';
         this.themeFile = './theme.css';
-        this.mapper = {sum:'.summary',con:'.contracts', his:'.history'}
+        this.mapper = {sum:'.summary',con:'.contracts', his:'.history'};
         this._disabled = false;
         this.authGuard();
-        this.render();
     }
     shadowDeclarations() {
-        this.shadow = this.attachShadow({mode: "open"});
+        this.shadow = this.attachShadow({mode: 'open'});
         this.generalDeclarations();
     }
     static get observedAttributes() {
@@ -36,6 +35,7 @@ const CoreBase = Base => class extends Base {
     }
 
     connectedCallback() {
+        this.render();
         if (this.shadow){
             this.loadStyle();
         }
@@ -59,14 +59,14 @@ const CoreBase = Base => class extends Base {
         const {slots} = this;
         slots.forEach(slot => {
             if (this.getAttribute(slot['name'])){
-                slot.innerText = this.getAttribute(slot['name'])
+                slot.innerText = this.getAttribute(slot['name']);
             }
         });
         this.interpolate();
     }
 
     loadTargetElements() {
-        this.slots = this.shadow.querySelectorAll('slot');
+        this.slots = this.shadow.querySelectorAll('div[name]');
         this.textPockets = this.shadow.querySelectorAll('span');
     }
     _tokens() {
@@ -80,17 +80,17 @@ const CoreBase = Base => class extends Base {
         try {
             let {_tokens, hasInterpolationTokens} = this;
             hasInterpolationTokens = hasInterpolationTokens.bind(this);
-            Array.from(this.textPockets).forEach((item, i) => {
+            Array.from(this.textPockets).forEach((item) => {
                 while (hasInterpolationTokens(item)) {
                     const prop = item.innerText.substring(
                         item.innerText.indexOf(_tokens()[0])
                         + _tokens()[0].length,
                         item.innerText.indexOf(_tokens()[1])
                     );
-                    if (this.hasOwnProperty('model') && !!this[`model`][prop]) {
+                    if (this.hasOwnProperty('model') && !!this['model'][prop]) {
                         item.innerText = item
-                            .innerText.replace(`${_tokens()[0]}${prop}${_tokens()[1]}`, this[`model`][prop]);
-                    }else if (!!this[prop]){
+                            .innerText.replace(`${_tokens()[0]}${prop}${_tokens()[1]}`, this['model'][prop]);
+                    }else if (this[prop]){
                         item.innerText = item
                             .innerText.replace(`${_tokens()[0]}${prop}${_tokens()[1]}`, this[prop]);
                     } else {
@@ -110,7 +110,7 @@ const CoreBase = Base => class extends Base {
     }
 
     HTMLTemplate() {
-        return ""
+        return '';
     }
 
     authGuard() {
@@ -160,9 +160,10 @@ const CoreBase = Base => class extends Base {
                 return url[2];
             }
             catch (e) {
-                return "no token";
+                return 'no token';
             }
         }
+        return '';
     }
 
     getElements(tag) {
@@ -172,7 +173,7 @@ const CoreBase = Base => class extends Base {
     getAttrData(qualifiedName) {
         return JSON.parse(this.getAttribute(qualifiedName));
     }
-}
+};
 
 export class Core extends CoreBase(HTMLElement) {
     constructor() {
@@ -183,13 +184,13 @@ export class Core extends CoreBase(HTMLElement) {
         this.setStyleFile(styleFile);
     }
     setStyleFile(styleFile = './styles.css') {
-        let s = document.createElement('style')
+        let s = document.createElement('style');
         s.innerHTML = `@import "${styleFile}";`;
         if (this.shadow)
             this.shadow.appendChild(s);
     }
     setStyles(styles = '') {
-        let s = document.createElement('style')
+        let s = document.createElement('style');
         s.innerHTML = `${styles}`;
         this.shadow.appendChild(s);
     }
@@ -205,6 +206,7 @@ export class DOMElement extends CoreBase(HTMLElement){
     }
 
     connectedCallback() {
+        this.render();
         this.loadTargetElements();
         this.attachAttributesNLogic();
         this.renderedCallback();
@@ -218,13 +220,13 @@ export class DOMElement extends CoreBase(HTMLElement){
         const {slots} = this;
         slots.forEach(slot => {
             if (this.getAttribute(slot['name'])){
-                slot.innerText = this.getAttribute(slot['name'])
+                slot.innerText = this.getAttribute(slot['name']);
             }
         });
     }
 
     loadTargetElements() {
-        this.slots = this.querySelectorAll('slot');
+        this.slots = this.querySelectorAll('div[name]');
         this.textPockets = this.getElements('span');
     }
 
@@ -233,13 +235,14 @@ export class DOMElement extends CoreBase(HTMLElement){
     }
 
     HTMLTemplate() {
-        return ""
+        return '';
     }
 
     static get server() {
         if (location.host.indexOf('localhost') >= 0 || location.host.indexOf('127.0.0.1') >= 0) {
-            return "http://localhost:8000/api";
+            return 'http://localhost:8000/api';
         }
+        return '';
     }
 
 
@@ -270,11 +273,11 @@ export class DOMElement extends CoreBase(HTMLElement){
 
     static requestHeadersMake() {
         const requestHeaders = new Headers();
-        requestHeaders.append("Content-Type", "application/json");
+        requestHeaders.append('Content-Type', 'application/json');
         if (!localStorage['user_data'])
-            requestHeaders.append("Authorization", `Token ${DOMElement.appSecret}`);
+            requestHeaders.append('Authorization', `Token ${DOMElement.appSecret}`);
         else
-            requestHeaders.append("Authorization", `Token ${DOMElement._fetchToken()}`);
+            requestHeaders.append('Authorization', `Token ${DOMElement._fetchToken()}`);
         return requestHeaders;
     }
 

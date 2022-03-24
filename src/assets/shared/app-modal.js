@@ -9,7 +9,7 @@ export class AppModal extends Core {
         return `
 <div class="w3-modal ">
     <div class="w3-modal-content w3-card w3-animate-zoom">
-        <slot name="content">
+        <div name="content">
             <h3 class="w3-center"><span class="modalTitle">${this.modalTitle}</span> <button class="w3-btn w3-red w3-right close">&times;</button></h3>
             <form class="w3-col s12 l6 m6">
                 <image-canvas></image-canvas>
@@ -24,7 +24,7 @@ export class AppModal extends Core {
                 <div class="w3-card-2 w3-round w3-black">
                     <img  alt="Item Name" class="w3-image w3-round w3-round-top">
                     <div class="c-body w3-padding">
-                        <div class="w3-row"><span class="w3-text-large title"></span> <span class="w3-right price">Item Price</span></div> 
+                        <div class="w3-row"><span class="w3-text-large title"></span> <span class="w3-right price">Item Price</span></div>
                         <div class="w3-row"><button class="w3-button w3-white w3-right w3-disabled" disabled>+ Add To Cart</button></div>
                     </div>
                 </div>
@@ -38,9 +38,9 @@ export class AppModal extends Core {
                     <button class="w3-button w3-teal w3-deep-purple">Delete</button>
                 </div>
             </div>
-        </slot>
+        </div>
     </div>
-</div>        
+</div>
         `;
     }
     loadStyle(styleFile = './styles.css') {

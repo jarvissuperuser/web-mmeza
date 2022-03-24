@@ -11,22 +11,22 @@ export const routes = [
 ];
 export const navigate = (route) => {
     doc.querySelector(PageView.is).setAttribute('page',route);
-}
+};
 export const getRoutePath = () => {
     return location.pathname.split('/');
-}
+};
 export const excludedPaths = () => {
     return ['home/page'];
-}
+};
 export const excludedPathPattern = (path) => {
-    return excludedPaths().filter(pattern => path.indexOf(pattern) > 0).length
-}
-export const init = _ => {
+    return excludedPaths().filter(pattern => path.indexOf(pattern) > 0).length;
+};
+export const init = () => {
     let route = hash().split('/')[1];
     if (!(hash().indexOf('home/page')>0)) {
         location.pathname = route;
     }
-}
+};
 
 export const resolvePath = () => {
     // console.log(getRoutePath());
@@ -38,4 +38,4 @@ export const resolvePath = () => {
         }
         navigate(routes[0].path);
     });
-}
+};

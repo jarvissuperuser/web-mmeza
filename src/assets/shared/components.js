@@ -6,6 +6,7 @@ import {
     AppSlide,
     AppGallery,
     AppLayout,
+    AppLoader,
     AppFullPage,
     AppPips,
     AppModal,
@@ -25,6 +26,7 @@ export const commonComponents = [
     AppSlide,
     AppGallery,
     AppLayout,
+    AppLoader,
     AppFullPage,
     AppPips,
     AppModal,
@@ -39,4 +41,4 @@ export const commonComponents = [
 
 export const registerCommon = () => {
     declarer(commonComponents);
-}
+};
