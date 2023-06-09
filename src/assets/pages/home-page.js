@@ -12,13 +12,13 @@ export class HomePage extends Core {
 `;
     }
     loadTargetElements() {
-        super.loadTargetElements();
+        // super.loadTargetElements();
         this.content = this.getElements('div')[0];
         this.fullPageScroll = doc.createElement('app-fullpage');
     }
 
     attachAttributesNLogic() {
-        super.attachAttributesNLogic();
+        // super.attachAttributesNLogic();
         this.fullPageScroll.pages = pages;
         this.content.append(this.fullPageScroll);
     }

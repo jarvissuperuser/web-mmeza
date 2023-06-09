@@ -1,0 +1,565 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<soap-env:Envelope xmlns:soap-env="http://schemas.xmlsoap.org/soap/envelope/">
+    <soap-env:Header>
+        <eb:MessageHeader xmlns:eb="http://www.ebxml.org/namespaces/messageHeader" eb:version="1.0" soap-env:mustUnderstand="1">
+            <eb:From>
+                <eb:PartyId eb:type="URI">https://webservices-as.havail.sabre.com/</eb:PartyId>
+            </eb:From>
+            <eb:To>
+                <eb:PartyId eb:type="URI">kulula.com</eb:PartyId>
+            </eb:To>
+            <eb:CPAId>MN</eb:CPAId>
+            <eb:ConversationId>7cb2a586-0d01-4f78-8a49-35d367541db9@kulula.com</eb:ConversationId>
+            <eb:Service eb:type="sabreXml" />
+            <eb:Action>TravelItineraryReadRQ</eb:Action>
+            <eb:MessageData>
+                <eb:MessageId>6789831758463800603</eb:MessageId>
+                <eb:Timestamp>2022-03-09T21:04:07</eb:Timestamp>
+            </eb:MessageData>
+        </eb:MessageHeader>
+        <wsse:Security xmlns:wsse="http://schemas.xmlsoap.org/ws/2002/12/secext">
+            <wsse:BinarySecurityToken valueType="String" EncodingType="wsse:Base64Binary">Shared/IDL:IceSess\/SessMgr:1\.0.IDL/Common/!ICESMS\/RESA!ICESMSLB\/RES.LB!1646859846240!1270!281</wsse:BinarySecurityToken>
+        </wsse:Security>
+    </soap-env:Header>
+    <soap-env:Body>
+        <tir310:TravelItineraryReadRS xmlns:tir310="http://services.sabre.com/res/tir/v3_10"
+            xmlns:stl="http://services.sabre.com/STL/v01"
+            xmlns:or110="http://services.sabre.com/res/or/v1_11" Version="3.10.0">
+            <stl:ApplicationResults status="Complete">
+                <stl:Success timeStamp="2022-03-09T15:04:07.071-06:00" />
+            </stl:ApplicationResults>
+            <tir310:TravelItinerary>
+                <tir310:CustomerInfo>
+                    <tir310:ContactNumbers>
+                        <tir310:ContactNumber LocationCode="KAS" Phone="27826078901-M-1.1" RPH="001" Id="10" />
+                    </tir310:ContactNumbers>
+                    <tir310:PersonName WithInfant="false" NameNumber="01.01" RPH="1" elementId="pnr-5.1">
+                        <tir310:Email Id="9">MACHANYUE@GMAIL.COM</tir310:Email>
+                        <tir310:GivenName>CHAN YUE</tir310:GivenName>
+                        <tir310:Surname>MA</tir310:Surname>
+                    </tir310:PersonName>
+                    <tir310:PersonName WithInfant="true" NameNumber="02.01" RPH="2" elementId="pnr-6.2">
+                        <tir310:GivenName>MALIK YU JIUN</tir310:GivenName>
+                        <tir310:Surname>MA</tir310:Surname>
+                    </tir310:PersonName>
+                </tir310:CustomerInfo>
+                <tir310:ItineraryInfo>
+                    <tir310:ItineraryPricing>
+                        <tir310:PriceQuote RPH="1">
+                            <tir310:MiscInformation>
+                                <tir310:SignatureLine ExpirationDateTime="15:02" Source="SYS" Status="ACTIVE">
+                                    <tir310:Text>KAS KAS 8SSW 2302/09MAR22</tir310:Text>
+                                </tir310:SignatureLine>
+                            </tir310:MiscInformation>
+                            <tir310:PricedItinerary DisplayOnly="false" InputMessage="WPMZAR¥S1¥S2¥P1ADT/1INF¥RQ" RPH="1" StatusCode="A" TaxExempt="false" ValidatingCarrier="MN" StoredDateTime="2022-03-09T23:02">
+                                <tir310:AirItineraryPricingInfo>
+                                    <tir310:ItinTotalFare>
+                                        <tir310:BaseFare Amount="1660.00" CurrencyCode="ZAR" />
+                                        <tir310:Taxes>
+                                            <tir310:Tax Amount="535.11" TaxCode="XT" />
+                                            <tir310:TaxBreakdownCode TaxPaid="false">249.00ZV</tir310:TaxBreakdownCode>
+                                            <tir310:TaxBreakdownCode TaxPaid="false">183.03ZA</tir310:TaxBreakdownCode>
+                                            <tir310:TaxBreakdownCode TaxPaid="false">55.08EV</tir310:TaxBreakdownCode>
+                                            <tir310:TaxBreakdownCode TaxPaid="false">48.00UM</tir310:TaxBreakdownCode>
+                                        </tir310:Taxes>
+                                        <tir310:TotalFare Amount="2195.11" CurrencyCode="ZAR" />
+                                        <tir310:Totals>
+                                            <tir310:BaseFare Amount="1660.00" />
+                                            <tir310:Taxes>
+                                                <tir310:Tax Amount="535.11" />
+                                            </tir310:Taxes>
+                                            <tir310:TotalFare Amount="2195.11" />
+                                        </tir310:Totals>
+                                    </tir310:ItinTotalFare>
+                                    <tir310:PassengerTypeQuantity Code="ADT" Quantity="01" />
+                                    <tir310:PTC_FareBreakdown>
+                                        <tir310:Endorsements>
+                                            <tir310:Endorsement type="PRICING_PARAMETER">
+                                                <tir310:Text>WPMZAR$S1$S2$P1ADT/1INF$RQ</tir310:Text>
+                                            </tir310:Endorsement>
+                                            <tir310:Endorsement type="WARNING">
+                                                <tir310:Text>PRIVATE FARE APPLIED - CHECK RULES FOR CORRECT TICKETING</tir310:Text>
+                                            </tir310:Endorsement>
+                                            <tir310:Endorsement type="WARNING">
+                                                <tir310:Text>VALIDATING CARRIER SPECIFIED - MN</tir310:Text>
+                                            </tir310:Endorsement>
+                                            <tir310:Endorsement type="SYSTEM_ENDORSEMENT">
+                                                <tir310:Text>NONENDO/VALID BA/MN ONLY/TKT VALIDITY IS 6 MONTHS</tir310:Text>
+                                            </tir310:Endorsement>
+                                        </tir310:Endorsements>
+                                        <tir310:FareBasis Code="P0B/P0B" />
+                                        <tir310:FareCalculation>
+                                            <tir310:Text>JNB MN CPT830.00MN JNB830.00ZAR1660.00END</tir310:Text>
+                                        </tir310:FareCalculation>
+                                        <tir310:FlightSegment ConnectionInd="O" DepartureDateTime="03-30T16:20" FlightNumber="109" ResBookDesigCode="P" SegmentNumber="1" Status="OK">
+                                            <tir310:BaggageAllowance Number="NIL" />
+                                            <tir310:FareBasis Code="P0B" />
+                                            <tir310:MarketingAirline Code="MN" FlightNumber="109" />
+                                            <tir310:OriginLocation LocationCode="JNB" />
+                                            <tir310:ValidityDates>
+                                                <tir310:NotValidAfter>2022-03-30</tir310:NotValidAfter>
+                                                <tir310:NotValidBefore>2022-03-30</tir310:NotValidBefore>
+                                            </tir310:ValidityDates>
+                                        </tir310:FlightSegment>
+                                        <tir310:FlightSegment ConnectionInd="O" DepartureDateTime="04-06T12:45" FlightNumber="106" ResBookDesigCode="P" SegmentNumber="2" Status="OK">
+                                            <tir310:BaggageAllowance Number="NIL" />
+                                            <tir310:FareBasis Code="P0B" />
+                                            <tir310:MarketingAirline Code="MN" FlightNumber="106" />
+                                            <tir310:OriginLocation LocationCode="CPT" />
+                                            <tir310:ValidityDates>
+                                                <tir310:NotValidAfter>2022-04-06</tir310:NotValidAfter>
+                                                <tir310:NotValidBefore>2022-04-06</tir310:NotValidBefore>
+                                            </tir310:ValidityDates>
+                                        </tir310:FlightSegment>
+                                        <tir310:FlightSegment>
+                                            <tir310:OriginLocation LocationCode="JNB" />
+                                        </tir310:FlightSegment>
+                                        <tir310:FareComponent FareBasisCode="P0B" FareDirectionality="FROM" Amount="83000" TicketDesignator="" GoverningCarrier="MN" FareComponentNumber="1">
+                                            <tir310:Location Origin="JNB" Destination="CPT" />
+                                            <tir310:Dates DepartureDateTime="03-30T16:20" ArrivalDateTime="03-30T18:30" />
+                                            <tir310:FlightSegmentNumbers>
+                                                <tir310:FlightSegmentNumber>1</tir310:FlightSegmentNumber>
+                                            </tir310:FlightSegmentNumbers>
+                                        </tir310:FareComponent>
+                                        <tir310:FareComponent FareBasisCode="P0B" FareDirectionality="TO" Amount="83000" TicketDesignator="" GoverningCarrier="MN" FareComponentNumber="2">
+                                            <tir310:Location Origin="CPT" Destination="JNB" />
+                                            <tir310:Dates DepartureDateTime="04-06T12:45" ArrivalDateTime="04-06T14:45" />
+                                            <tir310:FlightSegmentNumbers>
+                                                <tir310:FlightSegmentNumber>2</tir310:FlightSegmentNumber>
+                                            </tir310:FlightSegmentNumbers>
+                                        </tir310:FareComponent>
+                                        <tir310:ResTicketingRestrictions>LAST DAY TO PURCHASE 10MAR/2302</tir310:ResTicketingRestrictions>
+                                        <tir310:ResTicketingRestrictions>GUARANTEED FARE APPL IF PURCHASED BEFORE 10MAR</tir310:ResTicketingRestrictions>
+                                    </tir310:PTC_FareBreakdown>
+                                </tir310:AirItineraryPricingInfo>
+                            </tir310:PricedItinerary>
+                            <tir310:ResponseHeader>
+                                <tir310:Text>FARE - PRICE RETAINED</tir310:Text>
+                                <tir310:Text>FARE NOT GUARANTEED UNTIL TICKETED</tir310:Text>
+                            </tir310:ResponseHeader>
+                            <tir310:PriceQuotePlus DomesticIntlInd="I" PricingStatus="S" VerifyFareCalc="false" ItineraryChanged="false" ManualFare="false" NegotiatedFare="false" SystemIndicator="S" NUCSuppresion="false" SubjToGovtApproval="false" IT_BT_Fare="BT" DisplayOnly="false" DiscountAmount="0">
+                                <tir310:PassengerInfo PassengerType="ADT">
+                                    <tir310:PassengerData NameNumber="01.01">MA/CHAN YUE</tir310:PassengerData>
+                                </tir310:PassengerInfo>
+                                <tir310:TicketingInstructionsInfo />
+                            </tir310:PriceQuotePlus>
+                        </tir310:PriceQuote>
+                        <tir310:PriceQuote RPH="2">
+                            <tir310:MiscInformation>
+                                <tir310:SignatureLine ExpirationDateTime="15:02" Source="SYS" Status="ACTIVE">
+                                    <tir310:Text>KAS KAS 8SSW 2302/09MAR22</tir310:Text>
+                                </tir310:SignatureLine>
+                            </tir310:MiscInformation>
+                            <tir310:PricedItinerary DisplayOnly="false" InputMessage="WPMZAR¥S1¥S2¥P1ADT/1INF¥RQ" RPH="2" StatusCode="A" TaxExempt="false" ValidatingCarrier="MN" StoredDateTime="2022-03-09T23:02">
+                                <tir310:AirItineraryPricingInfo>
+                                    <tir310:ItinTotalFare>
+                                        <tir310:BaseFare Amount="260.00" CurrencyCode="ZAR" />
+                                        <tir310:Taxes>
+                                            <tir310:Tax Amount="39.00" TaxCode="ZV" />
+                                        </tir310:Taxes>
+                                        <tir310:TotalFare Amount="299.00" CurrencyCode="ZAR" />
+                                        <tir310:Totals>
+                                            <tir310:BaseFare Amount="260.00" />
+                                            <tir310:Taxes>
+                                                <tir310:Tax Amount="39.00" />
+                                            </tir310:Taxes>
+                                            <tir310:TotalFare Amount="299.00" />
+                                        </tir310:Totals>
+                                    </tir310:ItinTotalFare>
+                                    <tir310:PassengerTypeQuantity Code="INF" Quantity="01" />
+                                    <tir310:PTC_FareBreakdown>
+                                        <tir310:Endorsements>
+                                            <tir310:Endorsement type="PRICING_PARAMETER">
+                                                <tir310:Text>WPMZAR$S1$S2$P1ADT/1INF$RQ</tir310:Text>
+                                            </tir310:Endorsement>
+                                            <tir310:Endorsement type="WARNING">
+                                                <tir310:Text>REQUIRES ACCOMPANYING ADT PASSENGER</tir310:Text>
+                                            </tir310:Endorsement>
+                                            <tir310:Endorsement type="WARNING">
+                                                <tir310:Text>PRIVATE FARE APPLIED - CHECK RULES FOR CORRECT TICKETING</tir310:Text>
+                                            </tir310:Endorsement>
+                                            <tir310:Endorsement type="WARNING">
+                                                <tir310:Text>EACH INF REQUIRES ACCOMPANYING ADT PASSENGER</tir310:Text>
+                                            </tir310:Endorsement>
+                                            <tir310:Endorsement type="WARNING">
+                                                <tir310:Text>VALIDATING CARRIER SPECIFIED - MN</tir310:Text>
+                                            </tir310:Endorsement>
+                                            <tir310:Endorsement type="SYSTEM_ENDORSEMENT">
+                                                <tir310:Text>NONENDO/VALID BA/MN ONLY/TKT VALIDITY IS 6 MONTHS</tir310:Text>
+                                            </tir310:Endorsement>
+                                        </tir310:Endorsements>
+                                        <tir310:FareBasis Code="P0BIN/P0BIN" />
+                                        <tir310:FareCalculation>
+                                            <tir310:Text>JNB MN CPT130.00MN JNB130.00ZAR260.00END</tir310:Text>
+                                        </tir310:FareCalculation>
+                                        <tir310:FlightSegment ConnectionInd="O" DepartureDateTime="03-30T16:20" FlightNumber="109" ResBookDesigCode="P" SegmentNumber="1" Status="OK">
+                                            <tir310:BaggageAllowance Number="NIL" />
+                                            <tir310:FareBasis Code="P0BIN" />
+                                            <tir310:MarketingAirline Code="MN" FlightNumber="109" />
+                                            <tir310:OriginLocation LocationCode="JNB" />
+                                            <tir310:ValidityDates>
+                                                <tir310:NotValidAfter>2022-03-30</tir310:NotValidAfter>
+                                                <tir310:NotValidBefore>2022-03-30</tir310:NotValidBefore>
+                                            </tir310:ValidityDates>
+                                        </tir310:FlightSegment>
+                                        <tir310:FlightSegment ConnectionInd="O" DepartureDateTime="04-06T12:45" FlightNumber="106" ResBookDesigCode="P" SegmentNumber="2" Status="OK">
+                                            <tir310:BaggageAllowance Number="NIL" />
+                                            <tir310:FareBasis Code="P0BIN" />
+                                            <tir310:MarketingAirline Code="MN" FlightNumber="106" />
+                                            <tir310:OriginLocation LocationCode="CPT" />
+                                            <tir310:ValidityDates>
+                                                <tir310:NotValidAfter>2022-04-06</tir310:NotValidAfter>
+                                                <tir310:NotValidBefore>2022-04-06</tir310:NotValidBefore>
+                                            </tir310:ValidityDates>
+                                        </tir310:FlightSegment>
+                                        <tir310:FlightSegment>
+                                            <tir310:OriginLocation LocationCode="JNB" />
+                                        </tir310:FlightSegment>
+                                        <tir310:FareComponent FareBasisCode="P0BIN" FareDirectionality="FROM" Amount="13000" TicketDesignator="" GoverningCarrier="MN" FareComponentNumber="1">
+                                            <tir310:Location Origin="JNB" Destination="CPT" />
+                                            <tir310:Dates DepartureDateTime="03-30T16:20" ArrivalDateTime="03-30T18:30" />
+                                            <tir310:FlightSegmentNumbers>
+                                                <tir310:FlightSegmentNumber>1</tir310:FlightSegmentNumber>
+                                            </tir310:FlightSegmentNumbers>
+                                        </tir310:FareComponent>
+                                        <tir310:FareComponent FareBasisCode="P0BIN" FareDirectionality="TO" Amount="13000" TicketDesignator="" GoverningCarrier="MN" FareComponentNumber="2">
+                                            <tir310:Location Origin="CPT" Destination="JNB" />
+                                            <tir310:Dates DepartureDateTime="04-06T12:45" ArrivalDateTime="04-06T14:45" />
+                                            <tir310:FlightSegmentNumbers>
+                                                <tir310:FlightSegmentNumber>2</tir310:FlightSegmentNumber>
+                                            </tir310:FlightSegmentNumbers>
+                                        </tir310:FareComponent>
+                                        <tir310:ResTicketingRestrictions>LAST DAY TO PURCHASE 10MAR/2302</tir310:ResTicketingRestrictions>
+                                        <tir310:ResTicketingRestrictions>GUARANTEED FARE APPL IF PURCHASED BEFORE 10MAR</tir310:ResTicketingRestrictions>
+                                    </tir310:PTC_FareBreakdown>
+                                </tir310:AirItineraryPricingInfo>
+                            </tir310:PricedItinerary>
+                            <tir310:ResponseHeader>
+                                <tir310:Text>FARE - PRICE RETAINED</tir310:Text>
+                                <tir310:Text>FARE USED TO CALCULATE DISCOUNT</tir310:Text>
+                                <tir310:Text>FARE NOT GUARANTEED UNTIL TICKETED</tir310:Text>
+                            </tir310:ResponseHeader>
+                            <tir310:PriceQuotePlus DomesticIntlInd="I" PricingStatus="S" VerifyFareCalc="false" ItineraryChanged="false" ManualFare="false" NegotiatedFare="false" SystemIndicator="S" NUCSuppresion="false" SubjToGovtApproval="false" IT_BT_Fare="BT" DisplayOnly="false" DiscountAmount="0">
+                                <tir310:PassengerInfo PassengerType="INF">
+                                    <tir310:PassengerData NameNumber="02.01">MA/MALIK YU JIUN</tir310:PassengerData>
+                                </tir310:PassengerInfo>
+                                <tir310:TicketingInstructionsInfo />
+                            </tir310:PriceQuotePlus>
+                        </tir310:PriceQuote>
+                        <tir310:PriceQuoteTotals>
+                            <tir310:BaseFare Amount="1920.00" />
+                            <tir310:Taxes>
+                                <tir310:Tax Amount="574.11" />
+                            </tir310:Taxes>
+                            <tir310:TotalFare Amount="2494.11" />
+                        </tir310:PriceQuoteTotals>
+                    </tir310:ItineraryPricing>
+                    <tir310:ReservationItems>
+                        <tir310:Item RPH="1">
+                            <tir310:FlightSegment AirMilesFlown="0790" ArrivalDateTime="03-30T18:30" DayOfWeekInd="3" DepartureDateTime="2022-03-30T16:20" SegmentBookedDate="2022-03-09T15:02:00" ElapsedTime="02.10" eTicket="true" FlightNumber="0109" NumberInParty="01" ResBookDesigCode="P" SegmentNumber="0001" SmokingAllowed="false" SpecialMeal="false" Status="HK" StopQuantity="00" IsPast="false" CodeShare="false" Id="3">
+                                <tir310:DestinationLocation LocationCode="CPT" />
+                                <tir310:Equipment AirEquipType="738" />
+                                <tir310:MarketingAirline Code="MN" FlightNumber="0109" ResBookDesigCode="P">
+                                    <tir310:Banner>MARKETED BY COMAIR LTD.</tir310:Banner>
+                                </tir310:MarketingAirline>
+                                <tir310:OperatingAirline Code="MN" FlightNumber="0109" ResBookDesigCode="P">
+                                    <tir310:Banner>COMAIR BRANDED AS KULULA</tir310:Banner>
+                                </tir310:OperatingAirline>
+                                <tir310:OperatingAirlinePricing Code="MN" />
+                                <tir310:DisclosureCarrier Code="MN" DOT="true">
+                                    <tir310:Banner>COMAIR BRANDED AS KULULA</tir310:Banner>
+                                </tir310:DisclosureCarrier>
+                                <tir310:OriginLocation LocationCode="JNB" />
+                                <tir310:UpdatedArrivalTime>03-30T18:30</tir310:UpdatedArrivalTime>
+                                <tir310:UpdatedDepartureTime>03-30T16:20</tir310:UpdatedDepartureTime>
+                            </tir310:FlightSegment>
+                            <tir310:Product>
+                                <or110:ProductDetails productCategory="AIR">
+                                    <or110:ProductName type="AIR" />
+                                    <or110:Air sequence="1" segmentAssociationId="2">
+                                        <or110:DepartureAirport>JNB</or110:DepartureAirport>
+                                        <or110:ArrivalAirport>CPT</or110:ArrivalAirport>
+                                        <or110:OperatingAirlineCode>**</or110:OperatingAirlineCode>
+                                        <or110:EquipmentType>738</or110:EquipmentType>
+                                        <or110:MarketingAirlineCode>MN</or110:MarketingAirlineCode>
+                                        <or110:MarketingFlightNumber>109</or110:MarketingFlightNumber>
+                                        <or110:MarketingClassOfService>P</or110:MarketingClassOfService>
+                                        <or110:ElapsedTime>130</or110:ElapsedTime>
+                                        <or110:AirMilesFlown>790</or110:AirMilesFlown>
+                                        <or110:FunnelFlight>false</or110:FunnelFlight>
+                                        <or110:ChangeOfGauge>false</or110:ChangeOfGauge>
+                                        <or110:DisclosureCarrier Code="MN" DOT="true">
+                                            <or110:Banner>COMAIR BRANDED AS KULULA</or110:Banner>
+                                        </or110:DisclosureCarrier>
+                                        <or110:Eticket>true</or110:Eticket>
+                                        <or110:DepartureDateTime>2022-03-30T16:20:00</or110:DepartureDateTime>
+                                        <or110:ArrivalDateTime>2022-03-30T18:30:00</or110:ArrivalDateTime>
+                                        <or110:FlightNumber>109</or110:FlightNumber>
+                                        <or110:ClassOfService>P</or110:ClassOfService>
+                                        <or110:ActionCode>HK</or110:ActionCode>
+                                        <or110:NumberInParty>1</or110:NumberInParty>
+                                        <or110:inboundConnection>false</or110:inboundConnection>
+                                        <or110:outboundConnection>false</or110:outboundConnection>
+                                        <or110:ScheduleChangeIndicator>false</or110:ScheduleChangeIndicator>
+                                        <or110:SegmentBookedDate>2022-03-09T15:02:00</or110:SegmentBookedDate>
+                                        <or110:Pos>
+                                            <or110:IataNumber>0</or110:IataNumber>
+                                            <or110:AgencyCityCode>KAS</or110:AgencyCityCode>
+                                            <or110:DutyCode>8</or110:DutyCode>
+                                        </or110:Pos>
+                                    </or110:Air>
+                                </or110:ProductDetails>
+                            </tir310:Product>
+                        </tir310:Item>
+                        <tir310:Item RPH="2">
+                            <tir310:FlightSegment AirMilesFlown="0790" ArrivalDateTime="04-06T14:45" DayOfWeekInd="3" DepartureDateTime="2022-04-06T12:45" SegmentBookedDate="2022-03-09T15:02:00" ElapsedTime="02.00" eTicket="true" FlightNumber="0106" NumberInParty="01" ResBookDesigCode="P" SegmentNumber="0002" SmokingAllowed="false" SpecialMeal="false" Status="HK" StopQuantity="00" IsPast="false" CodeShare="false" Id="4">
+                                <tir310:DestinationLocation LocationCode="JNB" />
+                                <tir310:Equipment AirEquipType="738" />
+                                <tir310:MarketingAirline Code="MN" FlightNumber="0106" ResBookDesigCode="P">
+                                    <tir310:Banner>MARKETED BY COMAIR LTD.</tir310:Banner>
+                                </tir310:MarketingAirline>
+                                <tir310:OperatingAirline Code="MN" FlightNumber="0106" ResBookDesigCode="P">
+                                    <tir310:Banner>COMAIR BRANDED AS KULULA</tir310:Banner>
+                                </tir310:OperatingAirline>
+                                <tir310:OperatingAirlinePricing Code="MN" />
+                                <tir310:DisclosureCarrier Code="MN" DOT="true">
+                                    <tir310:Banner>COMAIR BRANDED AS KULULA</tir310:Banner>
+                                </tir310:DisclosureCarrier>
+                                <tir310:OriginLocation LocationCode="CPT" />
+                                <tir310:UpdatedArrivalTime>04-06T14:45</tir310:UpdatedArrivalTime>
+                                <tir310:UpdatedDepartureTime>04-06T12:45</tir310:UpdatedDepartureTime>
+                            </tir310:FlightSegment>
+                            <tir310:Product>
+                                <or110:ProductDetails productCategory="AIR">
+                                    <or110:ProductName type="AIR" />
+                                    <or110:Air sequence="2" segmentAssociationId="3">
+                                        <or110:DepartureAirport>CPT</or110:DepartureAirport>
+                                        <or110:ArrivalAirport>JNB</or110:ArrivalAirport>
+                                        <or110:OperatingAirlineCode>**</or110:OperatingAirlineCode>
+                                        <or110:EquipmentType>738</or110:EquipmentType>
+                                        <or110:MarketingAirlineCode>MN</or110:MarketingAirlineCode>
+                                        <or110:MarketingFlightNumber>106</or110:MarketingFlightNumber>
+                                        <or110:MarketingClassOfService>P</or110:MarketingClassOfService>
+                                        <or110:ElapsedTime>120</or110:ElapsedTime>
+                                        <or110:AirMilesFlown>790</or110:AirMilesFlown>
+                                        <or110:FunnelFlight>false</or110:FunnelFlight>
+                                        <or110:ChangeOfGauge>false</or110:ChangeOfGauge>
+                                        <or110:DisclosureCarrier Code="MN" DOT="true">
+                                            <or110:Banner>COMAIR BRANDED AS KULULA</or110:Banner>
+                                        </or110:DisclosureCarrier>
+                                        <or110:Eticket>true</or110:Eticket>
+                                        <or110:DepartureDateTime>2022-04-06T12:45:00</or110:DepartureDateTime>
+                                        <or110:ArrivalDateTime>2022-04-06T14:45:00</or110:ArrivalDateTime>
+                                        <or110:FlightNumber>106</or110:FlightNumber>
+                                        <or110:ClassOfService>P</or110:ClassOfService>
+                                        <or110:ActionCode>HK</or110:ActionCode>
+                                        <or110:NumberInParty>1</or110:NumberInParty>
+                                        <or110:inboundConnection>false</or110:inboundConnection>
+                                        <or110:outboundConnection>false</or110:outboundConnection>
+                                        <or110:ScheduleChangeIndicator>false</or110:ScheduleChangeIndicator>
+                                        <or110:SegmentBookedDate>2022-03-09T15:02:00</or110:SegmentBookedDate>
+                                        <or110:Pos>
+                                            <or110:IataNumber>0</or110:IataNumber>
+                                            <or110:AgencyCityCode>KAS</or110:AgencyCityCode>
+                                            <or110:DutyCode>8</or110:DutyCode>
+                                        </or110:Pos>
+                                    </or110:Air>
+                                </or110:ProductDetails>
+                            </tir310:Product>
+                        </tir310:Item>
+                        <tir310:Item RPH="3">
+                            <tir310:Ancillaries>
+                                <tir310:AncillaryService id="16" SequenceNumber="1" NameNumber="01.01" NumberOfItems="1" ActionCode="HD" SegmentIndicator="S" BookingIndicator=" " RefundIndicator="N" CommisionIndicator="Y" InterlineIndicator="Y" FeeApplicationIndicator=" " TicketingIndicator="0">
+                                    <tir310:CommercialName>TICKET FEE</tir310:CommercialName>
+                                    <tir310:RficCode>D</tir310:RficCode>
+                                    <tir310:RficSubcode>991</tir310:RficSubcode>
+                                    <tir310:OwningCarrierCode>MN</tir310:OwningCarrierCode>
+                                    <tir310:Vendor>MMGR</tir310:Vendor>
+                                    <tir310:EMDType>1</tir310:EMDType>
+                                    <tir310:EquivalentPrice Price="0" />
+                                    <tir310:TTLPrice Price="55.00" Currency="ZAR" />
+                                    <tir310:OriginalBasePrice Price="55.00" Currency="ZAR" />
+                                    <tir310:TotalOriginalBasePrice Price="55.00" Currency="ZAR" />
+                                    <tir310:TotalEquivalentPrice Price="0" />
+                                    <tir310:TotalTTLPrice Price="55.00" Currency="ZAR" />
+                                    <tir310:BookingSource>0</tir310:BookingSource>
+                                    <tir310:GroupCode>99</tir310:GroupCode>
+                                    <tir310:TicketUsedForEMDPricing>N</tir310:TicketUsedForEMDPricing>
+                                    <tir310:TaxExemption>N</tir310:TaxExemption>
+                                </tir310:AncillaryService>
+                            </tir310:Ancillaries>
+                        </tir310:Item>
+                    </tir310:ReservationItems>
+                    <tir310:Ticketing RPH="01" TicketTimeLimit="TL1122P/09MAR-WED/2322" />
+                </tir310:ItineraryInfo>
+                <tir310:ItineraryRef AirExtras="true" ID="YWSWUE" InhibitCode="U" PartitionID="MN" PrimeHostID="MN">
+                    <tir310:Source AAA_PseudoCityCode="KAS" CreateDateTime="2022-03-09T15:02" CreationAgent="SSW" HomePseudoCityCode="KAS" PseudoCityCode="A0A0" ReceivedFrom="COMAIR RESERVATION SYSTEM" LastUpdateDateTime="2022-03-09T15:03" SequenceNumber="3" />
+                </tir310:ItineraryRef>
+                <tir310:SpecialServiceInfo RPH="001" Type="AFX" Id="7">
+                    <tir310:Service SSR_Code="OSI">
+                        <tir310:PersonName NameNumber="02.01">I/MA/MALIK YU JIUN</tir310:PersonName>
+                        <tir310:Text>MN INF</tir310:Text>
+                    </tir310:Service>
+                </tir310:SpecialServiceInfo>
+                <tir310:SpecialServiceInfo RPH="002" Type="AFX" Id="11">
+                    <tir310:Service SSR_Code="SSR" SSR_Type="INFT">
+                        <tir310:PersonName NameNumber="01.01">MA/CHAN YUE</tir310:PersonName>
+                        <tir310:Text>MN 109P30MAR/MA/MALIK YU JIUN/12JAN22 NN1</tir310:Text>
+                    </tir310:Service>
+                </tir310:SpecialServiceInfo>
+                <tir310:SpecialServiceInfo RPH="003" Type="AFX" Id="12">
+                    <tir310:Service SSR_Code="SSR" SSR_Type="INFT">
+                        <tir310:PersonName NameNumber="01.01">MA/CHAN YUE</tir310:PersonName>
+                        <tir310:Text>MN 106P6APR/MA/MALIK YU JIUN/12JAN22 NN1</tir310:Text>
+                    </tir310:Service>
+                </tir310:SpecialServiceInfo>
+                <tir310:SpecialServiceInfo RPH="004" Type="AFX" Id="14">
+                    <tir310:Service SSR_Code="SSR" SSR_Type="DOCS">
+                        <tir310:PersonName NameNumber="01.01">MA/CHAN YUE</tir310:PersonName>
+                        <tir310:Text>MN HK1/DB/05DEC1988/M/MA/CHAN YUE</tir310:Text>
+                    </tir310:Service>
+                </tir310:SpecialServiceInfo>
+                <tir310:OpenReservationElements>
+                    <or110:OpenReservationElement id="7" type="SRVC" elementId="pnr-7">
+                        <or110:ServiceRequest airlineCode="MN" serviceType="OSI" ssrType="AFX">
+                            <or110:FreeText>INF</or110:FreeText>
+                            <or110:FullText>MN INF</or110:FullText>
+                        </or110:ServiceRequest>
+                        <or110:NameAssociation>
+                            <or110:LastName>MA</or110:LastName>
+                            <or110:FirstName>MALIK YU JIUN</or110:FirstName>
+                            <or110:ReferenceId>2</or110:ReferenceId>
+                            <or110:NameRefNumber>02.01</or110:NameRefNumber>
+                        </or110:NameAssociation>
+                    </or110:OpenReservationElement>
+                    <or110:OpenReservationElement id="11" type="SRVC" elementId="pnr-11">
+                        <or110:ServiceRequest actionCode="NN" airlineCode="MN" code="INFT" serviceCount="1" serviceType="SSR" ssrType="AFX">
+                            <or110:FreeText>/MA/MALIK YU JIUN/12JAN22</or110:FreeText>
+                            <or110:FullText>INFT MN 109P30MAR/MA/MALIK YU JIUN/12JAN22 NN1 </or110:FullText>
+                        </or110:ServiceRequest>
+                        <or110:SegmentAssociation Id="3" SegmentAssociationId="2">
+                            <or110:AirSegment>
+                                <or110:CarrierCode>MN</or110:CarrierCode>
+                                <or110:FlightNumber>109</or110:FlightNumber>
+                                <or110:DepartureDate>2022-03-30</or110:DepartureDate>
+                                <or110:ClassOfService>P</or110:ClassOfService>
+                                <or110:BookingStatus>NN</or110:BookingStatus>
+                            </or110:AirSegment>
+                        </or110:SegmentAssociation>
+                        <or110:NameAssociation>
+                            <or110:LastName>MA</or110:LastName>
+                            <or110:FirstName>CHAN YUE</or110:FirstName>
+                            <or110:ReferenceId>1</or110:ReferenceId>
+                            <or110:NameRefNumber>01.01</or110:NameRefNumber>
+                        </or110:NameAssociation>
+                    </or110:OpenReservationElement>
+                    <or110:OpenReservationElement id="12" type="SRVC" elementId="pnr-12">
+                        <or110:ServiceRequest actionCode="NN" airlineCode="MN" code="INFT" serviceCount="1" serviceType="SSR" ssrType="AFX">
+                            <or110:FreeText>/MA/MALIK YU JIUN/12JAN22</or110:FreeText>
+                            <or110:FullText>INFT MN 106P6APR/MA/MALIK YU JIUN/12JAN22 NN1 </or110:FullText>
+                        </or110:ServiceRequest>
+                        <or110:SegmentAssociation Id="4" SegmentAssociationId="3">
+                            <or110:AirSegment>
+                                <or110:CarrierCode>MN</or110:CarrierCode>
+                                <or110:FlightNumber>106</or110:FlightNumber>
+                                <or110:DepartureDate>2022-04-06</or110:DepartureDate>
+                                <or110:ClassOfService>P</or110:ClassOfService>
+                                <or110:BookingStatus>NN</or110:BookingStatus>
+                            </or110:AirSegment>
+                        </or110:SegmentAssociation>
+                        <or110:NameAssociation>
+                            <or110:LastName>MA</or110:LastName>
+                            <or110:FirstName>CHAN YUE</or110:FirstName>
+                            <or110:ReferenceId>1</or110:ReferenceId>
+                            <or110:NameRefNumber>01.01</or110:NameRefNumber>
+                        </or110:NameAssociation>
+                    </or110:OpenReservationElement>
+                    <or110:OpenReservationElement id="14" type="SRVC" elementId="pnr-14">
+                        <or110:ServiceRequest actionCode="HK" airlineCode="MN" code="DOCS" serviceCount="1" serviceType="SSR" ssrType="AFX">
+                            <or110:FreeText>/DB/05DEC1988/M/MA/CHAN YUE</or110:FreeText>
+                            <or110:FullText>DOCS MN HK1/DB/05DEC1988/M/MA/CHAN YUE</or110:FullText>
+                            <or110:TravelDocument>
+                                <or110:Type>DB</or110:Type>
+                                <or110:DateOfBirth>05DEC1988</or110:DateOfBirth>
+                                <or110:Gender>M</or110:Gender>
+                                <or110:LastName>MA</or110:LastName>
+                                <or110:FirstName>CHAN YUE</or110:FirstName>
+                                <or110:Infant>false</or110:Infant>
+                                <or110:HasDocumentData>false</or110:HasDocumentData>
+                            </or110:TravelDocument>
+                        </or110:ServiceRequest>
+                        <or110:NameAssociation>
+                            <or110:LastName>MA</or110:LastName>
+                            <or110:FirstName>CHAN YUE</or110:FirstName>
+                            <or110:ReferenceId>1</or110:ReferenceId>
+                            <or110:NameRefNumber>01.01</or110:NameRefNumber>
+                        </or110:NameAssociation>
+                    </or110:OpenReservationElement>
+                    <or110:OpenReservationElement id="9" type="PSG_DETAILS_MAIL" elementId="pnr-9">
+                        <or110:Email comment="">
+                            <or110:Address>MACHANYUE@GMAIL.COM</or110:Address>
+                        </or110:Email>
+                        <or110:NameAssociation>
+                            <or110:LastName>MA</or110:LastName>
+                            <or110:FirstName>CHAN YUE</or110:FirstName>
+                            <or110:ReferenceId>1</or110:ReferenceId>
+                            <or110:NameRefNumber>01.01</or110:NameRefNumber>
+                        </or110:NameAssociation>
+                    </or110:OpenReservationElement>
+                    <or110:OpenReservationElement id="d6914f89-b07c-4fbe-b48c-e2d89aa2609c" type="APO" elementId="pnr-or-d6914f89-b07c-4fbe-b48c-e2d89aa2609c">
+                        <or110:AncillaryProduct Id="1">
+                            <or110:XmlData>
+                                <or110:AncillaryServiceData id="16">
+                                    <or110:NameAssociationList>
+                                        <or110:NameAssociationTag>
+                                            <or110:LastName>MA</or110:LastName>
+                                            <or110:FirstName>CHAN YUE</or110:FirstName>
+                                            <or110:ReferenceId>1</or110:ReferenceId>
+                                        </or110:NameAssociationTag>
+                                    </or110:NameAssociationList>
+                                    <or110:CommercialName>TICKET FEE</or110:CommercialName>
+                                    <or110:RficCode>D</or110:RficCode>
+                                    <or110:RficSubcode>991</or110:RficSubcode>
+                                    <or110:OwningCarrierCode>MN</or110:OwningCarrierCode>
+                                    <or110:Vendor>MMGR</or110:Vendor>
+                                    <or110:EMDType>1</or110:EMDType>
+                                    <or110:TTLPrice>
+                                        <or110:Price>55.00</or110:Price>
+                                        <or110:Currency>ZAR</or110:Currency>
+                                    </or110:TTLPrice>
+                                    <or110:OriginalBasePrice>
+                                        <or110:Price>55.00</or110:Price>
+                                        <or110:Currency>ZAR</or110:Currency>
+                                    </or110:OriginalBasePrice>
+                                    <or110:RefundIndicator>N</or110:RefundIndicator>
+                                    <or110:CommisionIndicator>Y</or110:CommisionIndicator>
+                                    <or110:InterlineIndicator>Y</or110:InterlineIndicator>
+                                    <or110:FeeApplicationIndicator></or110:FeeApplicationIndicator>
+                                    <or110:TotalOriginalBasePrice>
+                                        <or110:Price>55.00</or110:Price>
+                                        <or110:Currency>ZAR</or110:Currency>
+                                    </or110:TotalOriginalBasePrice>
+                                    <or110:TotalTTLPrice>
+                                        <or110:Price>55.00</or110:Price>
+                                        <or110:Currency>ZAR</or110:Currency>
+                                    </or110:TotalTTLPrice>
+                                    <or110:NumberOfItems>1</or110:NumberOfItems>
+                                    <or110:ActionCode>HD</or110:ActionCode>
+                                    <or110:SegmentIndicator>S</or110:SegmentIndicator>
+                                    <or110:BookingSource>0</or110:BookingSource>
+                                    <or110:TicketingIndicator>0</or110:TicketingIndicator>
+                                    <or110:GroupCode>99</or110:GroupCode>
+                                    <or110:TicketUsedForEMDPricing>N</or110:TicketUsedForEMDPricing>
+                                    <or110:PaperDocRequired>N</or110:PaperDocRequired>
+                                    <or110:EMDConsummedAtIssuance></or110:EMDConsummedAtIssuance>
+                                    <or110:TaxExemption>N</or110:TaxExemption>
+                                    <or110:ACSCount>0</or110:ACSCount>
+                                </or110:AncillaryServiceData>
+                            </or110:XmlData>
+                        </or110:AncillaryProduct>
+                    </or110:OpenReservationElement>
+                </tir310:OpenReservationElements>
+            </tir310:TravelItinerary>
+        </tir310:TravelItineraryReadRS>
+    </soap-env:Body>
+</soap-env:Envelope>

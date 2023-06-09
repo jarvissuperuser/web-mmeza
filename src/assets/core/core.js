@@ -99,7 +99,7 @@ const CoreBase = Base => class extends Base {
                 }
             });
         } catch (err) {
-            console.log(err);
+            // console.log(err);
         }
     }
 

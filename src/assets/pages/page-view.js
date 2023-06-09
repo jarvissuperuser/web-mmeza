@@ -13,23 +13,24 @@ export class PageView extends DOMElement{
         const filtered = routes.filter(r => r.path === route)[0];
         if (filtered) {
             slot.innerHTML = filtered.view.element;
-            console.log(filtered.view.element);
         } else if ((location.hash.indexOf('home/page')>0)) {
             slot.innerHTML = routes[0].view.element;
         }
-        console.log(filtered);
     }
 
     attachAttributesNLogic() {
         const {slots, navRender} = this;
-        slots.forEach(slot => {
-            console.log('found', slot,slot.getAttribute('name') );
-            console.log(this.getAttribute(slot.getAttribute('name')), slot.getAttribute('name'));
-            if (this.getAttribute(slot.getAttribute('name'))){
-                console.log('next');
-                navRender(this.getAttribute(slot.getAttribute('name')), slot);
-            }
-        });
+        try {
+            slots.forEach(slot => {
+                if (this.getAttribute(slot.getAttribute('name'))) {
+
+                    navRender(this.getAttribute(slot.getAttribute('name')), slot);
+                }
+            });
+        }
+        catch {
+
+        }
     }
 
     static get observedAttributes() {

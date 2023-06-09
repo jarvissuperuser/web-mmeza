@@ -1,0 +1,43 @@
+
+
+<!-- Event Extract from Travel itinerary Tag 2022-03-09 21:01:16.153 -->
+<tir310:FlightSegment ConnectionInd="O" DepartureDateTime="03-30T16:20" FlightNumber="109" ResBookDesigCode="P" SegmentNumber="1" Status="OK">
+    <tir310:BaggageAllowance Number="01P" />
+    <tir310:FareBasis Code="P1BIN" />
+    <tir310:MarketingAirline Code="MN" FlightNumber="109" />
+    <tir310:OriginLocation LocationCode="JNB" />
+    <tir310:ValidityDates>
+        <tir310:NotValidAfter>2022-03-30</tir310:NotValidAfter>
+        <tir310:NotValidBefore>2022-03-30</tir310:NotValidBefore>
+    </tir310:ValidityDates>
+</tir310:FlightSegment>
+
+<!--2022-03-09 21:01:57.047-->
+<tir310:FlightSegment ConnectionInd="O" DepartureDateTime="03-30T16:20" FlightNumber="109" ResBookDesigCode="P" SegmentNumber="1" Status="OK">
+    <tir310:BaggageAllowance Number="NIL" />
+    <tir310:FareBasis Code="P0B" />
+    <tir310:MarketingAirline Code="MN" FlightNumber="109" />
+    <tir310:OriginLocation LocationCode="JNB" />
+    <tir310:ValidityDates>
+        <tir310:NotValidAfter>2022-03-30</tir310:NotValidAfter>
+        <tir310:NotValidBefore>2022-03-30</tir310:NotValidBefore>
+    </tir310:ValidityDates>
+</tir310:FlightSegment>
+
+
+
+
+
+<!--Extract from Travel itinerary Tag 2022-03-09 21:06:48.957-->
+<tir310:FlightSegment ConnectionInd="O" DepartureDateTime="03-30T16:20" FlightNumber="109" ResBookDesigCode="P" SegmentNumber="1" Status="OK">
+    <tir310:BaggageAllowance Number="NIL" />
+    <tir310:FareBasis Code="P0B" />
+    <tir310:MarketingAirline Code="MN" FlightNumber="109" />
+    <tir310:OriginLocation LocationCode="JNB" />
+    <tir310:ValidityDates>
+        <tir310:NotValidAfter>2022-03-30</tir310:NotValidAfter>
+        <tir310:NotValidBefore>2022-03-30</tir310:NotValidBefore>
+    </tir310:ValidityDates>
+</tir310:FlightSegment>
+
+<!--Extract from Travel itinerary Tag 2022-03-09 21:06:48.957-->

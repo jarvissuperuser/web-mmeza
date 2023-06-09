@@ -1,0 +1,957 @@
+<!--2022-03-09 21:02:39.717-->
+<?xml version="1.0" encoding="UTF-8"?>
+<soap-env:Envelope xmlns:soap-env="http://schemas.xmlsoap.org/soap/envelope/">
+    <soap-env:Header>
+        <eb:MessageHeader xmlns:eb="http://www.ebxml.org/namespaces/messageHeader" eb:version="1.0" soap-env:mustUnderstand="1">
+            <eb:From>
+                <eb:PartyId eb:type="URI">https://webservices-as.havail.sabre.com/</eb:PartyId>
+            </eb:From>
+            <eb:To>
+                <eb:PartyId eb:type="URI">kulula.com</eb:PartyId>
+            </eb:To>
+            <eb:CPAId>MN</eb:CPAId>
+            <eb:ConversationId>7cb2a586-0d01-4f78-8a49-35d367541db9@kulula.com</eb:ConversationId>
+            <eb:Action>EnhancedAirBookRS</eb:Action>
+            <eb:MessageData>
+                <eb:MessageId>1himl5di9</eb:MessageId>
+                <eb:Timestamp>2022-03-09T21:02:39</eb:Timestamp>
+            </eb:MessageData>
+        </eb:MessageHeader>
+        <wsse:Security xmlns:wsse="http://schemas.xmlsoap.org/ws/2002/12/secext">
+            <wsse:BinarySecurityToken valueType="String" EncodingType="wsse:Base64Binary">Shared/IDL:IceSess\/SessMgr:1\.0.IDL/Common/!ICESMS\/RESD!ICESMSLB\/RES.LB!1646859758823!8564!269</wsse:BinarySecurityToken>
+        </wsse:Security>
+    </soap-env:Header>
+    <soap-env:Body>
+        <EnhancedAirBookRS xmlns="http://services.sabre.com/sp/eab/v3_10">
+            <ApplicationResults xmlns="http://services.sabre.com/STL_Payload/v02_01"
+                xmlns:ns2="http://services.sabre.com/essm/diagnostic/v1"
+                xmlns:ns3="http://services.sabre.com/essm/core/v1"
+                xmlns:ns4="http://opentravel.org/common/message/v02"
+                xmlns:ns5="http://opentravel.org/common/v02"
+                xmlns:ns6="http://services.sabre.com/STL_Payload/v02_02"
+                xmlns:ns7="http://services.sabre.com/sp/ssp/v1"
+                xmlns:ns8="http://services.sabre.com/STL_Header/v02_02"
+                xmlns:ns9="http://services.sabre.com/STL_Header/v120"
+                xmlns:ns10="http://services.sabre.com/essm/session/v1"
+                xmlns:ns11="http://services.sabre.com/STL_Header/v02_01"
+                xmlns:ns12="http://webservices.sabre.com/servicesplatform/eiapi/1.0.0"
+                xmlns:ns13="http://services.sabre.com/essm/sharedcache/v1"
+                xmlns:ns14="http://www.OpenTravel.org/ns/OTA2/AppInfo_v01_00"
+                xmlns:ns15="http://services.sabre.com/sp/preferences/v1"
+                xmlns:ns16="http://services.sabre.com/STL/v01"
+                xmlns:ns17="http://services.sabre.com/ssse/trace/v01" status="Complete">
+                <Success timeStamp="2022-03-09T15:02:39.597-06:00" />
+            </ApplicationResults>
+            <OTA_AirBookRS>
+                <OriginDestinationOption>
+                    <FlightSegment Status="SS" eTicket="true" DepartureDateTime="03-30T16:20" ArrivalDateTime="03-30T18:30" FlightNumber="0109" NumberInParty="001" ResBookDesigCode="P">
+                        <DestinationLocation LocationCode="CPT" />
+                        <MarketingAirline FlightNumber="0109" Code="MN" />
+                        <OriginLocation LocationCode="JNB" />
+                    </FlightSegment>
+                    <FlightSegment Status="SS" eTicket="true" DepartureDateTime="04-06T12:45" ArrivalDateTime="04-06T14:45" FlightNumber="0106" NumberInParty="001" ResBookDesigCode="P">
+                        <DestinationLocation LocationCode="JNB" />
+                        <MarketingAirline FlightNumber="0106" Code="MN" />
+                        <OriginLocation LocationCode="CPT" />
+                    </FlightSegment>
+                </OriginDestinationOption>
+            </OTA_AirBookRS>
+            <OTA_AirPriceRS>
+                <PriceQuote>
+                    <MiscInformation>
+                        <BaggageInfo>
+                            <SubCodeProperties RPH="1" SolutionSequenceNmbr="1">
+                                <AncillaryFeeGroupCode>BG</AncillaryFeeGroupCode>
+                                <CommercialNameofBaggageItemType>UPTO44LB 20KG BAGGAGE</CommercialNameofBaggageItemType>
+                                <DescriptionOne Code="20">
+                                    <Text>UP TO 44 POUNDS/20 KILOGRAMS</Text>
+                                </DescriptionOne>
+                                <EMD_Type>2</EMD_Type>
+                                <ExtendedSubCodeKey>0C2ACMN</ExtendedSubCodeKey>
+                                <RFIC>C</RFIC>
+                                <SizeWeightInfo>
+                                    <MaximumWeightInAlternate Units="K">20</MaximumWeightInAlternate>
+                                    <MaximumWeight Units="L">44</MaximumWeight>
+                                </SizeWeightInfo>
+                            </SubCodeProperties>
+                            <SubCodeProperties RPH="2" SolutionSequenceNmbr="1">
+                                <AncillaryFeeGroupCode>BG</AncillaryFeeGroupCode>
+                                <CommercialNameofBaggageItemType>UPTO3KG BAGGAGE</CommercialNameofBaggageItemType>
+                                <DescriptionOne Code="03">
+                                    <Text>UP TO 7 POUNDS/3 KILOGRAMS</Text>
+                                </DescriptionOne>
+                                <EMD_Type>2</EMD_Type>
+                                <ExtendedSubCodeKey>0CVACMN</ExtendedSubCodeKey>
+                                <RFIC>C</RFIC>
+                                <SizeWeightInfo>
+                                    <MaximumWeightInAlternate Units="L">7</MaximumWeightInAlternate>
+                                    <MaximumWeight Units="K">3</MaximumWeight>
+                                </SizeWeightInfo>
+                            </SubCodeProperties>
+                            <SubCodeProperties RPH="3" SolutionSequenceNmbr="1">
+                                <AncillaryFeeGroupCode>BG</AncillaryFeeGroupCode>
+                                <CommercialNameofBaggageItemType>FREE BAGGAGE ALLOWANCE</CommercialNameofBaggageItemType>
+                                <EMD_Type>4</EMD_Type>
+                                <ExtendedSubCodeKey>0DFAAMN</ExtendedSubCodeKey>
+                            </SubCodeProperties>
+                            <SubCodeProperties RPH="4" SolutionSequenceNmbr="1">
+                                <AncillaryFeeGroupCode>BG</AncillaryFeeGroupCode>
+                                <AncillaryService SubGroupCode="CY">
+                                    <Text>CARRY ON HAND BAGGAGE</Text>
+                                </AncillaryService>
+                                <CommercialNameofBaggageItemType>CARRYON HAND BAGGAGE ALLOWANCE</CommercialNameofBaggageItemType>
+                                <EMD_Type>4</EMD_Type>
+                                <ExtendedSubCodeKey>0LNABMN</ExtendedSubCodeKey>
+                            </SubCodeProperties>
+                            <SubCodeProperties RPH="5" SolutionSequenceNmbr="1">
+                                <AncillaryFeeGroupCode>BG</AncillaryFeeGroupCode>
+                                <AncillaryService SubGroupCode="CY">
+                                    <Text>CARRY ON HAND BAGGAGE</Text>
+                                </AncillaryService>
+                                <CommercialNameofBaggageItemType>CARRY7KG 15LB UPTO45LI 115LCM</CommercialNameofBaggageItemType>
+                                <DescriptionOne Code="07">
+                                    <Text>UP TO 15 POUNDS/7 KILOGRAMS</Text>
+                                </DescriptionOne>
+                                <DescriptionTwo Code="4U">
+                                    <Text>UP TO 45 LINEAR INCHES/115 LINEAR CENTIMETERS</Text>
+                                </DescriptionTwo>
+                                <EMD_Type>2</EMD_Type>
+                                <ExtendedSubCodeKey>0M3ACMN</ExtendedSubCodeKey>
+                                <RFIC>C</RFIC>
+                                <SizeWeightInfo>
+                                    <MaximumSizeInAlternate Units="C">115</MaximumSizeInAlternate>
+                                    <MaximumSize Units="I">45</MaximumSize>
+                                    <MaximumWeightInAlternate Units="K">7</MaximumWeightInAlternate>
+                                    <MaximumWeight Units="L">15</MaximumWeight>
+                                </SizeWeightInfo>
+                            </SubCodeProperties>
+                        </BaggageInfo>
+                        <HeaderInformation SolutionSequenceNmbr="1">
+                            <DepartureDate>2022-03-30</DepartureDate>
+                            <LastTicketingDate>03-10T23:02</LastTicketingDate>
+                            <Text>PRIVATE FARE APPLIED - CHECK RULES FOR CORRECT TICKETING</Text>
+                            <Text>VALIDATING CARRIER SPECIFIED - MN</Text>
+                            <Text>BAG ALLOWANCE     -JNBCPT-NIL/MN</Text>
+                            <Text>1STCHECKED BAG FEE-JNBCPT-ZAR0.00/MN/UP TO 7 POUNDS/3 KILOGRAMS</Text>
+                            <Text>2NDCHECKED BAG FEE-JNBCPT-ZAR0.00/MN/UP TO 7 POUNDS/3 KILOGRAMS</Text>
+                            <Text>BAG ALLOWANCE     -CPTJNB-NIL/MN</Text>
+                            <Text>1STCHECKED BAG FEE-CPTJNB-ZAR0.00/MN/UP TO 7 POUNDS/3 KILOGRAMS</Text>
+                            <Text>2NDCHECKED BAG FEE-CPTJNB-ZAR0.00/MN/UP TO 7 POUNDS/3 KILOGRAMS</Text>
+                            <Text>CARRY ON ALLOWANCE</Text>
+                            <Text>JNBCPT CPTJNB-01P/MN</Text>
+                            <Text>01/UP TO 15 POUNDS/7 KILOGRAMS AND UP TO 45 LINEAR INCHES/115 L</Text>
+                            <Text>INEAR CENTIMETERS</Text>
+                            <Text>CARRY ON CHARGES</Text>
+                            <Text>JNBCPT CPTJNB-MN-CARRY ON FEES UNKNOWN-CONTACT CARRIER</Text>
+                            <Text>ADDITIONAL ALLOWANCES AND/OR DISCOUNTS MAY APPLY DEPENDING ON</Text>
+                            <Text>FLYER-SPECIFIC FACTORS /E.G. FREQUENT FLYER STATUS/MILITARY/</Text>
+                            <Text>CREDIT CARD FORM OF PAYMENT/EARLY PURCHASE OVER INTERNET,ETC./</Text>
+                            <Text>REQUIRES ACCOMPANYING ADT PASSENGER</Text>
+                            <Text>PRIVATE FARE APPLIED - CHECK RULES FOR CORRECT TICKETING</Text>
+                            <Text>EACH INF REQUIRES ACCOMPANYING ADT PASSENGER</Text>
+                            <Text>VALIDATING CARRIER SPECIFIED - MN</Text>
+                            <Text>BAG ALLOWANCE     -JNBCPT-NIL/MN</Text>
+                            <Text>1STCHECKED BAG FEE-JNBCPT-NOT PERMITTED/MN/UP TO 44 POUNDS/20 K</Text>
+                            <Text>ILOGRAMS</Text>
+                            <Text>2NDCHECKED BAG FEE-JNBCPT-NOT PERMITTED/MN/UP TO 44 POUNDS/20 K</Text>
+                            <Text>ILOGRAMS</Text>
+                            <Text>BAG ALLOWANCE     -CPTJNB-NIL/MN</Text>
+                            <Text>1STCHECKED BAG FEE-CPTJNB-NOT PERMITTED/MN/UP TO 44 POUNDS/20 K</Text>
+                            <Text>ILOGRAMS</Text>
+                            <Text>2NDCHECKED BAG FEE-CPTJNB-NOT PERMITTED/MN/UP TO 44 POUNDS/20 K</Text>
+                            <Text>ILOGRAMS</Text>
+                            <Text>CARRY ON ALLOWANCE</Text>
+                            <Text>JNBCPT CPTJNB-01P/MN</Text>
+                            <Text>01/UP TO 15 POUNDS/7 KILOGRAMS AND UP TO 45 LINEAR INCHES/115 L</Text>
+                            <Text>INEAR CENTIMETERS</Text>
+                            <Text>CARRY ON CHARGES</Text>
+                            <Text>JNBCPT CPTJNB-MN-CARRY ON FEES UNKNOWN-CONTACT CARRIER</Text>
+                            <Text>ADDITIONAL ALLOWANCES AND/OR DISCOUNTS MAY APPLY DEPENDING ON</Text>
+                            <Text>FLYER-SPECIFIC FACTORS /E.G. FREQUENT FLYER STATUS/MILITARY/</Text>
+                            <Text>CREDIT CARD FORM OF PAYMENT/EARLY PURCHASE OVER INTERNET,ETC./</Text>
+                            <Text>30MAR DEPARTURE DATE-----LAST DAY TO PURCHASE 10MAR/2302</Text>
+                            <Text>ELECTRONIC TICKETING ELIGIBLE</Text>
+                            <ValidatingCarrier Code="MN" />
+                        </HeaderInformation>
+                        <SolutionInformation SolutionSequenceNmbr="1">
+                            <BaseFareCurrencyCode>ZAR</BaseFareCurrencyCode>
+                            <CurrencyCode>ZAR</CurrencyCode>
+                            <GrandTotalEquivFareAmount>1920.00</GrandTotalEquivFareAmount>
+                            <GrandTotalTaxes>574.11</GrandTotalTaxes>
+                            <RequiresRebook>false</RequiresRebook>
+                            <TicketNumber>0</TicketNumber>
+                            <TotalAmount>2494.11</TotalAmount>
+                        </SolutionInformation>
+                    </MiscInformation>
+                    <PricedItinerary CurrencyCode="ZAR" AlternativePricing="false" MultiTicket="false" TotalAmount="2494.11">
+                        <AirItineraryPricingInfo SolutionSequenceNmbr="1">
+                            <BaggageProvisions RPH="1">
+                                <Associations>
+                                    <CarrierCode RPH="1">MN</CarrierCode>
+                                    <CountForSegmentAssociatedID>1</CountForSegmentAssociatedID>
+                                    <DepartureDate RPH="1">2022-03-30</DepartureDate>
+                                    <DestinationLocation LocationCode="CPT" RPH="1" />
+                                    <FlightNumber RPH="1">109</FlightNumber>
+                                    <OriginLocation LocationCode="JNB" RPH="1" />
+                                    <PNR_Segment RPH="1">2</PNR_Segment>
+                                    <ResBookDesigCode RPH="1">P</ResBookDesigCode>
+                                    <StatusCode RPH="1">SS</StatusCode>
+                                </Associations>
+                                <CarrierWhoseBaggageProvisionsApply>MN</CarrierWhoseBaggageProvisionsApply>
+                                <NumPiecesBDI>0</NumPiecesBDI>
+                                <ProvisionType>A</ProvisionType>
+                                <SubCodeInfo>
+                                    <SubCodeForChargesOthers>0DFAAMN</SubCodeForChargesOthers>
+                                </SubCodeInfo>
+                            </BaggageProvisions>
+                            <BaggageProvisions RPH="2">
+                                <Associations>
+                                    <CarrierCode RPH="1">MN</CarrierCode>
+                                    <CountForSegmentAssociatedID>1</CountForSegmentAssociatedID>
+                                    <DepartureDate RPH="1">2022-03-30</DepartureDate>
+                                    <DestinationLocation LocationCode="CPT" RPH="1" />
+                                    <FlightNumber RPH="1">109</FlightNumber>
+                                    <OriginLocation LocationCode="JNB" RPH="1" />
+                                    <PNR_Segment RPH="1">2</PNR_Segment>
+                                    <ResBookDesigCode RPH="1">P</ResBookDesigCode>
+                                    <StatusCode RPH="1">SS</StatusCode>
+                                </Associations>
+                                <CarrierWhoseBaggageProvisionsApply>MN</CarrierWhoseBaggageProvisionsApply>
+                                <Commissionable>N</Commissionable>
+                                <FeeNotGuaranteedIndicator>N</FeeNotGuaranteedIndicator>
+                                <FirstOccurrence>1</FirstOccurrence>
+                                <LastOccurrence>9</LastOccurrence>
+                                <NoChargeNotAvailableIndicator>F</NoChargeNotAvailableIndicator>
+                                <PassengerType Code="ADT" />
+                                <PriceInformation>
+                                    <Base CurrencyCode="ZAR" Amount="0.00" />
+                                    <Equiv CurrencyCode="ZAR" Amount="0.00" />
+                                    <Total>0.00</Total>
+                                </PriceInformation>
+                                <ProvisionType>C</ProvisionType>
+                                <RefundReissue>N</RefundReissue>
+                                <SubCodeInfo>
+                                    <SubCodeForChargesOthers>0CVACMN</SubCodeForChargesOthers>
+                                </SubCodeInfo>
+                            </BaggageProvisions>
+                            <BaggageProvisions RPH="3">
+                                <Associations>
+                                    <CarrierCode RPH="1">MN</CarrierCode>
+                                    <CountForSegmentAssociatedID>1</CountForSegmentAssociatedID>
+                                    <DepartureDate RPH="1">2022-03-30</DepartureDate>
+                                    <DestinationLocation LocationCode="CPT" RPH="1" />
+                                    <FlightNumber RPH="1">109</FlightNumber>
+                                    <OriginLocation LocationCode="JNB" RPH="1" />
+                                    <PNR_Segment RPH="1">2</PNR_Segment>
+                                    <ResBookDesigCode RPH="1">P</ResBookDesigCode>
+                                    <StatusCode RPH="1">SS</StatusCode>
+                                </Associations>
+                                <CarrierWhoseBaggageProvisionsApply>MN</CarrierWhoseBaggageProvisionsApply>
+                                <Commissionable>N</Commissionable>
+                                <FeeNotGuaranteedIndicator>N</FeeNotGuaranteedIndicator>
+                                <FirstOccurrence>1</FirstOccurrence>
+                                <LastOccurrence>9</LastOccurrence>
+                                <NoChargeNotAvailableIndicator>F</NoChargeNotAvailableIndicator>
+                                <PassengerType Code="ADT" />
+                                <PriceInformation>
+                                    <Base CurrencyCode="ZAR" Amount="0.00" />
+                                    <Equiv CurrencyCode="ZAR" Amount="0.00" />
+                                    <Total>0.00</Total>
+                                </PriceInformation>
+                                <ProvisionType>P</ProvisionType>
+                                <RefundReissue>N</RefundReissue>
+                                <SubCodeInfo>
+                                    <SubCodeForChargesOthers>0CVACMN</SubCodeForChargesOthers>
+                                </SubCodeInfo>
+                            </BaggageProvisions>
+                            <BaggageProvisions RPH="4">
+                                <Associations>
+                                    <CarrierCode RPH="1">MN</CarrierCode>
+                                    <CountForSegmentAssociatedID>1</CountForSegmentAssociatedID>
+                                    <DepartureDate RPH="1">2022-03-30</DepartureDate>
+                                    <DestinationLocation LocationCode="CPT" RPH="1" />
+                                    <FlightNumber RPH="1">109</FlightNumber>
+                                    <OriginLocation LocationCode="JNB" RPH="1" />
+                                    <PNR_Segment RPH="1">2</PNR_Segment>
+                                    <ResBookDesigCode RPH="1">P</ResBookDesigCode>
+                                    <StatusCode RPH="1">SS</StatusCode>
+                                </Associations>
+                                <CarrierWhoseBaggageProvisionsApply>MN</CarrierWhoseBaggageProvisionsApply>
+                                <Commissionable>N</Commissionable>
+                                <FeeNotGuaranteedIndicator>N</FeeNotGuaranteedIndicator>
+                                <FirstOccurrence>1</FirstOccurrence>
+                                <LastOccurrence>9</LastOccurrence>
+                                <NoChargeNotAvailableIndicator>F</NoChargeNotAvailableIndicator>
+                                <PassengerType Code="ADT" />
+                                <PriceInformation>
+                                    <Base CurrencyCode="ZAR" Amount="0.00" />
+                                    <Equiv CurrencyCode="ZAR" Amount="0.00" />
+                                    <Total>0.00</Total>
+                                </PriceInformation>
+                                <ProvisionType>C</ProvisionType>
+                                <RefundReissue>N</RefundReissue>
+                                <SubCodeInfo>
+                                    <SubCodeForChargesOthers>0CVACMN</SubCodeForChargesOthers>
+                                </SubCodeInfo>
+                            </BaggageProvisions>
+                            <BaggageProvisions RPH="5">
+                                <Associations>
+                                    <CarrierCode RPH="1">MN</CarrierCode>
+                                    <CountForSegmentAssociatedID>1</CountForSegmentAssociatedID>
+                                    <DepartureDate RPH="1">2022-03-30</DepartureDate>
+                                    <DestinationLocation LocationCode="CPT" RPH="1" />
+                                    <FlightNumber RPH="1">109</FlightNumber>
+                                    <OriginLocation LocationCode="JNB" RPH="1" />
+                                    <PNR_Segment RPH="1">2</PNR_Segment>
+                                    <ResBookDesigCode RPH="1">P</ResBookDesigCode>
+                                    <StatusCode RPH="1">SS</StatusCode>
+                                </Associations>
+                                <CarrierWhoseBaggageProvisionsApply>MN</CarrierWhoseBaggageProvisionsApply>
+                                <Commissionable>N</Commissionable>
+                                <FeeNotGuaranteedIndicator>N</FeeNotGuaranteedIndicator>
+                                <FirstOccurrence>1</FirstOccurrence>
+                                <LastOccurrence>9</LastOccurrence>
+                                <NoChargeNotAvailableIndicator>F</NoChargeNotAvailableIndicator>
+                                <PassengerType Code="ADT" />
+                                <PriceInformation>
+                                    <Base CurrencyCode="ZAR" Amount="0.00" />
+                                    <Equiv CurrencyCode="ZAR" Amount="0.00" />
+                                    <Total>0.00</Total>
+                                </PriceInformation>
+                                <ProvisionType>P</ProvisionType>
+                                <RefundReissue>N</RefundReissue>
+                                <SubCodeInfo>
+                                    <SubCodeForChargesOthers>0CVACMN</SubCodeForChargesOthers>
+                                </SubCodeInfo>
+                            </BaggageProvisions>
+                            <BaggageProvisions RPH="6">
+                                <Associations>
+                                    <CarrierCode RPH="1">MN</CarrierCode>
+                                    <CountForSegmentAssociatedID>1</CountForSegmentAssociatedID>
+                                    <DepartureDate RPH="1">2022-04-06</DepartureDate>
+                                    <DestinationLocation LocationCode="JNB" RPH="1" />
+                                    <FlightNumber RPH="1">106</FlightNumber>
+                                    <OriginLocation LocationCode="CPT" RPH="1" />
+                                    <PNR_Segment RPH="1">3</PNR_Segment>
+                                    <ResBookDesigCode RPH="1">P</ResBookDesigCode>
+                                    <StatusCode RPH="1">SS</StatusCode>
+                                </Associations>
+                                <CarrierWhoseBaggageProvisionsApply>MN</CarrierWhoseBaggageProvisionsApply>
+                                <NumPiecesBDI>0</NumPiecesBDI>
+                                <ProvisionType>A</ProvisionType>
+                                <SubCodeInfo>
+                                    <SubCodeForChargesOthers>0DFAAMN</SubCodeForChargesOthers>
+                                </SubCodeInfo>
+                            </BaggageProvisions>
+                            <BaggageProvisions RPH="7">
+                                <Associations>
+                                    <CarrierCode RPH="1">MN</CarrierCode>
+                                    <CountForSegmentAssociatedID>1</CountForSegmentAssociatedID>
+                                    <DepartureDate RPH="1">2022-04-06</DepartureDate>
+                                    <DestinationLocation LocationCode="JNB" RPH="1" />
+                                    <FlightNumber RPH="1">106</FlightNumber>
+                                    <OriginLocation LocationCode="CPT" RPH="1" />
+                                    <PNR_Segment RPH="1">3</PNR_Segment>
+                                    <ResBookDesigCode RPH="1">P</ResBookDesigCode>
+                                    <StatusCode RPH="1">SS</StatusCode>
+                                </Associations>
+                                <CarrierWhoseBaggageProvisionsApply>MN</CarrierWhoseBaggageProvisionsApply>
+                                <Commissionable>N</Commissionable>
+                                <FeeNotGuaranteedIndicator>N</FeeNotGuaranteedIndicator>
+                                <FirstOccurrence>1</FirstOccurrence>
+                                <LastOccurrence>9</LastOccurrence>
+                                <NoChargeNotAvailableIndicator>F</NoChargeNotAvailableIndicator>
+                                <PassengerType Code="ADT" />
+                                <PriceInformation>
+                                    <Base CurrencyCode="ZAR" Amount="0.00" />
+                                    <Equiv CurrencyCode="ZAR" Amount="0.00" />
+                                    <Total>0.00</Total>
+                                </PriceInformation>
+                                <ProvisionType>C</ProvisionType>
+                                <RefundReissue>N</RefundReissue>
+                                <SubCodeInfo>
+                                    <SubCodeForChargesOthers>0CVACMN</SubCodeForChargesOthers>
+                                </SubCodeInfo>
+                            </BaggageProvisions>
+                            <BaggageProvisions RPH="8">
+                                <Associations>
+                                    <CarrierCode RPH="1">MN</CarrierCode>
+                                    <CountForSegmentAssociatedID>1</CountForSegmentAssociatedID>
+                                    <DepartureDate RPH="1">2022-04-06</DepartureDate>
+                                    <DestinationLocation LocationCode="JNB" RPH="1" />
+                                    <FlightNumber RPH="1">106</FlightNumber>
+                                    <OriginLocation LocationCode="CPT" RPH="1" />
+                                    <PNR_Segment RPH="1">3</PNR_Segment>
+                                    <ResBookDesigCode RPH="1">P</ResBookDesigCode>
+                                    <StatusCode RPH="1">SS</StatusCode>
+                                </Associations>
+                                <CarrierWhoseBaggageProvisionsApply>MN</CarrierWhoseBaggageProvisionsApply>
+                                <Commissionable>N</Commissionable>
+                                <FeeNotGuaranteedIndicator>N</FeeNotGuaranteedIndicator>
+                                <FirstOccurrence>1</FirstOccurrence>
+                                <LastOccurrence>9</LastOccurrence>
+                                <NoChargeNotAvailableIndicator>F</NoChargeNotAvailableIndicator>
+                                <PassengerType Code="ADT" />
+                                <PriceInformation>
+                                    <Base CurrencyCode="ZAR" Amount="0.00" />
+                                    <Equiv CurrencyCode="ZAR" Amount="0.00" />
+                                    <Total>0.00</Total>
+                                </PriceInformation>
+                                <ProvisionType>P</ProvisionType>
+                                <RefundReissue>N</RefundReissue>
+                                <SubCodeInfo>
+                                    <SubCodeForChargesOthers>0CVACMN</SubCodeForChargesOthers>
+                                </SubCodeInfo>
+                            </BaggageProvisions>
+                            <BaggageProvisions RPH="9">
+                                <Associations>
+                                    <CarrierCode RPH="1">MN</CarrierCode>
+                                    <CountForSegmentAssociatedID>1</CountForSegmentAssociatedID>
+                                    <DepartureDate RPH="1">2022-04-06</DepartureDate>
+                                    <DestinationLocation LocationCode="JNB" RPH="1" />
+                                    <FlightNumber RPH="1">106</FlightNumber>
+                                    <OriginLocation LocationCode="CPT" RPH="1" />
+                                    <PNR_Segment RPH="1">3</PNR_Segment>
+                                    <ResBookDesigCode RPH="1">P</ResBookDesigCode>
+                                    <StatusCode RPH="1">SS</StatusCode>
+                                </Associations>
+                                <CarrierWhoseBaggageProvisionsApply>MN</CarrierWhoseBaggageProvisionsApply>
+                                <Commissionable>N</Commissionable>
+                                <FeeNotGuaranteedIndicator>N</FeeNotGuaranteedIndicator>
+                                <FirstOccurrence>1</FirstOccurrence>
+                                <LastOccurrence>9</LastOccurrence>
+                                <NoChargeNotAvailableIndicator>F</NoChargeNotAvailableIndicator>
+                                <PassengerType Code="ADT" />
+                                <PriceInformation>
+                                    <Base CurrencyCode="ZAR" Amount="0.00" />
+                                    <Equiv CurrencyCode="ZAR" Amount="0.00" />
+                                    <Total>0.00</Total>
+                                </PriceInformation>
+                                <ProvisionType>C</ProvisionType>
+                                <RefundReissue>N</RefundReissue>
+                                <SubCodeInfo>
+                                    <SubCodeForChargesOthers>0CVACMN</SubCodeForChargesOthers>
+                                </SubCodeInfo>
+                            </BaggageProvisions>
+                            <BaggageProvisions RPH="10">
+                                <Associations>
+                                    <CarrierCode RPH="1">MN</CarrierCode>
+                                    <CountForSegmentAssociatedID>1</CountForSegmentAssociatedID>
+                                    <DepartureDate RPH="1">2022-04-06</DepartureDate>
+                                    <DestinationLocation LocationCode="JNB" RPH="1" />
+                                    <FlightNumber RPH="1">106</FlightNumber>
+                                    <OriginLocation LocationCode="CPT" RPH="1" />
+                                    <PNR_Segment RPH="1">3</PNR_Segment>
+                                    <ResBookDesigCode RPH="1">P</ResBookDesigCode>
+                                    <StatusCode RPH="1">SS</StatusCode>
+                                </Associations>
+                                <CarrierWhoseBaggageProvisionsApply>MN</CarrierWhoseBaggageProvisionsApply>
+                                <Commissionable>N</Commissionable>
+                                <FeeNotGuaranteedIndicator>N</FeeNotGuaranteedIndicator>
+                                <FirstOccurrence>1</FirstOccurrence>
+                                <LastOccurrence>9</LastOccurrence>
+                                <NoChargeNotAvailableIndicator>F</NoChargeNotAvailableIndicator>
+                                <PassengerType Code="ADT" />
+                                <PriceInformation>
+                                    <Base CurrencyCode="ZAR" Amount="0.00" />
+                                    <Equiv CurrencyCode="ZAR" Amount="0.00" />
+                                    <Total>0.00</Total>
+                                </PriceInformation>
+                                <ProvisionType>P</ProvisionType>
+                                <RefundReissue>N</RefundReissue>
+                                <SubCodeInfo>
+                                    <SubCodeForChargesOthers>0CVACMN</SubCodeForChargesOthers>
+                                </SubCodeInfo>
+                            </BaggageProvisions>
+                            <BaggageProvisions RPH="11">
+                                <Associations>
+                                    <CarrierCode RPH="1">MN</CarrierCode>
+                                    <CarrierCode RPH="2">MN</CarrierCode>
+                                    <CountForSegmentAssociatedID>2</CountForSegmentAssociatedID>
+                                    <DepartureDate RPH="1">2022-03-30</DepartureDate>
+                                    <DepartureDate RPH="2">2022-04-06</DepartureDate>
+                                    <DestinationLocation LocationCode="CPT" RPH="1" />
+                                    <DestinationLocation LocationCode="JNB" RPH="2" />
+                                    <FlightNumber RPH="1">109</FlightNumber>
+                                    <FlightNumber RPH="2">106</FlightNumber>
+                                    <OriginLocation LocationCode="JNB" RPH="1" />
+                                    <OriginLocation LocationCode="CPT" RPH="2" />
+                                    <PNR_Segment RPH="1">2</PNR_Segment>
+                                    <PNR_Segment RPH="2">3</PNR_Segment>
+                                    <ResBookDesigCode RPH="1">P</ResBookDesigCode>
+                                    <ResBookDesigCode RPH="2">P</ResBookDesigCode>
+                                    <StatusCode RPH="1">SS</StatusCode>
+                                    <StatusCode RPH="2">SS</StatusCode>
+                                </Associations>
+                                <CarrierWhoseBaggageProvisionsApply>MN</CarrierWhoseBaggageProvisionsApply>
+                                <NumPiecesBDI>1</NumPiecesBDI>
+                                <NumPiecesITR>1</NumPiecesITR>
+                                <ProvisionType>B</ProvisionType>
+                                <SubCodeInfo>
+                                    <SubCodeForAllowance RPH="1">0M3ACMN</SubCodeForAllowance>
+                                    <SubCodeForChargesOthers>0LNABMN</SubCodeForChargesOthers>
+                                </SubCodeInfo>
+                            </BaggageProvisions>
+                            <FareCalculation>
+                                <Text>JNB MN CPT830.00MN JNB830.00ZAR1660.00END</Text>
+                            </FareCalculation>
+                            <FareCalculationBreakdown>
+                                <Branch PCC="KAS" FirstJointCarrier="MN" />
+                                <Departure AirlineCode="MN" CityCode="JNB" AirportCode="JNB" ArrivalCityCode="CPT" GenericInd="O" ArrivalAirportCode="CPT" />
+                                <FareBasis FilingCarrier="MN" FarePassengerType="ADT" TripTypeInd="R" Cabin="Y" FareType="P" FareAmount="830.00" Code="P0B" GlobalInd="EH" Market="JNBCPT" />
+                                <FreeBaggageAllowance>NONIL</FreeBaggageAllowance>
+                                <RuleCategoryIndicator>4</RuleCategoryIndicator>
+                                <RuleCategoryIndicator>5</RuleCategoryIndicator>
+                                <RuleCategoryIndicator>7</RuleCategoryIndicator>
+                                <RuleCategoryIndicator>8</RuleCategoryIndicator>
+                                <RuleCategoryIndicator>9</RuleCategoryIndicator>
+                                <RuleCategoryIndicator>10</RuleCategoryIndicator>
+                                <RuleCategoryIndicator>12</RuleCategoryIndicator>
+                                <RuleCategoryIndicator>15</RuleCategoryIndicator>
+                                <RuleCategoryIndicator>16</RuleCategoryIndicator>
+                                <RuleCategoryIndicator>18</RuleCategoryIndicator>
+                                <RuleCategoryIndicator>23</RuleCategoryIndicator>
+                            </FareCalculationBreakdown>
+                            <FareCalculationBreakdown>
+                                <Branch PCC="KAS" FirstJointCarrier="MN" />
+                                <Departure AirlineCode="MN" CityCode="CPT" AirportCode="CPT" ArrivalCityCode="JNB" GenericInd="O" ArrivalAirportCode="JNB" />
+                                <FareBasis FilingCarrier="MN" FarePassengerType="ADT" TripTypeInd="R" Cabin="Y" FareType="P" FareAmount="830.00" Code="P0B" GlobalInd="EH" Market="JNBCPT" />
+                                <FreeBaggageAllowance>NONIL</FreeBaggageAllowance>
+                                <RuleCategoryIndicator>4</RuleCategoryIndicator>
+                                <RuleCategoryIndicator>5</RuleCategoryIndicator>
+                                <RuleCategoryIndicator>7</RuleCategoryIndicator>
+                                <RuleCategoryIndicator>8</RuleCategoryIndicator>
+                                <RuleCategoryIndicator>9</RuleCategoryIndicator>
+                                <RuleCategoryIndicator>10</RuleCategoryIndicator>
+                                <RuleCategoryIndicator>12</RuleCategoryIndicator>
+                                <RuleCategoryIndicator>15</RuleCategoryIndicator>
+                                <RuleCategoryIndicator>16</RuleCategoryIndicator>
+                                <RuleCategoryIndicator>18</RuleCategoryIndicator>
+                                <RuleCategoryIndicator>23</RuleCategoryIndicator>
+                            </FareCalculationBreakdown>
+                            <ItinTotalFare NonRefundableInd="N">
+                                <BaggageInfo>
+                                    <NonUS_DOT_Disclosure>
+                                        <Text>BAG ALLOWANCE     -JNBCPT-NIL/MN</Text>
+                                        <Text>1STCHECKED BAG FEE-JNBCPT-ZAR0.00/MN/UP TO 7 POUNDS/3 KILOGRAMS</Text>
+                                        <Text>2NDCHECKED BAG FEE-JNBCPT-ZAR0.00/MN/UP TO 7 POUNDS/3 KILOGRAMS</Text>
+                                        <Text>BAG ALLOWANCE     -CPTJNB-NIL/MN</Text>
+                                        <Text>1STCHECKED BAG FEE-CPTJNB-ZAR0.00/MN/UP TO 7 POUNDS/3 KILOGRAMS</Text>
+                                        <Text>2NDCHECKED BAG FEE-CPTJNB-ZAR0.00/MN/UP TO 7 POUNDS/3 KILOGRAMS</Text>
+                                        <Text>CARRY ON ALLOWANCE</Text>
+                                        <Text>JNBCPT CPTJNB-01P/MN</Text>
+                                        <Text>01/UP TO 15 POUNDS/7 KILOGRAMS AND UP TO 45 LINEAR INCHES/115 L</Text>
+                                        <Text>INEAR CENTIMETERS</Text>
+                                        <Text>CARRY ON CHARGES</Text>
+                                        <Text>JNBCPT CPTJNB-MN-CARRY ON FEES UNKNOWN-CONTACT CARRIER</Text>
+                                        <Text>ADDITIONAL ALLOWANCES AND/OR DISCOUNTS MAY APPLY DEPENDING ON</Text>
+                                        <Text>FLYER-SPECIFIC FACTORS /E.G. FREQUENT FLYER STATUS/MILITARY/</Text>
+                                        <Text>CREDIT CARD FORM OF PAYMENT/EARLY PURCHASE OVER INTERNET,ETC./</Text>
+                                    </NonUS_DOT_Disclosure>
+                                </BaggageInfo>
+                                <BaseFare CurrencyCode="ZAR" Amount="1660.00" />
+                                <Construction CurrencyCode="ZAR" RateOfExchange="15.414096" Amount="1660.00" />
+                                <Endorsements>
+                                    <Text>NONENDO/VALID BA/MN ONLY/TKT VALIDITY IS 6 MONTHS</Text>
+                                </Endorsements>
+                                <Taxes TotalAmount="535.11">
+                                    <Tax TaxCode="ZV2" Amount="249.00" TaxName="VALUE ADDED TAX" TicketingTaxCode="ZV" />
+                                    <Tax TaxCode="ZA" Amount="183.03" TaxName="PASSENGER SERVICE CHARGE" TicketingTaxCode="ZA" />
+                                    <Tax TaxCode="EV" Amount="55.08" TaxName="PASSENGER SAFETY CHARGE" TicketingTaxCode="EV" />
+                                    <Tax TaxCode="UM" Amount="48.00" TaxName="ASC CHARGE" TicketingTaxCode="UM" />
+                                </Taxes>
+                                <TotalFare CurrencyCode="ZAR" Amount="2195.11" />
+                                <Warnings>
+                                    <Warning ShortText="MIXED PASSENGER TYPES - VERIFY RESTRICTIONS" />
+                                </Warnings>
+                            </ItinTotalFare>
+                            <PassengerTypeQuantity Quantity="1" Code="ADT" />
+                            <PTC_FareBreakdown>
+                                <Cabin>Y</Cabin>
+                                <FareBasis FilingCarrier="MN" FarePassengerType="ADT" FareType="P" FareAmount="830.00" Code="P0B" GlobalInd="EH" Market="JNBCPT" />
+                                <FreeBaggageAllowance>NONIL</FreeBaggageAllowance>
+                            </PTC_FareBreakdown>
+                            <PTC_FareBreakdown>
+                                <Cabin>Y</Cabin>
+                                <FareBasis FilingCarrier="MN" FarePassengerType="ADT" FareType="P" FareAmount="830.00" Code="P0B" GlobalInd="EH" Market="JNBCPT" />
+                                <FreeBaggageAllowance>NONIL</FreeBaggageAllowance>
+                            </PTC_FareBreakdown>
+                        </AirItineraryPricingInfo>
+                        <AirItineraryPricingInfo SolutionSequenceNmbr="1">
+                            <BaggageProvisions RPH="1">
+                                <Associations>
+                                    <CarrierCode RPH="1">MN</CarrierCode>
+                                    <CountForSegmentAssociatedID>1</CountForSegmentAssociatedID>
+                                    <DepartureDate RPH="1">2022-03-30</DepartureDate>
+                                    <DestinationLocation LocationCode="CPT" RPH="1" />
+                                    <FlightNumber RPH="1">109</FlightNumber>
+                                    <OriginLocation LocationCode="JNB" RPH="1" />
+                                    <PNR_Segment RPH="1">2</PNR_Segment>
+                                    <ResBookDesigCode RPH="1">P</ResBookDesigCode>
+                                    <StatusCode RPH="1">SS</StatusCode>
+                                </Associations>
+                                <CarrierWhoseBaggageProvisionsApply>MN</CarrierWhoseBaggageProvisionsApply>
+                                <NumPiecesBDI>0</NumPiecesBDI>
+                                <ProvisionType>A</ProvisionType>
+                                <SubCodeInfo>
+                                    <SubCodeForChargesOthers>0DFAAMN</SubCodeForChargesOthers>
+                                </SubCodeInfo>
+                            </BaggageProvisions>
+                            <BaggageProvisions RPH="2">
+                                <Associations>
+                                    <CarrierCode RPH="1">MN</CarrierCode>
+                                    <CountForSegmentAssociatedID>1</CountForSegmentAssociatedID>
+                                    <DepartureDate RPH="1">2022-03-30</DepartureDate>
+                                    <DestinationLocation LocationCode="CPT" RPH="1" />
+                                    <FlightNumber RPH="1">109</FlightNumber>
+                                    <OriginLocation LocationCode="JNB" RPH="1" />
+                                    <PNR_Segment RPH="1">2</PNR_Segment>
+                                    <ResBookDesigCode RPH="1">P</ResBookDesigCode>
+                                    <StatusCode RPH="1">SS</StatusCode>
+                                </Associations>
+                                <CarrierWhoseBaggageProvisionsApply>MN</CarrierWhoseBaggageProvisionsApply>
+                                <Commissionable>N</Commissionable>
+                                <FeeNotGuaranteedIndicator>Y</FeeNotGuaranteedIndicator>
+                                <NoChargeNotAvailableIndicator>X</NoChargeNotAvailableIndicator>
+                                <PassengerType Code="INF" />
+                                <PriceInformation>
+                                    <Base CurrencyCode="ZAR" Amount="0.00" />
+                                    <Equiv CurrencyCode="ZAR" Amount="0.00" />
+                                    <Total>0.00</Total>
+                                </PriceInformation>
+                                <ProvisionType>C</ProvisionType>
+                                <SubCodeInfo>
+                                    <SubCodeForChargesOthers>0C2ACMN</SubCodeForChargesOthers>
+                                </SubCodeInfo>
+                            </BaggageProvisions>
+                            <BaggageProvisions RPH="3">
+                                <Associations>
+                                    <CarrierCode RPH="1">MN</CarrierCode>
+                                    <CountForSegmentAssociatedID>1</CountForSegmentAssociatedID>
+                                    <DepartureDate RPH="1">2022-03-30</DepartureDate>
+                                    <DestinationLocation LocationCode="CPT" RPH="1" />
+                                    <FlightNumber RPH="1">109</FlightNumber>
+                                    <OriginLocation LocationCode="JNB" RPH="1" />
+                                    <PNR_Segment RPH="1">2</PNR_Segment>
+                                    <ResBookDesigCode RPH="1">P</ResBookDesigCode>
+                                    <StatusCode RPH="1">SS</StatusCode>
+                                </Associations>
+                                <CarrierWhoseBaggageProvisionsApply>MN</CarrierWhoseBaggageProvisionsApply>
+                                <Commissionable>N</Commissionable>
+                                <FeeNotGuaranteedIndicator>Y</FeeNotGuaranteedIndicator>
+                                <NoChargeNotAvailableIndicator>X</NoChargeNotAvailableIndicator>
+                                <PassengerType Code="INF" />
+                                <PriceInformation>
+                                    <Base CurrencyCode="ZAR" Amount="0.00" />
+                                    <Equiv CurrencyCode="ZAR" Amount="0.00" />
+                                    <Total>0.00</Total>
+                                </PriceInformation>
+                                <ProvisionType>P</ProvisionType>
+                                <SubCodeInfo>
+                                    <SubCodeForChargesOthers>0C2ACMN</SubCodeForChargesOthers>
+                                </SubCodeInfo>
+                            </BaggageProvisions>
+                            <BaggageProvisions RPH="4">
+                                <Associations>
+                                    <CarrierCode RPH="1">MN</CarrierCode>
+                                    <CountForSegmentAssociatedID>1</CountForSegmentAssociatedID>
+                                    <DepartureDate RPH="1">2022-03-30</DepartureDate>
+                                    <DestinationLocation LocationCode="CPT" RPH="1" />
+                                    <FlightNumber RPH="1">109</FlightNumber>
+                                    <OriginLocation LocationCode="JNB" RPH="1" />
+                                    <PNR_Segment RPH="1">2</PNR_Segment>
+                                    <ResBookDesigCode RPH="1">P</ResBookDesigCode>
+                                    <StatusCode RPH="1">SS</StatusCode>
+                                </Associations>
+                                <CarrierWhoseBaggageProvisionsApply>MN</CarrierWhoseBaggageProvisionsApply>
+                                <Commissionable>N</Commissionable>
+                                <FeeNotGuaranteedIndicator>Y</FeeNotGuaranteedIndicator>
+                                <NoChargeNotAvailableIndicator>X</NoChargeNotAvailableIndicator>
+                                <PassengerType Code="INF" />
+                                <PriceInformation>
+                                    <Base CurrencyCode="ZAR" Amount="0.00" />
+                                    <Equiv CurrencyCode="ZAR" Amount="0.00" />
+                                    <Total>0.00</Total>
+                                </PriceInformation>
+                                <ProvisionType>C</ProvisionType>
+                                <SubCodeInfo>
+                                    <SubCodeForChargesOthers>0C2ACMN</SubCodeForChargesOthers>
+                                </SubCodeInfo>
+                            </BaggageProvisions>
+                            <BaggageProvisions RPH="5">
+                                <Associations>
+                                    <CarrierCode RPH="1">MN</CarrierCode>
+                                    <CountForSegmentAssociatedID>1</CountForSegmentAssociatedID>
+                                    <DepartureDate RPH="1">2022-03-30</DepartureDate>
+                                    <DestinationLocation LocationCode="CPT" RPH="1" />
+                                    <FlightNumber RPH="1">109</FlightNumber>
+                                    <OriginLocation LocationCode="JNB" RPH="1" />
+                                    <PNR_Segment RPH="1">2</PNR_Segment>
+                                    <ResBookDesigCode RPH="1">P</ResBookDesigCode>
+                                    <StatusCode RPH="1">SS</StatusCode>
+                                </Associations>
+                                <CarrierWhoseBaggageProvisionsApply>MN</CarrierWhoseBaggageProvisionsApply>
+                                <Commissionable>N</Commissionable>
+                                <FeeNotGuaranteedIndicator>Y</FeeNotGuaranteedIndicator>
+                                <NoChargeNotAvailableIndicator>X</NoChargeNotAvailableIndicator>
+                                <PassengerType Code="INF" />
+                                <PriceInformation>
+                                    <Base CurrencyCode="ZAR" Amount="0.00" />
+                                    <Equiv CurrencyCode="ZAR" Amount="0.00" />
+                                    <Total>0.00</Total>
+                                </PriceInformation>
+                                <ProvisionType>P</ProvisionType>
+                                <SubCodeInfo>
+                                    <SubCodeForChargesOthers>0C2ACMN</SubCodeForChargesOthers>
+                                </SubCodeInfo>
+                            </BaggageProvisions>
+                            <BaggageProvisions RPH="6">
+                                <Associations>
+                                    <CarrierCode RPH="1">MN</CarrierCode>
+                                    <CountForSegmentAssociatedID>1</CountForSegmentAssociatedID>
+                                    <DepartureDate RPH="1">2022-04-06</DepartureDate>
+                                    <DestinationLocation LocationCode="JNB" RPH="1" />
+                                    <FlightNumber RPH="1">106</FlightNumber>
+                                    <OriginLocation LocationCode="CPT" RPH="1" />
+                                    <PNR_Segment RPH="1">3</PNR_Segment>
+                                    <ResBookDesigCode RPH="1">P</ResBookDesigCode>
+                                    <StatusCode RPH="1">SS</StatusCode>
+                                </Associations>
+                                <CarrierWhoseBaggageProvisionsApply>MN</CarrierWhoseBaggageProvisionsApply>
+                                <NumPiecesBDI>0</NumPiecesBDI>
+                                <ProvisionType>A</ProvisionType>
+                                <SubCodeInfo>
+                                    <SubCodeForChargesOthers>0DFAAMN</SubCodeForChargesOthers>
+                                </SubCodeInfo>
+                            </BaggageProvisions>
+                            <BaggageProvisions RPH="7">
+                                <Associations>
+                                    <CarrierCode RPH="1">MN</CarrierCode>
+                                    <CountForSegmentAssociatedID>1</CountForSegmentAssociatedID>
+                                    <DepartureDate RPH="1">2022-04-06</DepartureDate>
+                                    <DestinationLocation LocationCode="JNB" RPH="1" />
+                                    <FlightNumber RPH="1">106</FlightNumber>
+                                    <OriginLocation LocationCode="CPT" RPH="1" />
+                                    <PNR_Segment RPH="1">3</PNR_Segment>
+                                    <ResBookDesigCode RPH="1">P</ResBookDesigCode>
+                                    <StatusCode RPH="1">SS</StatusCode>
+                                </Associations>
+                                <CarrierWhoseBaggageProvisionsApply>MN</CarrierWhoseBaggageProvisionsApply>
+                                <Commissionable>N</Commissionable>
+                                <FeeNotGuaranteedIndicator>Y</FeeNotGuaranteedIndicator>
+                                <NoChargeNotAvailableIndicator>X</NoChargeNotAvailableIndicator>
+                                <PassengerType Code="INF" />
+                                <PriceInformation>
+                                    <Base CurrencyCode="ZAR" Amount="0.00" />
+                                    <Equiv CurrencyCode="ZAR" Amount="0.00" />
+                                    <Total>0.00</Total>
+                                </PriceInformation>
+                                <ProvisionType>C</ProvisionType>
+                                <SubCodeInfo>
+                                    <SubCodeForChargesOthers>0C2ACMN</SubCodeForChargesOthers>
+                                </SubCodeInfo>
+                            </BaggageProvisions>
+                            <BaggageProvisions RPH="8">
+                                <Associations>
+                                    <CarrierCode RPH="1">MN</CarrierCode>
+                                    <CountForSegmentAssociatedID>1</CountForSegmentAssociatedID>
+                                    <DepartureDate RPH="1">2022-04-06</DepartureDate>
+                                    <DestinationLocation LocationCode="JNB" RPH="1" />
+                                    <FlightNumber RPH="1">106</FlightNumber>
+                                    <OriginLocation LocationCode="CPT" RPH="1" />
+                                    <PNR_Segment RPH="1">3</PNR_Segment>
+                                    <ResBookDesigCode RPH="1">P</ResBookDesigCode>
+                                    <StatusCode RPH="1">SS</StatusCode>
+                                </Associations>
+                                <CarrierWhoseBaggageProvisionsApply>MN</CarrierWhoseBaggageProvisionsApply>
+                                <Commissionable>N</Commissionable>
+                                <FeeNotGuaranteedIndicator>Y</FeeNotGuaranteedIndicator>
+                                <NoChargeNotAvailableIndicator>X</NoChargeNotAvailableIndicator>
+                                <PassengerType Code="INF" />
+                                <PriceInformation>
+                                    <Base CurrencyCode="ZAR" Amount="0.00" />
+                                    <Equiv CurrencyCode="ZAR" Amount="0.00" />
+                                    <Total>0.00</Total>
+                                </PriceInformation>
+                                <ProvisionType>P</ProvisionType>
+                                <SubCodeInfo>
+                                    <SubCodeForChargesOthers>0C2ACMN</SubCodeForChargesOthers>
+                                </SubCodeInfo>
+                            </BaggageProvisions>
+                            <BaggageProvisions RPH="9">
+                                <Associations>
+                                    <CarrierCode RPH="1">MN</CarrierCode>
+                                    <CountForSegmentAssociatedID>1</CountForSegmentAssociatedID>
+                                    <DepartureDate RPH="1">2022-04-06</DepartureDate>
+                                    <DestinationLocation LocationCode="JNB" RPH="1" />
+                                    <FlightNumber RPH="1">106</FlightNumber>
+                                    <OriginLocation LocationCode="CPT" RPH="1" />
+                                    <PNR_Segment RPH="1">3</PNR_Segment>
+                                    <ResBookDesigCode RPH="1">P</ResBookDesigCode>
+                                    <StatusCode RPH="1">SS</StatusCode>
+                                </Associations>
+                                <CarrierWhoseBaggageProvisionsApply>MN</CarrierWhoseBaggageProvisionsApply>
+                                <Commissionable>N</Commissionable>
+                                <FeeNotGuaranteedIndicator>Y</FeeNotGuaranteedIndicator>
+                                <NoChargeNotAvailableIndicator>X</NoChargeNotAvailableIndicator>
+                                <PassengerType Code="INF" />
+                                <PriceInformation>
+                                    <Base CurrencyCode="ZAR" Amount="0.00" />
+                                    <Equiv CurrencyCode="ZAR" Amount="0.00" />
+                                    <Total>0.00</Total>
+                                </PriceInformation>
+                                <ProvisionType>C</ProvisionType>
+                                <SubCodeInfo>
+                                    <SubCodeForChargesOthers>0C2ACMN</SubCodeForChargesOthers>
+                                </SubCodeInfo>
+                            </BaggageProvisions>
+                            <BaggageProvisions RPH="10">
+                                <Associations>
+                                    <CarrierCode RPH="1">MN</CarrierCode>
+                                    <CountForSegmentAssociatedID>1</CountForSegmentAssociatedID>
+                                    <DepartureDate RPH="1">2022-04-06</DepartureDate>
+                                    <DestinationLocation LocationCode="JNB" RPH="1" />
+                                    <FlightNumber RPH="1">106</FlightNumber>
+                                    <OriginLocation LocationCode="CPT" RPH="1" />
+                                    <PNR_Segment RPH="1">3</PNR_Segment>
+                                    <ResBookDesigCode RPH="1">P</ResBookDesigCode>
+                                    <StatusCode RPH="1">SS</StatusCode>
+                                </Associations>
+                                <CarrierWhoseBaggageProvisionsApply>MN</CarrierWhoseBaggageProvisionsApply>
+                                <Commissionable>N</Commissionable>
+                                <FeeNotGuaranteedIndicator>Y</FeeNotGuaranteedIndicator>
+                                <NoChargeNotAvailableIndicator>X</NoChargeNotAvailableIndicator>
+                                <PassengerType Code="INF" />
+                                <PriceInformation>
+                                    <Base CurrencyCode="ZAR" Amount="0.00" />
+                                    <Equiv CurrencyCode="ZAR" Amount="0.00" />
+                                    <Total>0.00</Total>
+                                </PriceInformation>
+                                <ProvisionType>P</ProvisionType>
+                                <SubCodeInfo>
+                                    <SubCodeForChargesOthers>0C2ACMN</SubCodeForChargesOthers>
+                                </SubCodeInfo>
+                            </BaggageProvisions>
+                            <BaggageProvisions RPH="11">
+                                <Associations>
+                                    <CarrierCode RPH="1">MN</CarrierCode>
+                                    <CarrierCode RPH="2">MN</CarrierCode>
+                                    <CountForSegmentAssociatedID>2</CountForSegmentAssociatedID>
+                                    <DepartureDate RPH="1">2022-03-30</DepartureDate>
+                                    <DepartureDate RPH="2">2022-04-06</DepartureDate>
+                                    <DestinationLocation LocationCode="CPT" RPH="1" />
+                                    <DestinationLocation LocationCode="JNB" RPH="2" />
+                                    <FlightNumber RPH="1">109</FlightNumber>
+                                    <FlightNumber RPH="2">106</FlightNumber>
+                                    <OriginLocation LocationCode="JNB" RPH="1" />
+                                    <OriginLocation LocationCode="CPT" RPH="2" />
+                                    <PNR_Segment RPH="1">2</PNR_Segment>
+                                    <PNR_Segment RPH="2">3</PNR_Segment>
+                                    <ResBookDesigCode RPH="1">P</ResBookDesigCode>
+                                    <ResBookDesigCode RPH="2">P</ResBookDesigCode>
+                                    <StatusCode RPH="1">SS</StatusCode>
+                                    <StatusCode RPH="2">SS</StatusCode>
+                                </Associations>
+                                <CarrierWhoseBaggageProvisionsApply>MN</CarrierWhoseBaggageProvisionsApply>
+                                <NumPiecesBDI>1</NumPiecesBDI>
+                                <NumPiecesITR>1</NumPiecesITR>
+                                <ProvisionType>B</ProvisionType>
+                                <SubCodeInfo>
+                                    <SubCodeForAllowance RPH="1">0M3ACMN</SubCodeForAllowance>
+                                    <SubCodeForChargesOthers>0LNABMN</SubCodeForChargesOthers>
+                                </SubCodeInfo>
+                            </BaggageProvisions>
+                            <FareCalculation>
+                                <Text>JNB MN CPT130.00MN JNB130.00ZAR260.00END</Text>
+                            </FareCalculation>
+                            <FareCalculationBreakdown>
+                                <Branch PCC="KAS" FirstJointCarrier="MN" />
+                                <Departure AirlineCode="MN" CityCode="JNB" AirportCode="JNB" ArrivalCityCode="CPT" GenericInd="O" ArrivalAirportCode="CPT" />
+                                <FareBasis FilingCarrier="MN" FarePassengerType="INF" TripTypeInd="R" Cabin="Y" FareType="P" FareAmount="130.00" Code="P0BIN" GlobalInd="EH" Market="JNBCPT" />
+                                <FreeBaggageAllowance>NONIL</FreeBaggageAllowance>
+                                <RuleCategoryIndicator>4</RuleCategoryIndicator>
+                                <RuleCategoryIndicator>5</RuleCategoryIndicator>
+                                <RuleCategoryIndicator>7</RuleCategoryIndicator>
+                                <RuleCategoryIndicator>8</RuleCategoryIndicator>
+                                <RuleCategoryIndicator>9</RuleCategoryIndicator>
+                                <RuleCategoryIndicator>10</RuleCategoryIndicator>
+                                <RuleCategoryIndicator>12</RuleCategoryIndicator>
+                                <RuleCategoryIndicator>15</RuleCategoryIndicator>
+                                <RuleCategoryIndicator>16</RuleCategoryIndicator>
+                                <RuleCategoryIndicator>18</RuleCategoryIndicator>
+                                <RuleCategoryIndicator>19</RuleCategoryIndicator>
+                                <RuleCategoryIndicator>23</RuleCategoryIndicator>
+                            </FareCalculationBreakdown>
+                            <FareCalculationBreakdown>
+                                <Branch PCC="KAS" FirstJointCarrier="MN" />
+                                <Departure AirlineCode="MN" CityCode="CPT" AirportCode="CPT" ArrivalCityCode="JNB" GenericInd="O" ArrivalAirportCode="JNB" />
+                                <FareBasis FilingCarrier="MN" FarePassengerType="INF" TripTypeInd="R" Cabin="Y" FareType="P" FareAmount="130.00" Code="P0BIN" GlobalInd="EH" Market="JNBCPT" />
+                                <FreeBaggageAllowance>NONIL</FreeBaggageAllowance>
+                                <RuleCategoryIndicator>4</RuleCategoryIndicator>
+                                <RuleCategoryIndicator>5</RuleCategoryIndicator>
+                                <RuleCategoryIndicator>7</RuleCategoryIndicator>
+                                <RuleCategoryIndicator>8</RuleCategoryIndicator>
+                                <RuleCategoryIndicator>9</RuleCategoryIndicator>
+                                <RuleCategoryIndicator>10</RuleCategoryIndicator>
+                                <RuleCategoryIndicator>12</RuleCategoryIndicator>
+                                <RuleCategoryIndicator>15</RuleCategoryIndicator>
+                                <RuleCategoryIndicator>16</RuleCategoryIndicator>
+                                <RuleCategoryIndicator>18</RuleCategoryIndicator>
+                                <RuleCategoryIndicator>19</RuleCategoryIndicator>
+                                <RuleCategoryIndicator>23</RuleCategoryIndicator>
+                            </FareCalculationBreakdown>
+                            <ItinTotalFare NonRefundableInd="N">
+                                <BaggageInfo>
+                                    <NonUS_DOT_Disclosure>
+                                        <Text>BAG ALLOWANCE     -JNBCPT-NIL/MN</Text>
+                                        <Text>1STCHECKED BAG FEE-JNBCPT-NOT PERMITTED/MN/UP TO 44 POUNDS/20 K</Text>
+                                        <Text>ILOGRAMS</Text>
+                                        <Text>2NDCHECKED BAG FEE-JNBCPT-NOT PERMITTED/MN/UP TO 44 POUNDS/20 K</Text>
+                                        <Text>ILOGRAMS</Text>
+                                        <Text>BAG ALLOWANCE     -CPTJNB-NIL/MN</Text>
+                                        <Text>1STCHECKED BAG FEE-CPTJNB-NOT PERMITTED/MN/UP TO 44 POUNDS/20 K</Text>
+                                        <Text>ILOGRAMS</Text>
+                                        <Text>2NDCHECKED BAG FEE-CPTJNB-NOT PERMITTED/MN/UP TO 44 POUNDS/20 K</Text>
+                                        <Text>ILOGRAMS</Text>
+                                        <Text>CARRY ON ALLOWANCE</Text>
+                                        <Text>JNBCPT CPTJNB-01P/MN</Text>
+                                        <Text>01/UP TO 15 POUNDS/7 KILOGRAMS AND UP TO 45 LINEAR INCHES/115 L</Text>
+                                        <Text>INEAR CENTIMETERS</Text>
+                                        <Text>CARRY ON CHARGES</Text>
+                                        <Text>JNBCPT CPTJNB-MN-CARRY ON FEES UNKNOWN-CONTACT CARRIER</Text>
+                                        <Text>ADDITIONAL ALLOWANCES AND/OR DISCOUNTS MAY APPLY DEPENDING ON</Text>
+                                        <Text>FLYER-SPECIFIC FACTORS /E.G. FREQUENT FLYER STATUS/MILITARY/</Text>
+                                        <Text>CREDIT CARD FORM OF PAYMENT/EARLY PURCHASE OVER INTERNET,ETC./</Text>
+                                    </NonUS_DOT_Disclosure>
+                                </BaggageInfo>
+                                <BaseFare CurrencyCode="ZAR" Amount="260.00" />
+                                <Construction CurrencyCode="ZAR" RateOfExchange="15.414096" Amount="260.00" />
+                                <Endorsements>
+                                    <Text>NONENDO/VALID BA/MN ONLY/TKT VALIDITY IS 6 MONTHS</Text>
+                                </Endorsements>
+                                <Taxes TotalAmount="39.00">
+                                    <Tax TaxCode="ZV2" Amount="39.00" TaxName="VALUE ADDED TAX" TicketingTaxCode="ZV" />
+                                </Taxes>
+                                <TotalFare CurrencyCode="ZAR" Amount="299.00" />
+                                <Warnings>
+                                    <Warning ShortText="MIXED PASSENGER TYPES - VERIFY RESTRICTIONS" />
+                                </Warnings>
+                            </ItinTotalFare>
+                            <PassengerTypeQuantity Quantity="1" Code="INF" />
+                            <PTC_FareBreakdown>
+                                <Cabin>Y</Cabin>
+                                <FareBasis FilingCarrier="MN" FarePassengerType="INF" FareType="P" FareAmount="130.00" Code="P0BIN" GlobalInd="EH" Market="JNBCPT" />
+                                <FreeBaggageAllowance>NONIL</FreeBaggageAllowance>
+                            </PTC_FareBreakdown>
+                            <PTC_FareBreakdown>
+                                <Cabin>Y</Cabin>
+                                <FareBasis FilingCarrier="MN" FarePassengerType="INF" FareType="P" FareAmount="130.00" Code="P0BIN" GlobalInd="EH" Market="JNBCPT" />
+                                <FreeBaggageAllowance>NONIL</FreeBaggageAllowance>
+                            </PTC_FareBreakdown>
+                        </AirItineraryPricingInfo>
+                    </PricedItinerary>
+                </PriceQuote>
+            </OTA_AirPriceRS>
+        </EnhancedAirBookRS>
+    </soap-env:Body>
+</soap-env:Envelope>

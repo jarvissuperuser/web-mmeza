@@ -58,7 +58,9 @@ export class AppLayout extends Core {
         this.wrapper.classList.add("pips-container", "center");
         this.config = this.configData ? this.configData : this.defaultConfig;
         this.setAttribute('id', `${this.config.linkPattern.split('#').join('')}${this.index}` )
-        this.getElements('slot[name=content]')[0].addEventListener('slotchange', this._onSlotChange.bind(this));
+        try {
+            this.getElements('slot[name=content]')[0].addEventListener('slotchange', this._onSlotChange.bind(this));
+        } catch {}
     }
     attributeChangedCallback(prop, oldV, newV) {
     }

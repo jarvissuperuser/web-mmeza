@@ -30,6 +30,13 @@ export const init = () => {
 
 export const resolvePath = () => {
     // console.log(getRoutePath());
+    try {
+        if (!firebase) {
+            delayCb(1000, () => initFireBase(firebase))
+        } else {
+            initFireBase(firebase);
+        }
+    } catch (e) { }
     routes.some(loc => {
         const route = getRoutePath();
         if ( `${loc.path}` === route[1]) {
