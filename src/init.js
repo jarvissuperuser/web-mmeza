@@ -1,11 +1,10 @@
-import {registerPages} from './assets/loader.js';
-import {registerCommon} from './assets/shared/components.js';
+import {registerComponents, pages, shared} from './assets/loader.js';
 import {win,doc} from './assets/core/index.js';
 import {init, resolvePath} from './assets/core/index.js';
 
 // registerComponents
-registerCommon();
-registerPages();
+registerComponents(pages);
+registerComponents(shared);
 
 
 

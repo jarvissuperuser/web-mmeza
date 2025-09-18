@@ -1,0 +1,15 @@
+import { DOMElement } from "../core/index.js";
+
+export class {{PageName}} extends DOMElement {
+    static get is() {
+        return '{{ComponentName}}';
+    }
+    HTML() {
+        return /* HTML */`<div class="page">Hello World</div>
+        `;
+    }
+    loadTargetElements() {
+    }
+    async attachAttributesNLogic() {
+    }
+}
