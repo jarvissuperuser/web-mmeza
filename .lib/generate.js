@@ -89,10 +89,33 @@ const getArguments = (args) => {
 
 const getHelp = (args) => {
   const help = {
-    all: `node .lib/genearate.js [options]`,
-    page: ``,
-    shared: ``,
-    route: ``,
+    all: `\nnode .lib/genearate.js [component-options] <file-name> [route-options] [--dry or -d]\n 
+    Options:\n\n
+    `,
+    page: `--page <file-name>\t: generates a page component and links it to routes and loader.`,
+    shared: `--shared <file-name>\t: generates a shared component and links it.`,
+    route: `--route <route-name>\t: specifies the route name, defaults to the \n\t\t\t  page name, only valid with --page`,
+    dry: `--dry\t\t\t: dry run, no files will be written to disk`,
+    help: `--help\t\t\t: displays this help message`
+  }
+  switch (args[0]) {
+    case '--page':
+    case '-p':
+      return help.page;
+    case '--shared':
+    case '-s':
+      return help.shared;
+    case '--route':
+    case '-r':
+      return help.route;
+    case '--dry':
+    case '-d':
+      return help.dry;
+    case '--help':
+    case '-h':
+      return `${help.all} \n ${help.page} \n ${help.shared} \n ${help.route} \n ${help.dry} \n ${help.help}`;
+    default: 
+      return `${help.all} \n ${help.page} \n ${help.shared} \n ${help.route} \n ${help.dry} \n ${help.help}`;
   }
 }
 
@@ -203,6 +226,10 @@ const addRoute = (fileResult, route = 'login', path = './', routePath = './route
   const { page, shared, route, dry } = getArguments(args);
   const config = getConfigPaths();
   const fileResult = {};
+  if (args.length === 0 || args.includes('--help') || args.includes('-h')) {
+    console.log(getHelp(['--help']));
+    return;
+  }
   if (page) {
     const { fullPath, destination } = config.pages;
     if (!fs.existsSync(destination)) {
