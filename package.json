@@ -3,11 +3,19 @@
     "eslint": "^7.24.0"
   },
   "name": "web-mmeza",
+  "type": "module",
   "version": "0.0.1",
   "description": "> A Hello World template built with PhoneGap",
   "scripts": {
-    "start": "firebase emulators:start --only hosting",
-    "run": "firebase emulators:start --only hosting",
-    "lint": "npx eslint src/init.js"
+    "start": "npx vite",
+    "deploy": "firebase emulators:start --only hosting",
+    "lint": "npx eslint src/init.js",
+    "wcx":"node .lib/generate.js"
+  },
+  "dependencies": {
+    "handlebars": "^4.7.8",
+    "tree-sitter": "^0.25.0",
+    "tree-sitter-javascript": "^0.25.0",
+    "vite": "^7.1.5"
   }
 }

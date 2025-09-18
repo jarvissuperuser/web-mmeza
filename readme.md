@@ -18,11 +18,12 @@ web-mmeza is a smalllibrary to with runs in the browser without needing to use p
     <span>{{text}}</span>
   ```
 - Batch custom element registration
+- code generation from cli tool
 
 ## Quick start
 file: `my-element.js`
 ```javascript
-import {{Core, DOMElement, declarer}} from './core/index.js';
+import {Core, DOMElement, declarer} from './core/index.js';
 
 export class MyElement extends DOMElement {
   static get is() { return 'my-element'};
@@ -48,4 +49,16 @@ declarer([MyElement]);
 ...
 ```
 
+### generating files with cli tool
+
+- generate a new page
+```sh
+node .lib/generate.js -p new-page -r my/page
+```
+
+- generate a shared componen
+
+```sh
+node .lib/generate.js -p new-page -r my/page
+```
 License: MIT

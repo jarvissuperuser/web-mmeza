@@ -1,0 +1,35 @@
+{
+  "pages": {
+    "path":"src/assets/pages/",
+    "destination":"src/assets/pages/",
+    "file":"./index.js"
+  },
+  "routes": {
+    "path":".lib/src",
+    "destination":"src/assets/core/",
+    "file":"./routes-config.js"
+  },
+  "shared": {
+    "path":".lib/src",
+    "destination":"src/assets/shared/",
+    "file":"./index.js"
+  },
+  "core": {
+    "path":".lib/src",
+    "destination":"src/assets/core/",
+    "file":"./core.js"
+  },
+  "loader": {
+    "path":"src/assets/",
+    "file":"./loader.js"
+  },
+  "templates": {
+    "path":"./.lib/templates",
+    "page":"./page.hbs",
+    "route":"./routeObject.hbs"
+  },
+  "src": {
+    "path":".lib/src",
+    "file":"./index.js"
+  }
+}
